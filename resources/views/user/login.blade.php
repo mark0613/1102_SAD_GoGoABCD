@@ -5,6 +5,7 @@
 @section('content')
 <h2>登入</h2>
 <form>
+    {!! csrf_field() !!}
     <div class="form-group">
         <label for="account">Email or Username</label>
         <input type="text" class="form-control" id="account" name="account">
