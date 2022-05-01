@@ -8,6 +8,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/', [HomeController::class, "indexPage"]);
+
+// user/auth/...
 Route::group(['prefix' => 'user'], function(){
     Route::group(['prefix' => 'auth'], function(){
         Route::get('/register', [UserAuthController::class, 'registerPage']);
