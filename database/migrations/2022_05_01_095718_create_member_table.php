@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('member', function (Blueprint $table) {
-            $table->unsignedInteger("U_Id");
-            $table->string("Name", 50);
-            $table->char("Phone", 10);
-            $table->string("Address", 50);
-            $table->unsignedInteger("Points");
+            $table->unsignedInteger("u_id");
+            $table->string("name", 50)->default("");
+            $table->char("phone", 10)->default("");
+            $table->string("address", 50)->default("");
+            $table->unsignedInteger("points")->default(0);
 
-            $table->primary("U_Id");
-            $table->foreign("U_Id")->references('U_Id')->on('users');
+            $table->primary("u_id");
+            $table->foreign("u_id")->references('u_id')->on('users')->onDelete('cascade');
         });
     }
 

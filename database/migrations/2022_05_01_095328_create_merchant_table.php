@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('merchant', function (Blueprint $table) {
-            $table->unsignedInteger("U_Id");
-            $table->char("M_Type", 1);
+            $table->unsignedInteger("u_id");
+            $table->char("m_type", 1);
 
-            $table->primary("U_Id");
-            $table->foreign("U_Id")->references('U_Id')->on('users');
+            $table->primary("u_id");
+            $table->foreign("u_id")->references('u_id')->on('users')->onDelete('cascade');
         });
     }
 
