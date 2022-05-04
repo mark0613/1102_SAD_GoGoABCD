@@ -18,6 +18,7 @@ class Product extends Model {
         'description',
         'photo',
         'inventory',
+        'price',
         'p_type',
         'p_e_or_r',
     ];
