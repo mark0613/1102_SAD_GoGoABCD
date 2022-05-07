@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('all_classes', function (Blueprint $table) {
             $table->increments("c_id");
-            $table->string("name", 50);
+            $table->string("class", 50);
             $table->char("type", 1);
         });
     }
