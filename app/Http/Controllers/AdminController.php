@@ -11,7 +11,9 @@ use App\Models\Product;
 use App\Models\Singer;
 
 use DB;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller {
     public function productPage() {
@@ -80,6 +82,7 @@ class AdminController extends Controller {
             ];
             DB::table("classes")->insert($tmp);
         }
+        return Redirect::to("/admin/product");
         exit;
     }
 }
