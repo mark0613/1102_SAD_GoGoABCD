@@ -7,7 +7,7 @@ npm run dev
 php artisan migrate
 ```
 
-## 在 go_go_abcd.all_classes 的資料表執行以下命令
+## 在 go_go_abcd.all_classes 資料表執行以下命令
 ```
 INSERT INTO all_classes(class, type) VALUES('懸疑', 'b');
 INSERT INTO all_classes(class, type) VALUES('冒險', 'b');
