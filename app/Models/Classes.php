@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Classes extends Model {
     protected $table = 'classes';
-    protected $primaryKey = ['p_id', 'class'];
+    protected $primaryKey = ['p_id', 'c_id'];
 
     public $incrementing = false;
     public $timestamps = false;
