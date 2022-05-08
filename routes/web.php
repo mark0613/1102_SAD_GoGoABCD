@@ -6,11 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserAuthController;
 
-Route::get('/', function () {
-    return view('home');
-});
-
-// Route::get('/', [HomeController::class, "indexPage"]);
+Route::get('/', [HomeController::class, "indexPage"]);
 
 // user/auth/*
 Route::group(['prefix' => 'user'], function() {

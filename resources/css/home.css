@@ -35,3 +35,17 @@
 .dropdown-large{
     min-width:900px;
 }
+
+.test{
+    position: absolute;
+    right:0px;
+}
+
+.test2{
+    border:  5px solid #666;
+	width: 55px;
+	height: 55px;
+    border-radius:50%;
+    display:block;
+    margin:auto;
+}

@@ -39,15 +39,26 @@
 
                         </div>
                         <div class="col-2">
-                            <duv>
-                                    
+                            <div class="test">
+                                <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp" class="test2">
+                                <div class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle no_underline" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                                            我的帳戶
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="#">管理後台</a>
+                                            
+                                        </div>
+                                </div>
                             </div>
-                            <div class="register_btn"> 
+                            
+                            
+                            <!--<div class="register_btn"> 
                                 <button type="submit" class="btn btn-primary btn-lg">加入會員</button>
                                 <br>
                                 <label>已有帳戶？</label>
                                 <a href="#">登入</a>
-                            </div>
+                            </div>-->
                             
                         </div>
                             
@@ -115,6 +126,11 @@
                             </div>
                         </nav>
                     </div>
+                    <div>
+                        實體書籍
+                        您可能感興趣
+                    </div>
+                    
                 </div>
                 <div class="col-1"></div>
             </div>
