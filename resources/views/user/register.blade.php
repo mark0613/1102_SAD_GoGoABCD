@@ -3,22 +3,29 @@
 @section('title', $title)
 
 @section('content')
-<h2>註冊</h2>
+<h2 class="center top">加入會員</h2>
 <form method="post">
     {!! csrf_field() !!}
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email">
+    <div class="form-group row">
+        <label for="username" class="col-sm-3 col-form-label">Username:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username">
+    <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label">Email:</label>
+        <div class="col-sm-9">
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password">
+    <div class="form-group row">
+        <label for="password" class="col-sm-3 col-form-label">Password:</label>
+        <div class="col-sm-9">
+            <input type="password" class="form-control" id="password" name="password">
+        </div>    
     </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="center">
+        <button type="submit" class="btn btn-primary">加入</button>
+    </div>
 </form>
 @endsection
