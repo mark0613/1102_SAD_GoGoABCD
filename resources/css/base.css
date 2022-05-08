@@ -6,6 +6,10 @@
     padding-top: 50px;
 }
 
+.bold{
+    font-weight: bold;
+}
+
 a:hover{
     color: darkred;
     text-decoration: underline;
@@ -13,5 +17,8 @@ a:hover{
 
 a{
     color: black;
+}
+
+.underline{
     text-decoration: underline;
 }
