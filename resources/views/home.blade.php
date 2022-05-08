@@ -39,6 +39,9 @@
 
                         </div>
                         <div class="col-2">
+                            <duv>
+                                    
+                            </div>
                             <div class="register_btn"> 
                                 <button type="submit" class="btn btn-primary btn-lg">加入會員</button>
                                 <br>
@@ -59,18 +62,21 @@
                                         <a class="nav-link dropdown-toggle no_underline" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                                             實體書籍
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <h3>類別</h3>
-                                                    <br>
-                                                    <button type="submit" class="btn btn-outline-primary">科幻</button>
-                                                    <button type="submit" class="btn btn-outline-primary">愛情</button>
-                                                    <button type="submit" class="btn btn-outline-primary">兒童</button>
-                                                </div>
-                                                <h3>不知道要讀什麼?</h3>
-                                                <div class="col-4">
-                                                    <button type="submit" class="btn btn-primary btn-lg">好手氣</button>
+                                        <div class="dropdown-menu dropdown-large" aria-labelledby="navbarDropdownMenuLink">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <h3>類別</h3>
+                                                        <br>
+                                                        <button type="submit" class="btn btn-outline-primary">科幻</button>
+                                                        <button type="submit" class="btn btn-outline-primary">愛情</button>
+                                                        <button type="submit" class="btn btn-outline-primary">兒童</button>
+                                                    </div>
+                                                    
+                                                    <div class="col-4">    
+                                                        <h3>不知道要讀什麼?</h3>
+                                                        <button type="submit" class="btn btn-primary btn-lg">好手氣</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

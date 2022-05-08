@@ -5,7 +5,7 @@
 }
 
 .search{
-    width: 650px;
+    width: 550px;
     height: 55px;
     padding:5px 15px; 
     border:2px black solid;
@@ -32,7 +32,6 @@
     text-decoration: none;
 }
 
-.dropdown-menu{
-    width: 900px;
-    height: 500px;
+.dropdown-large{
+    min-width:900px;
 }
