@@ -7,7 +7,7 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-use PdfController;
+use App\Http\Controllers\PdfController;
 
 use App\Module\ShareData;
 use App\Models\Author;
