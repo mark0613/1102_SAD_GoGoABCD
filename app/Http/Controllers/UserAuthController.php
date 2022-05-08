@@ -77,7 +77,17 @@ class UserAuthController extends Controller {
         return view('user.login', $binding);
     }
     public function loginProcess() {
-
+        $response = [
+            "status" => "fail",
+        ];        
+       $input = request()->all();
+       //$input['username']  $input['password']
+       $password = DB::table('users')-> where('username','=',$input['username'])-> value("password");
+       if(  $input['password']==$password ){
+            $response["status"]="success";
+       }else{
+            $response["status"]="error";
+       }
     }
 
     public function logout() {
