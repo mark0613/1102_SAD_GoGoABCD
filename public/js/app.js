@@ -331,12 +331,8 @@ eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/
   !*** ./resources/js/app.js ***!
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-<<<<<<< HEAD
-eval("__webpack_require__(/*! ./bootstrap */ \"./resources/js/bootstrap.js\");\n\n$(document).ready(function () {\n  // date picker\n  $('.datepicker').datepicker({\n    format: 'yyyy-mm-dd'\n  });\n  $('.multi-select').selectpicker();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFBQSxtQkFBTyxDQUFDLGdEQUFELENBQVA7O0FBRUFDLENBQUMsQ0FBRUMsUUFBRixDQUFELENBQWNDLEtBQWQsQ0FBb0IsWUFBVztFQUMzQjtFQUNBRixDQUFDLENBQUMsYUFBRCxDQUFELENBQWlCRyxVQUFqQixDQUE0QjtJQUN4QkMsTUFBTSxFQUFFO0VBRGdCLENBQTVCO0VBR0FKLENBQUMsQ0FBQyxlQUFELENBQUQsQ0FBbUJLLFlBQW5CO0FBQ0gsQ0FORCIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9qcy9hcHAuanM/Y2VkNiJdLCJzb3VyY2VzQ29udGVudCI6WyJyZXF1aXJlKCcuL2Jvb3RzdHJhcCcpO1xyXG5cclxuJCggZG9jdW1lbnQgKS5yZWFkeShmdW5jdGlvbigpIHtcclxuICAgIC8vIGRhdGUgcGlja2VyXHJcbiAgICAkKCcuZGF0ZXBpY2tlcicpLmRhdGVwaWNrZXIoe1xyXG4gICAgICAgIGZvcm1hdDogJ3l5eXktbW0tZGQnLFxyXG4gICAgfSk7XHJcbiAgICAkKCcubXVsdGktc2VsZWN0Jykuc2VsZWN0cGlja2VyKCk7XHJcbn0pOyJdLCJuYW1lcyI6WyJyZXF1aXJlIiwiJCIsImRvY3VtZW50IiwicmVhZHkiLCJkYXRlcGlja2VyIiwiZm9ybWF0Iiwic2VsZWN0cGlja2VyIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
-=======
 eval("__webpack_require__(/*! ./bootstrap */ \"./resources/js/bootstrap.js\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFBQSxtQkFBTyxDQUFDLGdEQUFELENBQVAiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBwLmpzP2NlZDYiXSwic291cmNlc0NvbnRlbnQiOlsicmVxdWlyZSgnLi9ib290c3RyYXAnKTtcbiJdLCJuYW1lcyI6WyJyZXF1aXJlIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
->>>>>>> b403e90c5e94840d9923b28985eb09b160b569d8
+
 
 /***/ }),
 
@@ -345,12 +341,7 @@ eval("__webpack_require__(/*! ./bootstrap */ \"./resources/js/bootstrap.js\");//
   !*** ./resources/js/bootstrap.js ***!
   \***********************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-<<<<<<< HEAD
-eval("window._ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/**\r\n * We'll load the axios HTTP library which allows us to easily issue requests\r\n * to our Laravel back-end. This library automatically handles sending the\r\n * CSRF token as a header based on the value of the \"XSRF\" token cookie.\r\n */\n\nwindow.axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\nwindow.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';\n/**\r\n * Echo exposes an expressive API for subscribing to channels and listening\r\n * for events that are broadcast by Laravel. Echo and event broadcasting\r\n * allows your team to easily build robust real-time web applications.\r\n */\n// import Echo from 'laravel-echo';\n// window.Pusher = require('pusher-js');\n// window.Echo = new Echo({\n//     broadcaster: 'pusher',\n//     key: process.env.MIX_PUSHER_APP_KEY,\n//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,\n//     forceTLS: true\n// });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYm9vdHN0cmFwLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFBQSxNQUFNLENBQUNDLENBQVAsR0FBV0MsbUJBQU8sQ0FBQywrQ0FBRCxDQUFsQjtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUFGLE1BQU0sQ0FBQ0csS0FBUCxHQUFlRCxtQkFBTyxDQUFDLDRDQUFELENBQXRCO0FBRUFGLE1BQU0sQ0FBQ0csS0FBUCxDQUFhQyxRQUFiLENBQXNCQyxPQUF0QixDQUE4QkMsTUFBOUIsQ0FBcUMsa0JBQXJDLElBQTJELGdCQUEzRDtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUVBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL2Jvb3RzdHJhcC5qcz82ZGU3Il0sInNvdXJjZXNDb250ZW50IjpbIndpbmRvdy5fID0gcmVxdWlyZSgnbG9kYXNoJyk7XHJcblxyXG4vKipcclxuICogV2UnbGwgbG9hZCB0aGUgYXhpb3MgSFRUUCBsaWJyYXJ5IHdoaWNoIGFsbG93cyB1cyB0byBlYXNpbHkgaXNzdWUgcmVxdWVzdHNcclxuICogdG8gb3VyIExhcmF2ZWwgYmFjay1lbmQuIFRoaXMgbGlicmFyeSBhdXRvbWF0aWNhbGx5IGhhbmRsZXMgc2VuZGluZyB0aGVcclxuICogQ1NSRiB0b2tlbiBhcyBhIGhlYWRlciBiYXNlZCBvbiB0aGUgdmFsdWUgb2YgdGhlIFwiWFNSRlwiIHRva2VuIGNvb2tpZS5cclxuICovXHJcblxyXG53aW5kb3cuYXhpb3MgPSByZXF1aXJlKCdheGlvcycpO1xyXG5cclxud2luZG93LmF4aW9zLmRlZmF1bHRzLmhlYWRlcnMuY29tbW9uWydYLVJlcXVlc3RlZC1XaXRoJ10gPSAnWE1MSHR0cFJlcXVlc3QnO1xyXG5cclxuLyoqXHJcbiAqIEVjaG8gZXhwb3NlcyBhbiBleHByZXNzaXZlIEFQSSBmb3Igc3Vic2NyaWJpbmcgdG8gY2hhbm5lbHMgYW5kIGxpc3RlbmluZ1xyXG4gKiBmb3IgZXZlbnRzIHRoYXQgYXJlIGJyb2FkY2FzdCBieSBMYXJhdmVsLiBFY2hvIGFuZCBldmVudCBicm9hZGNhc3RpbmdcclxuICogYWxsb3dzIHlvdXIgdGVhbSB0byBlYXNpbHkgYnVpbGQgcm9idXN0IHJlYWwtdGltZSB3ZWIgYXBwbGljYXRpb25zLlxyXG4gKi9cclxuXHJcbi8vIGltcG9ydCBFY2hvIGZyb20gJ2xhcmF2ZWwtZWNobyc7XHJcblxyXG4vLyB3aW5kb3cuUHVzaGVyID0gcmVxdWlyZSgncHVzaGVyLWpzJyk7XHJcblxyXG4vLyB3aW5kb3cuRWNobyA9IG5ldyBFY2hvKHtcclxuLy8gICAgIGJyb2FkY2FzdGVyOiAncHVzaGVyJyxcclxuLy8gICAgIGtleTogcHJvY2Vzcy5lbnYuTUlYX1BVU0hFUl9BUFBfS0VZLFxyXG4vLyAgICAgY2x1c3RlcjogcHJvY2Vzcy5lbnYuTUlYX1BVU0hFUl9BUFBfQ0xVU1RFUixcclxuLy8gICAgIGZvcmNlVExTOiB0cnVlXHJcbi8vIH0pO1xyXG4iXSwibmFtZXMiOlsid2luZG93IiwiXyIsInJlcXVpcmUiLCJheGlvcyIsImRlZmF1bHRzIiwiaGVhZGVycyIsImNvbW1vbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/bootstrap.js\n");
-=======
 eval("window._ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/**\n * We'll load the axios HTTP library which allows us to easily issue requests\n * to our Laravel back-end. This library automatically handles sending the\n * CSRF token as a header based on the value of the \"XSRF\" token cookie.\n */\n\nwindow.axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\nwindow.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';\n/**\n * Echo exposes an expressive API for subscribing to channels and listening\n * for events that are broadcast by Laravel. Echo and event broadcasting\n * allows your team to easily build robust real-time web applications.\n */\n// import Echo from 'laravel-echo';\n// window.Pusher = require('pusher-js');\n// window.Echo = new Echo({\n//     broadcaster: 'pusher',\n//     key: process.env.MIX_PUSHER_APP_KEY,\n//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,\n//     forceTLS: true\n// });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYm9vdHN0cmFwLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFBQSxNQUFNLENBQUNDLENBQVAsR0FBV0MsbUJBQU8sQ0FBQywrQ0FBRCxDQUFsQjtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUFGLE1BQU0sQ0FBQ0csS0FBUCxHQUFlRCxtQkFBTyxDQUFDLDRDQUFELENBQXRCO0FBRUFGLE1BQU0sQ0FBQ0csS0FBUCxDQUFhQyxRQUFiLENBQXNCQyxPQUF0QixDQUE4QkMsTUFBOUIsQ0FBcUMsa0JBQXJDLElBQTJELGdCQUEzRDtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUVBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL2Jvb3RzdHJhcC5qcz82ZGU3Il0sInNvdXJjZXNDb250ZW50IjpbIndpbmRvdy5fID0gcmVxdWlyZSgnbG9kYXNoJyk7XG5cbi8qKlxuICogV2UnbGwgbG9hZCB0aGUgYXhpb3MgSFRUUCBsaWJyYXJ5IHdoaWNoIGFsbG93cyB1cyB0byBlYXNpbHkgaXNzdWUgcmVxdWVzdHNcbiAqIHRvIG91ciBMYXJhdmVsIGJhY2stZW5kLiBUaGlzIGxpYnJhcnkgYXV0b21hdGljYWxseSBoYW5kbGVzIHNlbmRpbmcgdGhlXG4gKiBDU1JGIHRva2VuIGFzIGEgaGVhZGVyIGJhc2VkIG9uIHRoZSB2YWx1ZSBvZiB0aGUgXCJYU1JGXCIgdG9rZW4gY29va2llLlxuICovXG5cbndpbmRvdy5heGlvcyA9IHJlcXVpcmUoJ2F4aW9zJyk7XG5cbndpbmRvdy5heGlvcy5kZWZhdWx0cy5oZWFkZXJzLmNvbW1vblsnWC1SZXF1ZXN0ZWQtV2l0aCddID0gJ1hNTEh0dHBSZXF1ZXN0JztcblxuLyoqXG4gKiBFY2hvIGV4cG9zZXMgYW4gZXhwcmVzc2l2ZSBBUEkgZm9yIHN1YnNjcmliaW5nIHRvIGNoYW5uZWxzIGFuZCBsaXN0ZW5pbmdcbiAqIGZvciBldmVudHMgdGhhdCBhcmUgYnJvYWRjYXN0IGJ5IExhcmF2ZWwuIEVjaG8gYW5kIGV2ZW50IGJyb2FkY2FzdGluZ1xuICogYWxsb3dzIHlvdXIgdGVhbSB0byBlYXNpbHkgYnVpbGQgcm9idXN0IHJlYWwtdGltZSB3ZWIgYXBwbGljYXRpb25zLlxuICovXG5cbi8vIGltcG9ydCBFY2hvIGZyb20gJ2xhcmF2ZWwtZWNobyc7XG5cbi8vIHdpbmRvdy5QdXNoZXIgPSByZXF1aXJlKCdwdXNoZXItanMnKTtcblxuLy8gd2luZG93LkVjaG8gPSBuZXcgRWNobyh7XG4vLyAgICAgYnJvYWRjYXN0ZXI6ICdwdXNoZXInLFxuLy8gICAgIGtleTogcHJvY2Vzcy5lbnYuTUlYX1BVU0hFUl9BUFBfS0VZLFxuLy8gICAgIGNsdXN0ZXI6IHByb2Nlc3MuZW52Lk1JWF9QVVNIRVJfQVBQX0NMVVNURVIsXG4vLyAgICAgZm9yY2VUTFM6IHRydWVcbi8vIH0pO1xuIl0sIm5hbWVzIjpbIndpbmRvdyIsIl8iLCJyZXF1aXJlIiwiYXhpb3MiLCJkZWZhdWx0cyIsImhlYWRlcnMiLCJjb21tb24iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/bootstrap.js\n");
->>>>>>> b403e90c5e94840d9923b28985eb09b160b569d8
 
 /***/ }),
 
@@ -386,8 +377,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./resources/css/base.css":
 /*!********************************!*\
   !*** ./resources/css/base.css ***!
@@ -410,7 +399,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
->>>>>>> b403e90c5e94840d9923b28985eb09b160b569d8
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -532,11 +520,8 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-<<<<<<< HEAD
-=======
 /******/ 			"css/home": 0,
 /******/ 			"css/base": 0,
->>>>>>> b403e90c5e94840d9923b28985eb09b160b569d8
 /******/ 			"css/app": 0,
 /******/ 			"scss/app": 0
 /******/ 		};
@@ -588,9 +573,6 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","scss/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","scss/app"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","scss/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_require__.O(undefined, ["css/home","css/base","css/app","scss/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	__webpack_require__.O(undefined, ["css/home","css/base","css/app","scss/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_require__.O(undefined, ["css/home","css/base","css/app","scss/app"], () => (__webpack_require__("./resources/css/app.css")))
