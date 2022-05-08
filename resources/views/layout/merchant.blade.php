@@ -22,23 +22,48 @@
 
     <link rel="stylesheet" href="/css/app.css?<?php echo date("css", time())?>">
     <script src="/js/app.js?<?php echo date("js", time())?>"></script>
+    <link rel="stylesheet" href="/css/base.css?<?php echo date("js", time())?>">
+    <link rel="stylesheet" href="/css/merchant.css?<?php echo date("js", time())?>">
+    <script src="/js/merchant.js?<?php echo date("js", time())?>"></script> <!--/Users/pingleo/Desktop/1102_SAD_GoGoABCD/resources/js/merchant.js-->
+    
 </head>
 <body>
     <header>
-        <nav>nav bar</nav>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToWUO2hyebkiqqD0TDwOYqnIttN40FJ85SGQ&usqp=CAU"  class="d-inline-block align-top logo">
+        </a>
+
+        <div class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-primary btn-md my-2 my-sm-0" type="submit">登出</button>
+        </div>
+        
+    </nav>
     </header>
     <div class="content">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-3">side bar</div>
-                <div class="col-9">@yield('content')</div>
+                <div class="col-2 bg-light">
+                    <div class="nav flex-column nav-pills nav-fill" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link sidebar_font center" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">查詢訂單</a>
+                        <a class="nav-link sidebar_font center" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">管理商品</a>
+                        <a class="nav-link sidebar_font center" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">管理優惠</a>
+                        <a class="nav-link sidebar_font center" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">管理廣告</a>
+                        <a class="nav-link sidebar_font center" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">產生報表</a>
+                        <a class="nav-link sidebar_font center" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">編輯資料</a>
+                    </div>
+                </div>
+                <div class="col-10">@yield('content')</div>
             </div>
         </div>
     </div>
+    
     <?php $name = app()->view->getSections()['name'] ?>
     @if($name == 'product')
         @include('window.product')
+    @else if
     @endif
+    
     <footer></footer>
 </body>
 </html>

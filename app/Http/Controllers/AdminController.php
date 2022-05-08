@@ -92,4 +92,14 @@ class AdminController extends Controller {
         return Redirect::to("/admin/product");
         exit;
     }
+
+    public function recordPage() {
+        $name = 'record';
+        $binding = [
+            'title' => ShareData::TITLE,
+            'name' => $name,
+        ];
+        return view('merchant.record', $binding);
+    }
+
 }

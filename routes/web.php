@@ -24,6 +24,8 @@ Route::group(['prefix' => 'user'], function() {
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/product', [AdminController::class, 'productPage']);
     Route::post('/product', [AdminController::class, 'productProcess']);
+    Route::get('/record', [AdminController::class, 'recordPage']);
+
 });
 
 ?>
