@@ -60,8 +60,17 @@
     
     <?php $name = app()->view->getSections()['name'] ?>
     @if($name == 'product')
+        <!--
         @include('window.product')
-    @else if
+        -->
+    @elseif($name == 'discount')
+        <!--
+        @include('window.discount')
+        -->
+    @elseif($name == 'ad')
+        
+        @include('window.ad')
+
     @endif
     
     <footer></footer>

@@ -5,3 +5,45 @@
 .table tbody tr td{
     vertical-align: middle;
 }
+
+.top_win{
+    padding-top: 20px;
+}
+
+.cover_win{
+    width: 250px;
+    height: 250px;
+    position: relative;
+}
+
+.text_win{
+    width: 100%;
+}
+
+.button_win{
+    position: absolute;
+    right: 10%;
+    bottom: 0%;
+}
+
+.ad{
+    height: 500px;
+}
+  
+.ad img {
+      position: absolute;
+      object-fit:cover;
+      top: 0;
+      left: 0;
+      min-height: 500px;
+}
+
+.right{
+    position: absolute;
+    right:0px;
+}
+
+.left{
+    position: absolute;
+    left:0px;
+}

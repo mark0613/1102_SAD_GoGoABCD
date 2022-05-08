@@ -102,4 +102,22 @@ class AdminController extends Controller {
         return view('merchant.record', $binding);
     }
 
+    public function discountPage() {
+        $name = 'discount';
+        $binding = [
+            'title' => ShareData::TITLE,
+            'name' => $name,
+        ];
+        return view('merchant.discount', $binding);
+    }
+
+    public function adPage() {
+        $name = 'ad';
+        $binding = [
+            'title' => ShareData::TITLE,
+            'name' => $name,
+        ];
+        return view('merchant.ad', $binding);
+    }
+
 }

@@ -1,9 +1,8 @@
-
 .window {
     position: absolute;
     top: 200px;
-    left: 35%;
-    width: 30%;
+    left: 25%;
+    width: 50%;
 }
 .center{
     text-align: center;

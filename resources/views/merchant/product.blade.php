@@ -44,7 +44,7 @@
                             <td>10</td>
                             <td>$200</td>
                             <td>
-                                <a href="#" aria-label="Previous">✏️</a><a href="#" aria-label="Previous">🚮</a>
+                                <a href="#" aria-label="Previous">✏️</a><a href="#" aria-label="Previous">🗑️</a>
                             </td>
                         </tr>
                         
