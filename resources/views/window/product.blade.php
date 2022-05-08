@@ -19,6 +19,7 @@
                 <option value="5">Ele</option>
                 <option value="6">Fk</option>
             </select>
+            <input type="file" name="file">
         </div>
         <div>
             <input type="text" class="form-control" id="name" name="name" placeholder="name">

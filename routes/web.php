@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\ReaderController;
 
 Route::get('/', [HomeController::class, "indexPage"]);
 
@@ -23,6 +24,6 @@ Route::group(['prefix' => 'user'], function() {
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/product', [AdminController::class, 'productPage']);
     Route::post('/product', [AdminController::class, 'productProcess']);
-})
+});
 
 ?>

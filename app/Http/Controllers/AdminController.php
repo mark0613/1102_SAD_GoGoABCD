@@ -2,6 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
+use PdfController;
+
 use App\Module\ShareData;
 use App\Models\Author;
 use App\Models\Book;
@@ -10,10 +17,6 @@ use App\Models\Music;
 use App\Models\Product;
 use App\Models\Singer;
 
-use DB;
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller {
     public function productPage() {
@@ -27,6 +30,7 @@ class AdminController extends Controller {
     public function productProcess() {
         $input = request();
         $photoPath = $input->file('photo')->store('product', 'public');
+        $file = $input->file('file');
         $er_and_type = explode("-", $input["p_type"]);
         $author_or_singer = explode(", ", $input["author_or_singer"]);
         $classes = $input["classes"];
@@ -58,6 +62,9 @@ class AdminController extends Controller {
                 DB::table("author")->insert($tmp);
             }
             $b_or_m = "b";
+            if ($product["p_e_or_r"]) {
+                PdfController::uploadPdf($file);
+            }
         }
         else {
             $music = [
