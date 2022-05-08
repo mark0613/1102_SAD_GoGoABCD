@@ -3,18 +3,23 @@
 @section('title', $title)
 
 @section('content')
-<h2>登入</h2>
+<h2 class="center top">登入</h2>
 <form>
     {!! csrf_field() !!}
-    <div class="form-group">
-        <label for="account">Email or Username</label>
-        <input type="text" class="form-control" id="account" name="account">
+    <div class="form-group row">
+        <label for="account" class="col-sm-3 col-form-label">Username:</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="account" name="account">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password">
+    <div class="form-group row">
+        <label for="password" class="col-sm-3 col-form-label">Password:</label>
+        <div class="col-sm-9">
+            <input type="password" class="form-control" id="password" name="password"> 
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="center">
+        <button type="submit" class="btn btn-primary">登入</button>
+    </div>
 </form>
 @endsection
