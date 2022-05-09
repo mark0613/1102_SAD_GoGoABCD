@@ -24,6 +24,7 @@
     <script src="/js/app.js?<?php echo date("js", time())?>"></script>
     <link rel="stylesheet" href="/css/base.css?<?php echo date("js", time())?>">
     <link rel="stylesheet" href="/css/customer.css?<?php echo date("js", time())?>">
+    <script src="/js/customer.js?<?php echo date("js", time())?>"></script>
     
 </head>
 <body>
@@ -35,10 +36,14 @@
     </div>
     
     <?php $name = app()->view->getSections()['name'] ?>
-    @if($name == 'product')
-        <!--
-        @include('window.product')
-        -->
+    @if($name == 'detail')
+    <!--
+        @include('window.detail')
+    -->
+    @elseif($name == 'cart')
+    <!--
+        @include('window.cart')
+    -->
     @endif
     
     <footer></footer>

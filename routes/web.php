@@ -37,5 +37,9 @@ Route::get('/list', [CustomerController::class, 'listPage']);
 Route::get('/all', [CustomerController::class, 'allPage']);
 Route::get('/profile', [CustomerController::class, 'profilePage']);
 Route::get('/wishlist', [CustomerController::class, 'wishlistPage']);
+Route::get('/mybook', [CustomerController::class, 'mybookPage']);
+Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
+Route::get('/detail', [CustomerController::class, 'detailPage']);
+Route::get('/cart', [CustomerController::class, 'cartPage']);
 
 ?>
