@@ -68,9 +68,13 @@
         @include('window.discount')
         -->
     @elseif($name == 'ad')
-        
+        <!--
         @include('window.ad')
-
+        -->
+    @elseif($name == 'staff')
+        <!--
+        @include('window.staff')
+        -->
     @endif
     
     <footer></footer>

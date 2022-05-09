@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\ReaderController;
+use App\Http\Controllers\CustomerController;
 
 Route::get('/', [HomeController::class, "indexPage"]);
 
@@ -27,7 +28,14 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/record', [AdminController::class, 'recordPage']);
     Route::get('/discount', [AdminController::class, 'discountPage']);
     Route::get('/ad', [AdminController::class, 'adPage']);
+    Route::get('/chart', [AdminController::class, 'chartPage']);
+    Route::get('/staff', [AdminController::class, 'staffPage']);
 
 });
+
+Route::get('/list', [CustomerController::class, 'listPage']);
+Route::get('/all', [CustomerController::class, 'allPage']);
+Route::get('/profile', [CustomerController::class, 'profilePage']);
+Route::get('/wishlist', [CustomerController::class, 'wishlistPage']);
 
 ?>

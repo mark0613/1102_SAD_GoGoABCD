@@ -1,0 +1,57 @@
+.book_name{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.book_cover {
+    position: relative;
+}
+  .book_cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .book_cover .info {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 22px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  .book_cover .info:hover {
+    opacity: 1;
+    transition: opacity 0.8s;
+  }
+
+.right{
+    position: absolute;
+    right:0px;
+}
+
+.sidebar_font{
+    font-size: 20px;
+}
+
+.col_line{
+    padding:12px 6px 200px 6px;
+    margin-left: 6px;
+    border-left: 1px solid;
+    font-size: 0;
+}
+
+.item{
+    width: 100%;
+}
+
+.price{
+    font-size: 40px;
+}

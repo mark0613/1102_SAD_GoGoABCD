@@ -120,4 +120,22 @@ class AdminController extends Controller {
         return view('merchant.ad', $binding);
     }
 
+    public function chartPage() {
+        $name = 'chart';
+        $binding = [
+            'title' => ShareData::TITLE,
+            'name' => $name,
+        ];
+        return view('merchant.chart', $binding);
+    }
+
+    public function staffPage() {
+        $name = 'staff';
+        $binding = [
+            'title' => ShareData::TITLE,
+            'name' => $name,
+        ];
+        return view('merchant.staff', $binding);
+    }
+
 }
