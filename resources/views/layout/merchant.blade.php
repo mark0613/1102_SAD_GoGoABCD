@@ -57,72 +57,30 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-2 bg-light">
-<<<<<<< HEAD
                     <div class="nav flex-column nav-pills nav-fill" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link sidebar_font center" href="{{asset('admin/record')}}" role="tab" aria-controls="v-pills-profile" aria-selected="false">查詢訂單</a>
-                        <a class="nav-link sidebar_font center" href="{{asset('admin/product')}}" role="tab" aria-controls="v-pills-messages" aria-selected="false">管理商品</a>
-                        <a class="nav-link sidebar_font center" href="{{asset('admin/discount')}}" role="tab" aria-controls="v-pills-settings" aria-selected="false">管理優惠</a>
-                        <a class="nav-link sidebar_font center" href="{{asset('admin/ad')}}" role="tab" aria-controls="v-pills-profile" aria-selected="false">管理廣告</a>
-                        <a class="nav-link sidebar_font center" href="{{asset('admin/chart')}}" role="tab" aria-controls="v-pills-messages" aria-selected="false">產生報表</a>
-                        <a class="nav-link sidebar_font center" href="{{asset('admin/staff')}}" role="tab" aria-controls="v-pills-settings" aria-selected="false">編輯資料</a>
-=======
-                    <div class="nav flex-column nav-pills nav-fill" id="v-pills-tab" role="tablist"
-                        aria-orientation="vertical">
-                        <a class="nav-link sidebar_font center" id="v-pills-profile-tab" data-toggle="pill"
-                            href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
-                            aria-selected="false">查詢訂單</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-messages-tab" data-toggle="pill"
-                            href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
-                            aria-selected="false">管理商品</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-settings-tab" data-toggle="pill"
-                            href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                            aria-selected="false">管理優惠</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-profile-tab" data-toggle="pill"
-                            href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
-                            aria-selected="false">管理廣告</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-messages-tab" data-toggle="pill"
-                            href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
-                            aria-selected="false">產生報表</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-settings-tab" data-toggle="pill"
-                            href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                            aria-selected="false">編輯資料</a>
->>>>>>> b8ee6da (update file)
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/staff')}}">編輯資料</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/record')}}">查詢訂單</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/product')}}">管理商品</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/discount')}}">管理優惠</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/ad')}}">管理廣告</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/chart')}}">產生報表</a>
                     </div>
                 </div>
                 <div class="col-10">@yield('content')</div>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
     
     <div class="cover"></div>
     <?php $name = app()->view->getSections()['name'] ?>
-    @if($name == 'product')
-=======
-
-    <?php $name = app()->view->getSections()['name'] ?>
-    @if($name == 'product')
-    <!--
->>>>>>> b8ee6da (update file)
+    @if($name == 'staff')
+        @include('window.staff')
+    @elseif($name == 'product')
         @include('window.product')
     @elseif($name == 'discount')
-<<<<<<< HEAD
-=======
-    <!--
->>>>>>> b8ee6da (update file)
         @include('window.discount')
     @elseif($name == 'ad')
-<<<<<<< HEAD
-=======
-    <!--
->>>>>>> b8ee6da (update file)
         @include('window.ad')
-    @elseif($name == 'staff')
-<<<<<<< HEAD
-=======
-    <!--
->>>>>>> b8ee6da (update file)
-        @include('window.staff')
     @endif
 
     <footer></footer>
