@@ -4,7 +4,7 @@
 
 @section('content')
 <h2 class="center top">登入</h2>
-<form>
+<form method="post">
     {!! csrf_field() !!}
     <div class="form-group row">
         <label for="account" class="col-sm-3 col-form-label">Username:</label>

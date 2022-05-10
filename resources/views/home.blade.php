@@ -21,22 +21,21 @@
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col-10">
+                    <!-- nav bar -->
                     <div class="form-group row">
                         <div class="col-10">
-                            
                             <div class="row">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToWUO2hyebkiqqD0TDwOYqnIttN40FJ85SGQ&usqp=CAU" class="logo">
                                 <form class="form-inline pl-5">
                                     <div class="pr-1">
                                         <input class=" search" type="search" placeholder="依書名 作者 ISBN...搜尋" aria-label="Search">
                                     </div>
-                                    <button class="btn btn-outline my-2 my-sm-0 search_button" type="submit">🔍</button>
+                                    <button type="submit" class="btn btn-outline my-2 my-sm-0 search_button">🔍</button>
                                 </form>
                                 <a href="#" class="pl-5"><img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp" class="three_img"></a>
                                 <a href="#" class="pl-3"><img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp" class="three_img"></a>
                                 <a href="#" class="pl-3"><img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp" class="three_img"></a>
                             </div>
-
                         </div>
                         <div class="col-2">
                             <div class="right">
@@ -50,7 +49,7 @@
                                             <a class="dropdown-item center" href="#">我得音樂</a>
                                             <a class="dropdown-item center" href="#">訂單資訊</a>
                                             <a class="dropdown-item center" href="#">帳戶設定</a>
-                                            <button type="submit" class="center btn-outline-primary btn">登出</button>
+                                            <button type="button" class="center btn-outline-primary btn logout">登出</button>
                                         </div>
                                 </div>
                             </div>
@@ -77,10 +76,9 @@
                             </div>-->
                             
                         </div>
-                            
-                        
                     </div>
 
+                    <!-- 商品選單 -->
                     <div class="top">
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -142,6 +140,7 @@
                             </div>
                         </nav>
                     </div>
+
                     <!--實體書籍-->
                     <div>
                         <div class="pt-5 pb-5">
@@ -341,7 +340,6 @@
             
         </div>
     </div>
-    
     <footer></footer>
 </body>
 </html>

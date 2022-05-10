@@ -77,22 +77,45 @@ class UserAuthController extends Controller {
         return view('user.login', $binding);
     }
     public function loginProcess() {
-        $response = [
-            "status" => "fail",
-        ];        
-       $input = request()->all();
-       //$input['username']  $input['password']
-       $password = DB::table('users')-> where('username','=',$input['username'])-> value("password");
-       if(  $input['password']==$password ){
-            $response["status"]="success";
-       }else{
-            $response["status"]="error";
-       }
+        $input = request()->all();
+        $rules = [
+            'account' => 'required',
+            'password' => 'required'
+        ];
+
+        $validator = Validator::make($input, $rules);
+        if ($validator->passes()) {
+            $account = $input["account"];
+            $password = $input["password"];
+            if(filter_var($account, FILTER_VALIDATE_EMAIL)) {
+                $attempt = Auth::attempt(['email' => $account, 'password' => $password]);
+            } 
+            else {
+                $attempt = Auth::attempt(['username' => $account, 'password' => $password]);
+            }
+
+            if ($attempt) {
+                return Redirect::intended('/');
+            }
+            return Redirect::to('/user/auth/login')
+                ->withErrors(['fail' => 'Account or Password is wrong!']);
+        }
+        //fails
+        return Redirect::to('/user/auth/login')
+            ->withErrors($validator)
+            ->withInput(request()->except('password'));
     }
 
     public function logout() {
         Auth::logout();
         return Redirect::to('/user/auth/login');
+    }
+
+    public static function ckeck() {
+        if (Auth::check()) {
+            ;
+        }
+        return False;
     }
 }
 ?>
