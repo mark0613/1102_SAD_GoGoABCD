@@ -41,18 +41,11 @@
 </head>
 
 <body>
-    <header>
-    </header>
     <div class="container-fluid nav_top">
         <div class="row">
             <div class="col-1"></div>
             <div class="col-10">
-
-
                 <div class="content">
-
-
-
                     <div class="form-group row">
                         <div class="col-10">
                             <div class="row">
@@ -205,12 +198,7 @@
             @yield('content')
         </div>
     </div>
-<<<<<<< HEAD
-    
-    <div class="cover"></div>
-=======
 
->>>>>>> b8ee6da (update file)
     <?php $name = app()->view->getSections()['name'] ?>
     @if($name == 'detail')
         @include('window.detail')
