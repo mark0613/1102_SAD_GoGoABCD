@@ -20,8 +20,8 @@
             </textarea>
             <br>
             <div class="right pr-3">
-                <button type="button" class="btn btn-secondary">取消</button>
-                <button type="button" class="btn btn-primary">發送</button>
+                <button type="reset" class="btn btn-secondary close-window">取消</button>
+                <button type="submit" class="btn btn-primary">發送</button>
             </div>
             <br>
             <br>

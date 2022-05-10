@@ -1,8 +1,17 @@
+.cover {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
 .window {
     position: absolute;
     top: 200px;
     left: 25%;
     width: 50%;
+    display: none;
 }
 .center{
     text-align: center;

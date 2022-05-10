@@ -18,7 +18,7 @@
         <div class="col-4 center">
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-danger">刪除</button>
-                <button type="button" class="btn btn-primary">新增</button>
+                <button type="button" class="btn btn-primary open-window">新增</button>
             </div>
         </div>
         <div class="col-3"></div>

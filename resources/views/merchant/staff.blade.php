@@ -13,7 +13,7 @@
             <div class="row top">
                 <div class="col-10"></div>
                 <div class="col-2">
-                    <button type="button" onclick="()" class="btn btn-primary">新增</button>
+                    <button type="button" class="btn btn-primary open-window">新增</button>
                     <br>
                     <br>
                 </div>

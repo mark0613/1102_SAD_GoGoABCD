@@ -49,7 +49,7 @@
                     </select>
                 </div>
                 <div class="col">
-                    <button type="button" onclick="()" class="btn btn-primary">產生</button>
+                    <button type="button" class="btn btn-primary open-window">產生</button>
                 </div>
                 
             </div>

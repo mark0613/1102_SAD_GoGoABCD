@@ -23,7 +23,7 @@
                 <button type="submit" class="btn btn-primary">搜尋</button>
             </div>
             <div class="col-3">
-                <button type="button" onclick="()" class="btn btn-primary">上架新商品</button>
+                <button type="button" class="btn btn-primary open-window">上架新商品</button>
             </div>
         
         <div class="col-11 top">

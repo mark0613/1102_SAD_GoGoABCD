@@ -28,7 +28,7 @@
             <div class="form-inline right">
                 <label class="price">$0</label>
                 <div class="pl-1">
-                    <button type="button" class="btn btn-secondary">取消</button>
+                    <button type="reset" class="btn btn-secondary close-window">取消</button>
                 </div>
                 <div class="pl-1">
                     <button type="button" class="btn btn-primary">送出</button>

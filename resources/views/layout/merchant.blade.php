@@ -24,7 +24,7 @@
     <script src="/js/app.js?<?php echo date("js", time())?>"></script>
     <link rel="stylesheet" href="/css/base.css?<?php echo date("js", time())?>">
     <link rel="stylesheet" href="/css/merchant.css?<?php echo date("js", time())?>">
-    <script src="/js/merchant.js?<?php echo date("js", time())?>"></script> <!--/Users/pingleo/Desktop/1102_SAD_GoGoABCD/resources/js/merchant.js-->
+    <script src="/js/merchant.js?<?php echo date("js", time())?>"></script>
     
 </head>
 <body>
@@ -45,12 +45,12 @@
             <div class="row">
                 <div class="col-2 bg-light">
                     <div class="nav flex-column nav-pills nav-fill" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link sidebar_font center" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">查詢訂單</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">管理商品</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">管理優惠</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">管理廣告</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">產生報表</a>
-                        <a class="nav-link sidebar_font center" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">編輯資料</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/record')}}" role="tab" aria-controls="v-pills-profile" aria-selected="false">查詢訂單</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/product')}}" role="tab" aria-controls="v-pills-messages" aria-selected="false">管理商品</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/discount')}}" role="tab" aria-controls="v-pills-settings" aria-selected="false">管理優惠</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/ad')}}" role="tab" aria-controls="v-pills-profile" aria-selected="false">管理廣告</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/chart')}}" role="tab" aria-controls="v-pills-messages" aria-selected="false">產生報表</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/staff')}}" role="tab" aria-controls="v-pills-settings" aria-selected="false">編輯資料</a>
                     </div>
                 </div>
                 <div class="col-10">@yield('content')</div>
@@ -58,23 +58,16 @@
         </div>
     </div>
     
+    <div class="cover"></div>
     <?php $name = app()->view->getSections()['name'] ?>
     @if($name == 'product')
-        <!--
         @include('window.product')
-        -->
     @elseif($name == 'discount')
-        <!--
         @include('window.discount')
-        -->
     @elseif($name == 'ad')
-        <!--
         @include('window.ad')
-        -->
     @elseif($name == 'staff')
-        <!--
         @include('window.staff')
-        -->
     @endif
     
     <footer></footer>

@@ -25,7 +25,7 @@
                         </div>    
                     </div>
                     <div class="center">
-                        <button type="submit" class="btn btn-secondary">取消</button>
+                        <button type="reset" class="btn btn-secondary close-window">取消</button>
                         <button type="submit" class="btn btn-primary">加入</button>
                         <br>
                         <br>

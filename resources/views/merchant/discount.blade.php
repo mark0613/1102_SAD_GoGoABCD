@@ -15,7 +15,7 @@
         
         <div class="col-8 center"></div>
         <div class="col-2">
-            <button type="button" onclick="()" class="btn btn-primary">新增優惠</button>
+            <button type="button" class="btn btn-primary open-window">新增優惠</button>
             <br>
             <br>
         </div>
