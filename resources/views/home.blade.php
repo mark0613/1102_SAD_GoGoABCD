@@ -25,7 +25,8 @@
                                 <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
                                     data-slide="prev">
                                     <i class="">
-                                        << /i>
+                                        <
+                                    </i>
                                 </a>
                             </div>
                             <div class="col-10">

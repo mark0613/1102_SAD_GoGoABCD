@@ -23,6 +23,7 @@ Route::group(['prefix' => 'user'], function() {
 
 // admin/*
 Route::group(['prefix' => 'admin'], function() {
+    Route::get('/', [AdminController::class, 'staffPage']);
     Route::get('/product', [AdminController::class, 'productPage']);
     Route::post('/product', [AdminController::class, 'productProcess']);
     Route::get('/record', [AdminController::class, 'recordPage']);
@@ -30,7 +31,6 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/ad', [AdminController::class, 'adPage']);
     Route::get('/chart', [AdminController::class, 'chartPage']);
     Route::get('/staff', [AdminController::class, 'staffPage']);
-
 });
 
 Route::get('/list', [CustomerController::class, 'listPage']);
