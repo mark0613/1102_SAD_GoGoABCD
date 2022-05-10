@@ -18,7 +18,7 @@ class PdfController extends Controller {
         if (!is_dir($newPath)) {
             mkdir($newPath, 0777, true);
         }
-            
+
         $pdf = new FPDI();
         $pagecount = $pdf->setSourceFile($file);
 
@@ -28,10 +28,11 @@ class PdfController extends Controller {
             $newPdf->AddPage();
             $newPdf->setSourceFile($file);
             $newPdf->useTemplate($newPdf->importPage($i));
+            $newPdf->Image("$newPath/$i.pdf", 20, 155, 50);
             
             try {
-                $newFilename = "$newPath/$i.pdf";
-                $newPdf->Output($newFilename, "F");
+                // $newFilename = "$newPath/$i.pdf";
+                // $newPdf->Output($newFilename, "F");
             } 
             catch (Exception $e) {
                 return [
@@ -44,10 +45,31 @@ class PdfController extends Controller {
             "status" => True,
         ];
     }
+
+    public static function convertPdfToImage($file, $endDirectory) {
+        $response = [
+            "status" => "fail"
+        ];
+        $tmp = explode("/", $file);
+        $filename = end($tmp);
+        $newPath = "$endDirectory/" . explode(".", $filename)[0];
+        if (!is_dir($newPath)) {
+            mkdir($newPath, 0777, true);
+        }
+
+        $result = exec("gswin64c -dBATCH -dNOPAUSE -sDEVICE=jpeg -sOutputFile=$newPath/%d.jpg -r300x300 -f $file");
+        if (str_contains($result, "Last OS error")) {
+            $response["error"] = $result;
+            return $response;
+        }
+        $response["status"] = "success";
+        return $response;
+    }
+
     public static function uploadPdf($file) {
-        $pdfPath = $file->store('books', 'public');
+        $pdfPath = $file->store('pdf', 'public');
         $targetDirectory = "../storage/app/public";
         $pdfPath = "$targetDirectory/$pdfPath";
-        return self::splitPdf($pdfPath, "$targetDirectory/pdf");
+        return self::convertPdfToImage($pdfPath, "$targetDirectory/books");
     }
 }
