@@ -25,8 +25,8 @@
             <div class="col-3">
                 <button type="button" class="btn btn-primary open-window">上架新商品</button>
             </div>
-        
-        <div class="col-11 top">
+
+            <div class="col-11 top">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -47,15 +47,15 @@
                                 <a href="#" aria-label="Previous">✏️</a><a href="#" aria-label="Previous">🗑️</a>
                             </td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
             <div class="col-1"></div>
         </div>
-        
-            
-        
+
+
+
         <div class="col-1"></div>
     </div>
 </div>

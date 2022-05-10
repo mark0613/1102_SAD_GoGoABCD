@@ -13,7 +13,7 @@
             <br>
         </div>
         <div class="col-2"></div>
-        
+
         <div class="col-3"></div>
         <div class="col-4 center">
             <div class="btn-group" role="group" aria-label="Basic example">
@@ -35,25 +35,30 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active ad">
-                    <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp" class="d-block w-100" alt="...">
+                        <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp"
+                            class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item ad">
-                    <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp" class="d-block w-100" alt="...">
+                        <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp"
+                            class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item ad">
-                    <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp" class="d-block w-100" alt="...">
+                        <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp"
+                            class="d-block w-100" alt="...">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators"
+                    data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators"
+                    data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </button>
-                </div>
             </div>
+        </div>
         <div class="col-2"></div>
     </div>
 </div>

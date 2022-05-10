@@ -13,7 +13,8 @@
                         <option value="r-music">CD</option>
                         <option value="e-music">線上音樂</option>
                     </select>
-                    <select class="selectpicker multi-select" name="classes[]" id="classes" multiple data-live-search="true" placeholder="Class">
+                    <select class="selectpicker multi-select" name="classes[]" id="classes" multiple
+                        data-live-search="true" placeholder="Class">
                         <option value="1">Abc</option>
                         <option value="2">Bbd</option>
                         <option value="3">CCC</option>
@@ -24,25 +25,31 @@
                     <input type="file" name="file">
                 </div>
                 <div class="col-6 row">
-                    
-                    <div class="col-6"><input type="text" class="form-control" id="name" name="name" placeholder="書名或曲名"></div>
-                    <div class="col-6"><input type="text" class="form-control" id="isbn" name="isbn" placeholder="ISBN"></div>
-                    <div class="col-6"><input type="text" class="form-control" id="author_or_singer" name="author_or_singer" placeholder="作者或歌手"></div>
-                    <div class="col-6"><input type="text" class="form-control" id="publisher" name="publisher" placeholder="發行商"></div>
-                    <div class="col-6"><input type="text" class="form-control" id="inventory" name="inventory" placeholder="庫存"></div>
-                    <div class="col-6"><input type="text" class="form-control" id="price" name="price" placeholder="價格"></div>
-                    <div class="col-12"><textarea id="description" name="description" rows="7" placeholder="商品描述" class="text_win"></textarea></div>
-                    
+
+                    <div class="col-6"><input type="text" class="form-control" id="name" name="name"
+                            placeholder="書名或曲名"></div>
+                    <div class="col-6"><input type="text" class="form-control" id="isbn" name="isbn" placeholder="ISBN">
+                    </div>
+                    <div class="col-6"><input type="text" class="form-control" id="author_or_singer"
+                            name="author_or_singer" placeholder="作者或歌手"></div>
+                    <div class="col-6"><input type="text" class="form-control" id="publisher" name="publisher"
+                            placeholder="發行商"></div>
+                    <div class="col-6"><input type="text" class="form-control" id="inventory" name="inventory"
+                            placeholder="庫存"></div>
+                    <div class="col-6"><input type="text" class="form-control" id="price" name="price" placeholder="價格">
+                    </div>
+                    <div class="col-12"><textarea id="description" name="description" rows="7" placeholder="商品描述"
+                            class="text_win"></textarea></div>
+
                 </div>
                 <div class="col-9"></div>
                 <div class="row col-3">
                     <button type="reset" class="btn btn-secondary close-window" onclick="">取消</button>
                     <button type="submit" class="btn btn-primary ml-1">儲存</button>
                 </div>
-                
+
             </div>
             <br>
         </div>
     </form>
 </div>
-

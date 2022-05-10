@@ -22,7 +22,7 @@
                         <label for="password" class="col-sm-3 col-form-label">Password:</label>
                         <div class="col-sm-9">
                             <input type="password" class="form-control" id="password" name="password">
-                        </div>    
+                        </div>
                     </div>
                     <div class="center">
                         <button type="reset" class="btn btn-secondary close-window">取消</button>

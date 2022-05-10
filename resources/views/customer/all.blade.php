@@ -14,7 +14,8 @@
             <div class="row card-deck">
                 <div class="card">
                     <div class="book_cover">
-                        <img class="img-fluid" alt="100%x280" src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/24/0010922454.jpg&v=62594944&w=180&h=180">
+                        <img class="img-fluid" alt="100%x280"
+                            src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/24/0010922454.jpg&v=62594944&w=180&h=180">
                         <div class="info">
                             <p>從零開始投資店面的路程</p>
                             <button class="btn btn-primary">More</button>
@@ -44,39 +45,43 @@
                     </div>
 
                 </div>
-                
-                
+
+
                 <div class="card">
-                    <img class="img-fluid" alt="100%x280" src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/00/0010920073.jpg&v=6256a64c&w=180&h=180">
+                    <img class="img-fluid" alt="100%x280"
+                        src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/00/0010920073.jpg&v=6256a64c&w=180&h=180">
                     <div class="card-body">
                         <h4 class="card-title">Special title treatment</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                     </div>
                 </div>
-            
-            
+
+
                 <div class="card">
-                    <img class="img-fluid" alt="100%x280" src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/26/0010922644.jpg&v=626a7abb&w=180&h=180">
+                    <img class="img-fluid" alt="100%x280"
+                        src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/26/0010922644.jpg&v=626a7abb&w=180&h=180">
                     <div class="card-body">
                         <h4 class="card-title">Special title treatment</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                     </div>
                 </div>
-            
-            
+
+
                 <div class="card">
-                    <img class="img-fluid" alt="100%x280" src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
+                    <img class="img-fluid" alt="100%x280"
+                        src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
                     <div class="card-body">
                         <h4 class="card-title">Special title treatment</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                     </div>
                 </div>
-                
+
                 <div class="card">
-                    <img class="img-fluid" alt="100%x280" src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
+                    <img class="img-fluid" alt="100%x280"
+                        src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
                     <div class="card-body">
                         <h4 class="card-title">Special title treatment</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -89,7 +94,8 @@
             <div class="row card-deck">
                 <div class="card">
                     <div class="book_cover">
-                        <img class="img-fluid" alt="100%x280" src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/24/0010922454.jpg&v=62594944&w=180&h=180">
+                        <img class="img-fluid" alt="100%x280"
+                            src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/24/0010922454.jpg&v=62594944&w=180&h=180">
                         <div class="info">
                             <p>從零開始投資店面的路程</p>
                             <button class="btn btn-primary">More</button>
@@ -119,39 +125,43 @@
                     </div>
 
                 </div>
-                
-                
+
+
                 <div class="card">
-                    <img class="img-fluid" alt="100%x280" src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/00/0010920073.jpg&v=6256a64c&w=180&h=180">
+                    <img class="img-fluid" alt="100%x280"
+                        src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/00/0010920073.jpg&v=6256a64c&w=180&h=180">
                     <div class="card-body">
                         <h4 class="card-title">Special title treatment</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                     </div>
                 </div>
-            
-            
+
+
                 <div class="card">
-                    <img class="img-fluid" alt="100%x280" src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/26/0010922644.jpg&v=626a7abb&w=180&h=180">
+                    <img class="img-fluid" alt="100%x280"
+                        src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/26/0010922644.jpg&v=626a7abb&w=180&h=180">
                     <div class="card-body">
                         <h4 class="card-title">Special title treatment</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                     </div>
                 </div>
-            
-            
+
+
                 <div class="card">
-                    <img class="img-fluid" alt="100%x280" src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
+                    <img class="img-fluid" alt="100%x280"
+                        src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
                     <div class="card-body">
                         <h4 class="card-title">Special title treatment</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                     </div>
                 </div>
-                
+
                 <div class="card">
-                    <img class="img-fluid" alt="100%x280" src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
+                    <img class="img-fluid" alt="100%x280"
+                        src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
                     <div class="card-body">
                         <h4 class="card-title">Special title treatment</h4>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -164,17 +174,17 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
                     </li>
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
                     </li>
                 </ul>
             </nav>

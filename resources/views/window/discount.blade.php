@@ -10,7 +10,8 @@
                 <br>
                 <br>
                 <div class="col-9">
-                    <select class="selectpicker multi-select" data-width="100%" name="classes[]" id="classes" multiple data-live-search="true" placeholder="Class">
+                    <select class="selectpicker multi-select" data-width="100%" name="classes[]" id="classes" multiple
+                        data-live-search="true" placeholder="Class">
                         <option value="1">Abc</option>
                         <option value="2">Bbd</option>
                         <option value="3">CCC</option>
