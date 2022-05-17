@@ -209,16 +209,14 @@
             <div class="width:50%">
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active ad">
-                            <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp"
-                                class="d-block w-100" alt="...">
+                        <?php $i=0 ?>
+                        @foreach($ads as $ad)
+                        <div class="carousel-item ad {{ $i==0 ? 'active' : '' }}">
+                            <?php $path = "../storage/" . $ad->image; ?>
+                            <img src="{{ $path }}" class="d-block w-100" alt="{{ $ad->time }}" width="500px">
                         </div>
-                        <div class="carousel-item ad">
-                            <img src="..." class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item ad">
-                            <img src="..." class="d-block w-100" alt="...">
-                        </div>
+                        <?php $i++?>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -231,6 +229,4 @@
         </div>
     </div>
 </div>
-<footer></footer>
-</body>
 @endsection
