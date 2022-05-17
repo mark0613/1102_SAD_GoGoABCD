@@ -15,8 +15,10 @@ Route::group(['prefix' => 'user'], function() {
     Route::group(['prefix' => 'auth'], function() {
         Route::get('/register', [UserAuthController::class, 'registerPage']);
         Route::post('/register', [UserAuthController::class, 'registerUserProcess']);
+
         Route::get('/login', [UserAuthController::class, 'loginPage']);
         Route::post('/login', [UserAuthController::class, 'loginProcess']);
+        
         Route::get('/logout', [UserAuthController::class, 'logout']);
     });
 });
@@ -24,13 +26,21 @@ Route::group(['prefix' => 'user'], function() {
 // admin/*
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', [AdminController::class, 'staffPage']);
+    Route::post('/', [AdminController::class, 'staffProcess']);
+
+    Route::get('/staff', [AdminController::class, 'staffPage']);
+    Route::post('/staff', [AdminController::class, 'staffProcess']);
+
     Route::get('/product', [AdminController::class, 'productPage']);
     Route::post('/product', [AdminController::class, 'productProcess']);
+
     Route::get('/record', [AdminController::class, 'recordPage']);
+
     Route::get('/discount', [AdminController::class, 'discountPage']);
+
     Route::get('/ad', [AdminController::class, 'adPage']);
+
     Route::get('/chart', [AdminController::class, 'chartPage']);
-    Route::get('/staff', [AdminController::class, 'staffPage']);
 });
 
 Route::get('/list', [CustomerController::class, 'listPage']);
@@ -41,5 +51,11 @@ Route::get('/mybook', [CustomerController::class, 'mybookPage']);
 Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
 Route::get('/detail', [CustomerController::class, 'detailPage']);
 Route::get('/cart', [CustomerController::class, 'cartPage']);
+
+// Route::group(['prefix' => 'api'], function() {
+//     Route::get('/product', [AdminController::class, 'product']);
+//     Route::get('/record', [AdminController::class, 'record']);
+//     Route::get('/discount', [AdminController::class, 'discount']);
+// });
 
 ?>

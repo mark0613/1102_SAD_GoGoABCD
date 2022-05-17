@@ -24,18 +24,21 @@
                             <tr>
                                 <th scope="col">電子郵件</th>
                                 <th scope="col">使用者名稱</th>
-                                <th scope="col"></th>
+                                <th scope="col">使用者名稱</th>
+                                <th scope="col">職位</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($staff as $s)
                             <tr>
-                                <td scope="row">ggininder606@gmail.com</td>
-                                <td>pingleo桑</td>
+                                <td scope="row">{{ $s->email }}</td>
+                                <td>{{ $s->username }}</td>
+                                <td>{{ $s->m_type=='a' ? '管理員' : '客服員' }}</td>
                                 <td>
-                                    <a href="#" aria-label="Previous">🗑️</a>
+                                    <img src="{{ asset('image/trash-bin.webp') }}" alt="trash-bin" width="30px">
                                 </td>
                             </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

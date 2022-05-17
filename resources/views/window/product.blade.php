@@ -7,7 +7,7 @@
                     <img src="https://i.imgur.com/2s15CcP.png" alt="product photo" class="cover_win">
                     <input type="file" name="photo">
                     <select name="p_type" id="p_type">
-                        <option selected>選擇商品種類</option>
+                        <option value="none" selected>選擇商品種類</option>
                         <option value="r-book">實體書</option>
                         <option value="e-book">電子書</option>
                         <option value="r-music">CD</option>
@@ -15,32 +15,41 @@
                     </select>
                     <select class="selectpicker multi-select" name="classes[]" id="classes" multiple
                         data-live-search="true" placeholder="Class">
-                        <option value="1">Abc</option>
-                        <option value="2">Bbd</option>
-                        <option value="3">CCC</option>
-                        <option value="4">Dog</option>
-                        <option value="5">Ele</option>
-                        <option value="6">Fk</option>
+                        @foreach ($classes["b"] as $class)
+                        <option value="{{ $class->c_id }}" class="class-book">{{ $class->class }}</option>
+                        @endforeach
+                        @foreach ($classes["m"] as $class)
+                        <option value="{{ $class->c_id }}" class="class-music">{{ $class->class }}</option>
+                        @endforeach
                     </select>
+                    <input type="hidden" id="pre_p_type" value="">
                     <input type="file" name="file">
                 </div>
+
                 <div class="col-6 row">
-
-                    <div class="col-6"><input type="text" class="form-control" id="name" name="name"
-                            placeholder="書名或曲名"></div>
-                    <div class="col-6"><input type="text" class="form-control" id="isbn" name="isbn" placeholder="ISBN">
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="書名或曲名">
                     </div>
-                    <div class="col-6"><input type="text" class="form-control" id="author_or_singer"
-                            name="author_or_singer" placeholder="作者或歌手"></div>
-                    <div class="col-6"><input type="text" class="form-control" id="publisher" name="publisher"
-                            placeholder="發行商"></div>
-                    <div class="col-6"><input type="text" class="form-control" id="inventory" name="inventory"
-                            placeholder="庫存"></div>
-                    <div class="col-6"><input type="text" class="form-control" id="price" name="price" placeholder="價格">
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="isbn" name="isbn" placeholder="ISBN">
                     </div>
-                    <div class="col-12"><textarea id="description" name="description" rows="7" placeholder="商品描述"
-                            class="text_win"></textarea></div>
-
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="author_or_singer" name="author_or_singer"
+                            placeholder="作者或歌手">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="publisher" name="publisher" placeholder="發行商">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="inventory" name="inventory" placeholder="庫存">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" id="price" name="price" placeholder="價格">
+                    </div>
+                    <div class="col-12">
+                        <textarea id="description" name="description" rows="7" placeholder="商品描述"
+                            class="text_win"></textarea>
+                    </div>
                 </div>
                 <div class="col-9"></div>
                 <div class="row col-3">

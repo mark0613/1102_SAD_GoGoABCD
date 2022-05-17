@@ -48,24 +48,63 @@ class UserAuthController extends Controller {
             $input["password"] = bcrypt($input['password']);
             $input["u_type"] = "member";
             unset($input["_token"]);
-
-            User::create($input);
-            $u_id = DB::table('users')
-                ->where("email", "=", $input["email"])
-                ->value("u_id");
-
-            $member = [
-                'u_id' => $u_id,
-            ];
-            DB::table("member")->insert($member);
+            DB::transaction(function() use(&$input) {
+                User::create($input);
+                $u_id = DB::table('users')
+                    ->where("email", "=", $input["email"])
+                    ->value("u_id");
+    
+                $member = [
+                    'u_id' => $u_id,
+                ];
+                DB::table("member")->insert($member);
+            });
 
             return Redirect::to("/user/auth/login");
             exit;
         }
         return redirect('/user/auth/register')->withErrors($validator);
     }
-    public function registerMerchantProcess() {
+    public static function registerMerchantProcess($input) {
+        $rules = [
+            "username" => [
+                'required',
+                'max:50',
+            ],
+            "email" => [
+                'required',
+                'max:50',
+                'email',
+            ],
+            "password" => [
+                'required',
+                'min:8',
+                'alpha_num',
+            ],
+        ];
+        $input = request()->all();
+        $validator = Validator::make($input, $rules);
+        if($validator->passes()) {
+            $input["password"] = bcrypt($input['password']);
+            $input["u_type"] = "merchant";
+            unset($input["_token"]);
+            DB::transaction(function() use(&$input) {
+                User::create($input);
+                $u_id = DB::table('users')
+                    ->where("email", "=", $input["email"])
+                    ->value("u_id");
+    
+                $merchant = [
+                    'u_id' => $u_id,
+                    'm_type' => $input["m_type"]=='admin' ? "a" : "c",
+                ];
+                DB::table("merchant")->insert($merchant);
+            });
 
+            return Redirect::to("/admin");
+            exit;
+        }
+        return redirect('/admin')->withErrors($validator);
     }
 
     public function loginPage() {
@@ -109,13 +148,6 @@ class UserAuthController extends Controller {
     public function logout() {
         Auth::logout();
         return Redirect::to('/user/auth/login');
-    }
-
-    public static function ckeck() {
-        if (Auth::check()) {
-            ;
-        }
-        return False;
     }
 }
 ?>

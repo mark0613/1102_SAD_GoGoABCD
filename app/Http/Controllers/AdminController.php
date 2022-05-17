@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\UserAuthController;
 
 use App\Module\ShareData;
 use App\Models\Author;
@@ -21,9 +22,18 @@ use App\Models\Singer;
 class AdminController extends Controller {
     public function productPage() {
         $name = 'product';
+        $all_book_classes = DB::table("all_classes")->where("type", "=", "b")->get();
+        $all_music_classes = DB::table("all_classes")->where("type", "=", "m")->get();
+        $all_classes = [
+            "b" => $all_book_classes,
+            "m" => $all_music_classes
+        ];
+        $product = DB::table("product")->select("p_id", "p_name", "price", "inventory")->get();
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'classes' => $all_classes,
+            'product' => $product,
         ];
         return view('merchant.product', $binding);
     }
@@ -131,11 +141,20 @@ class AdminController extends Controller {
 
     public function staffPage() {
         $name = 'staff';
+        $staff = DB::table("merchant")
+            ->join("users", "users.u_id", "=", "merchant.u_id")
+            ->select("email", "username", "m_type")
+            ->get();
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'staff' => $staff,
         ];
         return view('merchant.staff', $binding);
+    }
+    public function staffProcess() {
+        $input = request();
+        return UserAuthController::registerMerchantProcess($input);
     }
 
 }

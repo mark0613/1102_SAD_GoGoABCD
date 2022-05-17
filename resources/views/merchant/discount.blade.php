@@ -41,7 +41,8 @@
                         <td>2022-05-08<br>20:40:00</td>
                         <td>2022-05-10<br>20:40:00</td>
                         <td>
-                            <a href="#" aria-label="Previous">✏️</a><a href="#" aria-label="Previous">🗑️</a>
+                            <img src="{{ asset('image/pencil.png') }}" alt="pencil" width="30px">
+                            <img src="{{ asset('image/trash-bin.webp') }}" alt="trash-bin" width="30px">
                         </td>
                     </tr>
 

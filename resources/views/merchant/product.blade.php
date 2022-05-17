@@ -31,23 +31,25 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">內容</th>
-                            <th scope="col">使用點數</th>
-                            <th scope="col">總金額</th>
+                            <th scope="col">商品名稱</th>
+                            <th scope="col">庫存</th>
+                            <th scope="col">單價</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($product as $p)
                         <tr>
-                            <td scope="row">1</td>
-                            <td>從零開始投資店面的路程 x 1 $200</td>
-                            <td>10</td>
-                            <td>$200</td>
+                            <td scope="row">{{ $p->p_id }}</td>
+                            <td>{{ $p->p_name }}</td>
+                            <td>{{ $p->price }}</td>
+                            <td>${{ $p->inventory }}</td>
                             <td>
-                                <a href="#" aria-label="Previous">✏️</a><a href="#" aria-label="Previous">🗑️</a>
+                                <img src="{{ asset('image/pencil.png') }}" alt="pencil" width="30px">
+                                <img src="{{ asset('image/trash-bin.webp') }}" alt="trash-bin" width="30px">
                             </td>
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>
