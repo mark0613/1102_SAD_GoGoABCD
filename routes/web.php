@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\ReaderController;
@@ -53,10 +54,14 @@ Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
 Route::get('/detail', [CustomerController::class, 'detailPage']);
 Route::get('/cart', [CustomerController::class, 'cartPage']);
 
-// Route::group(['prefix' => 'api'], function() {
-//     Route::get('/product', [AdminController::class, 'product']);
-//     Route::get('/record', [AdminController::class, 'record']);
-//     Route::get('/discount', [AdminController::class, 'discount']);
-// });
+Route::group(['prefix' => 'api'], function() {
+    Route::post('/addProductToCart', [ApiController::class, 'addProductToCart']);
+    Route::post('/removeProductFromCart', [ApiController::class, 'removeProductFromCart']);
+    Route::post('/updateQuantity', [ApiController::class, 'updateQuantity']);
+    Route::get('/product', [ApiController::class, 'product']);
+    Route::get('/record', [ApiController::class, 'record']);
+    Route::get('/discount', [ApiController::class, 'discount']);
+    Route::get('/look', [ApiController::class, 'lookSession']);
+});
 
 ?>

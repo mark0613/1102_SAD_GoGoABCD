@@ -26,8 +26,21 @@
                     <br>
                     <br>
                     <div class="center">
-                        <label class="card-text">評價 : </label>
-                        <label class="card-text">⭐⭐⭐⭐⭐</label>
+                        <div class="stars" id="rate-stars">
+                            <label class="card-text">評價 : </label>
+                            <form action="">
+                                <input class="star star-5" id="star-5-${i}" type="radio" name="star" value="5">
+                                <label class="star star-5" for="star-5-${i}"></label>
+                                <input class="star star-4" id="star-4-${i}" type="radio" name="star" value="4">
+                                <label class="star star-4" for="star-4-${i}"></label>
+                                <input class="star star-3" id="star-3-${i}" type="radio" name="star" value="3">
+                                <label class="star star-3" for="star-3-${i}"></label>
+                                <input class="star star-2" id="star-2-${i}" type="radio" name="star" value="2">
+                                <label class="star star-2" for="star-2-${i}"></label>
+                                <input class="star star-1" id="star-1-${i}" type="radio" name="star" value="1">
+                                <label class="star star-1" for="star-1-${i}"></label>
+                            </form>
+                        </div>
                         <br>
                         <label>類別 : </label>
                         <label>輕小說</label>
@@ -55,9 +68,9 @@
                             <br>
                             <p>數量</p>
                             <div class="input-group">
-                                <input type='button' value='-' class="btn btn-outline-danger" />
-                                <input type='text' name='quantity' value='0' class="form-control item" />
-                                <input type='button' value='+' class="btn btn-outline-primary" />
+                                <input type='button' value='-' class="btn btn-outline-danger" onclick="quantityChange(0, -1)">
+                                <input type='text' id="quantity-0" value='1' class="form-control item" />
+                                <input type='button' value='+' class="btn btn-outline-primary" onclick="quantityChange(0, 1)">
                             </div>
                             <br>
                             <div class="right pr-2">
@@ -68,7 +81,7 @@
                             <div class="center">
                                 <div class="btn-group" role="group">
                                     <button type="button" class="btn btn-danger">♡</button>
-                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                                    <button type="button" class="btn btn-primary" onclick="addProductToCart(15)">加入購物車</button>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +95,20 @@
                         <br>
                         <label class="card-text">平均分數 </label>
                         <br>
-                        <label class="card-text">⭐⭐⭐⭐⭐</label>
+                        <div class="stars" id="avg-stars">
+                            <form action="">
+                                <input class="star star-5" id="star-5-${i}" type="radio" name="star" value="5">
+                                <label class="star star-5" for="star-5-${i}"></label>
+                                <input class="star star-4" id="star-4-${i}" type="radio" name="star" value="4">
+                                <label class="star star-4" for="star-4-${i}"></label>
+                                <input class="star star-3" id="star-3-${i}" type="radio" name="star" value="3">
+                                <label class="star star-3" for="star-3-${i}"></label>
+                                <input class="star star-2" id="star-2-${i}" type="radio" name="star" value="2">
+                                <label class="star star-2" for="star-2-${i}"></label>
+                                <input class="star star-1" id="star-1-${i}" type="radio" name="star" value="1">
+                                <label class="star star-1" for="star-1-${i}"></label>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col-8">
@@ -94,7 +120,21 @@
                     <div>
                         <div class="card h-100 shadow border-0">
                             <div class="card-body p-4">
-                                <label class="card-text">⭐⭐⭐⭐⭐</label>
+                                <h3>me</h3>
+                                <div class="stars" id="comment-stars">
+                                    <form action="">
+                                        <input class="star star-5" id="star-5-${i}" type="radio" name="star" value="5">
+                                        <label class="star star-5" for="star-5-${i}"></label>
+                                        <input class="star star-4" id="star-4-${i}" type="radio" name="star" value="4">
+                                        <label class="star star-4" for="star-4-${i}"></label>
+                                        <input class="star star-3" id="star-3-${i}" type="radio" name="star" value="3">
+                                        <label class="star star-3" for="star-3-${i}"></label>
+                                        <input class="star star-2" id="star-2-${i}" type="radio" name="star" value="2">
+                                        <label class="star star-2" for="star-2-${i}"></label>
+                                        <input class="star star-1" id="star-1-${i}" type="radio" name="star" value="1">
+                                        <label class="star star-1" for="star-1-${i}"></label>
+                                    </form>
+                                </div>
                                 <br>
                                 <label class="card-text">那我也要睡拉</label>
                                 <label class="comment_time">2022/05/07 14:05</label>

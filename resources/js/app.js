@@ -1,5 +1,11 @@
 require('./bootstrap');
 
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 $( document ).ready(function() {
     // date picker
     $('.datepicker').datepicker({
@@ -28,4 +34,11 @@ function openWindow() {
 function closeWindow() {
     $(".cover").css("display", "none");
     $(".window").css("display", "none");
+}
+
+window.quantityChange = function(id, dq) {
+    let quantity = parseInt($(`#quantity-${id}`).val());
+    let ans = quantity + dq;
+    ans = ans > 0 ? ans : 1;
+    $(`#quantity-${id}`).val(ans);
 }

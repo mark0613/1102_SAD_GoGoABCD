@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Module\ShareData;
 
+use DB;
+
 class CustomerController extends Controller {
     public function listPage() {
         $name = 'list';
@@ -71,9 +73,28 @@ class CustomerController extends Controller {
 
     public function cartPage() {
         $name = 'cart';
+        $cart = request()->session()->get('cart');
+        $cartData = [];
+        $total = 0;
+        if ($cart !== null) {
+            foreach($cart as $p_id => $quantity) {
+                $product = DB::table("product")->where("p_id", "=", $p_id)->first();
+                $tmp = [
+                    "p_id" => $product->p_id,
+                    "p_name" => $product->p_name,
+                    "photo" => $product->photo,
+                    "price" => $product->price,
+                    "quantity" => $quantity,
+                ];
+                array_push($cartData, $tmp);
+            }
+            $total = count($cartData);
+        }
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'cart' => $cartData,
+            'total' => $total,
         ];
         return view('customer.cart', $binding);
     }

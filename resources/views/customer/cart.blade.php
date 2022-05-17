@@ -11,29 +11,41 @@
         <div class="col-2"></div>
         <div class="col-8">
             <div class="right">
-                <label>2項目</label>
+                <label>{{ $total }}項目</label>
             </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+<div class="container-fluid">
+    <?php 
+        $totalCost = 0; 
+    ?>
+    @foreach($cart as $product)
+    <div class="row top">
+        <div class="col-2"></div>
+        <div class="col-8">
             <br>
             <div class="card h-100 shadow border-dark">
                 <div class="card-body p-4 row">
 
                     <div class="col-1 align-self-center center">
-                        <input class="form-check-input" type="checkbox">
+                        <input class="form-check-input" type="checkbox" id="check-{{ $product['p_id'] }}" value="{{ $product['p_id'] }}" name="remove[]">
                     </div>
                     <div class="col-3">
-                        <img class="img-fluid" alt="100%x280"
-                            src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/24/0010922454.jpg&v=62594944&w=180&h=180">
+                        <?php $path = "storage/" . $product["photo"]; ?>
+                        <img class="img-fluid" alt="product photo" src="{{ $path }}">
                     </div>
                     <div class="col-5">
-                        <h5>從零開始投資店面的路程</h5>
+                        <h5>{{ $product["p_name"] }}</h5>
                         <div>
                             <label class="price">$</label>
-                            <label class="price">200</label>
+                            <label class="price" id="price-{{ $product['p_id'] }}">{{ $product["price"] }}</label>
                         </div>
                         <div class="input-group">
-                            <input type='button' value='-' class="btn btn-outline-danger" />
-                            <input type='text' name='quantity' value='0' class="form-control item" />
-                            <input type='button' value='+' class="btn btn-outline-primary" />
+                            <input type='button' value='-' class="btn btn-outline-danger"  onclick="quantityChange({{ $product['p_id'] }}, -1); updateQuantity({{ $product['p_id'] }});">
+                            <input type='text' name='quantity' id="quantity-{{ $product['p_id'] }}" value='{{ $product["quantity"] }}' class="form-control item" />
+                            <input type='button' value='+' class="btn btn-outline-primary"  onclick="quantityChange({{ $product['p_id'] }}, 1); updateQuantity({{ $product['p_id'] }});">
                         </div>
                     </div>
                     <div class="col-3"></div>
@@ -42,48 +54,19 @@
         </div>
         <div class="col-2"></div>
     </div>
-    <div class="row top">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <div class="card h-100 shadow border-dark">
-                <div class="card-body p-4 row">
-
-                    <div class="col-1 align-self-center center">
-                        <input class="form-check-input" type="checkbox">
-                    </div>
-                    <div class="col-3">
-                        <img class="img-fluid" alt="100%x280"
-                            src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/24/0010922454.jpg&v=62594944&w=180&h=180">
-                    </div>
-                    <div class="col-5">
-                        <h5>從零開始投資店面的路程</h5>
-                        <div>
-                            <label class="price">$</label>
-                            <label class="price">200</label>
-                        </div>
-                        <div class="input-group">
-                            <input type='button' value='-' class="btn btn-outline-danger" />
-                            <input type='text' name='quantity' value='0' class="form-control item" />
-                            <input type='button' value='+' class="btn btn-outline-primary" />
-                        </div>
-                    </div>
-                    <div class="col-3"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-2"></div>
-    </div>
+    @endforeach
 
     <div class="row top">
         <div class="col-2"></div>
         <div class="col-8">
             <div class="form-inline right">
-                <label class="price">$0</label>
+                <label class="price">$</label>
+                <label class="price" id="total-cost"></label>
                 <div class="pl-1">
-                    <button type="button" class="btn btn-danger">移除</button>
+                    <button type="button" class="btn btn-danger" onclick="removeProductFromCart()">移除</button>
                 </div>
                 <div class="pl-1">
-                    <button type="button" class="btn btn-primary">結帳</button>
+                    <button type="button" class="btn btn-primary open-window">結帳</button>
                 </div>
             </div>
         </div>
