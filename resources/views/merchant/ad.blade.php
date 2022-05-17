@@ -34,18 +34,14 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active ad">
-                        <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp"
-                            class="d-block w-100" alt="...">
+                    <?php $i=0 ?>
+                    @foreach($ads as $ad)
+                    <div class="carousel-item ad {{ $i==0 ? 'active' : '' }}">
+                        <?php $path = "../storage/" . $ad->image; ?>
+                        <img src="{{ $path }}" class="d-block w-100" alt="{{ $ad->time }}" height="700px" width="500px">
                     </div>
-                    <div class="carousel-item ad">
-                        <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item ad">
-                        <img src="https://cdn.discordapp.com/attachments/919116314331713606/972438218811256832/cat.webp"
-                            class="d-block w-100" alt="...">
-                    </div>
+                    <?php $i++?>
+                    @endforeach
                 </div>
                 <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators"
                     data-slide="prev">

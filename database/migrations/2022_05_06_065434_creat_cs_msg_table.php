@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cs_msg', function (Blueprint $table) {
+            $table->increments("msg_id");
             $table->unsignedInteger("m_id");
             $table->unsignedInteger("c_id");
             $table->text('message');
             $table->time("time");
            
-            $table->primary(["m_id","c_id"]);
             $table->foreign("m_id")->references('u_id')->on('merchant')->onDelete('cascade');
             $table->foreign("c_id")->references('u_id')->on('member')->onDelete('cascade');
         });

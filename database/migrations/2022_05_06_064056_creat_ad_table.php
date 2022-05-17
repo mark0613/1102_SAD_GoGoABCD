@@ -14,12 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ad', function (Blueprint $table) {
-            $table->unsignedInteger("a_id");
-            $table->string("image", 30);
+            $table->increments("a_id");
+            $table->longText("image");
             $table->time("time");
-           
-            $table->primary(["a_id"]);
-            $table->foreign("a_id")->references('u_id')->on('merchant')->onDelete('cascade');
         });
     }
 

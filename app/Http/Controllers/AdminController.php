@@ -123,11 +123,26 @@ class AdminController extends Controller {
 
     public function adPage() {
         $name = 'ad';
+        $ad = DB::table("ad")->get();
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'ads' => $ad,
         ];
         return view('merchant.ad', $binding);
+    }
+    public function adProcess() {
+        $input = request();
+        $adPath = $input->file('ad')->store('ad', 'public');
+        $timezone = date_default_timezone_get();
+        date_default_timezone_set('Asia/Taipei');
+        $nowTime = date('Y-m-d H:i:s');
+        $ad = [
+            "image" => $adPath,
+            "time" => $nowTime,
+        ];
+        DB::table("ad")->insert($ad);
+        return Redirect::to("/admin/ad");
     }
 
     public function chartPage() {

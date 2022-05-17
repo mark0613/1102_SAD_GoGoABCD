@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-2">
             <div class="input-group mb-3">
-                <select class="custom-select" id="inputGroupSelect01">
+                <select class="custom-select" id="record-search-type">
                     <option value="1">ID</option>
                     <option value="2">日期</option>
                     <option value="3">類別</option>
@@ -19,29 +19,31 @@
         </div>
         <div class="col-6">
             <!--ID-->
-            <input type="text" class="form-control" id="" name="" placeholder="請輸入ID以查詢訂單">
+            <div class="search-type-radio" id="search-1">
+                <input type="text" class="form-control" id="search-id" name="record-id" placeholder="請輸入ID以查詢訂單">
+            </div>
 
             <!--日期-->
-            <div class="container-fluid">
+            <div class="container-fluid search-type-radio" id="search-2">
                 <div class="row">
                     <div class="col-6 row form-inline">
                         <label>起</label>
                         <div class="col">
-                            <input type="date" class="form-control" id="" name="">
+                            <input type="date" class="form-control" id="search-start-date" name="start-date">
                         </div>
                     </div>
                     <div class="col-6 row form-inline">
                         <label>迄</label>
                         <div class="col">
-                            <input type="date" class="form-control" id="" name="">
+                            <input type="date" class="form-control" id="search-end-date" name="end-date">
                         </div>
                     </div>
                 </div>
             </div>
 
             <!--類別-->
-            <div class="input-group mb-3">
-                <select class="custom-select" id="inputGroupSelect01">
+            <div class="input-group search-type-radio" id="search-3">
+                <select class="custom-select fill" id="search-class" name="record-class">
                     <option value="1">cc</option>
                     <option value="2">bb</option>
                     <option value="3">aa</option>

@@ -18,7 +18,7 @@ Route::group(['prefix' => 'user'], function() {
 
         Route::get('/login', [UserAuthController::class, 'loginPage']);
         Route::post('/login', [UserAuthController::class, 'loginProcess']);
-        
+
         Route::get('/logout', [UserAuthController::class, 'logout']);
     });
 });
@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/discount', [AdminController::class, 'discountPage']);
 
     Route::get('/ad', [AdminController::class, 'adPage']);
+    Route::post('/ad', [AdminController::class, 'adProcess']);
 
     Route::get('/chart', [AdminController::class, 'chartPage']);
 });

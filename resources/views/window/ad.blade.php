@@ -2,7 +2,7 @@
     <form method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <div class="container-fluid top">
-            <input type="file" name="photo" class="form-control">
+            <input type="file" name="ad" class="form-control">
             <br>
             <div class="row">
                 <div class="col-9"></div>

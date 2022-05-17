@@ -51,3 +51,7 @@
 .figure{
     width:70%;
 }
+
+.fill {
+    width: 100% !important;
+}

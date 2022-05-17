@@ -34,8 +34,8 @@
     <link rel="stylesheet" href="/css/app.css?<?php echo date("css", time())?>">
     <link rel="stylesheet" href="/css/base.css?<?php echo date("css", time())?>">
     <link rel="stylesheet" href="/css/merchant.css?<?php echo date("css", time())?>">
-    <script src="/js/app.js?<?php echo date("js", time())?>"></script>
     <script src="/js/merchant.js?<?php echo date("js", time())?>"></script>
+    <script src="/js/app.js?<?php echo date("js", time())?>"></script>
     
 </head>
 

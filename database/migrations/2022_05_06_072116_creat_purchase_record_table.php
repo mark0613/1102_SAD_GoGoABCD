@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('purchase_record', function (Blueprint $table) {
+            $table->increments("r_id");
             $table->unsignedInteger("u_id");
             $table->unsignedInteger("p_id");
             $table->time("time");
             $table->integer("quantity")->default(0);
             
-            $table->primary(["u_id","p_id","time"]);
             $table->foreign("u_id")->references('u_id')->on('member')->onDelete('cascade');
             $table->foreign("p_id")->references('p_id')->on('product')->onDelete('cascade');
         });
