@@ -213,6 +213,7 @@
         </div>
     </div>
 
+    <div class="cover"></div>
     <?php $name = app()->view->getSections()['name'] ?>
     @if($name == 'detail')
         @include('window.detail')

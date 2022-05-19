@@ -30,10 +30,12 @@ $( document ).ready(function() {
 function openWindow() {
     $('.cover').css("display", "block");
     $('.window').css("display", "block");
+    // $("body").css("overflow-y", "hidden");
 }
 function closeWindow() {
     $(".cover").css("display", "none");
     $(".window").css("display", "none");
+    // $("body").css("overflow-y", "auto");
 }
 
 window.quantityChange = function(id, dq) {

@@ -51,7 +51,7 @@ Route::get('/profile', [CustomerController::class, 'profilePage']);
 Route::get('/wishlist', [CustomerController::class, 'wishlistPage']);
 Route::get('/mybook', [CustomerController::class, 'mybookPage']);
 Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
-Route::get('/detail', [CustomerController::class, 'detailPage']);
+Route::get('/detail/{p_id}', [CustomerController::class, 'detailPage']);
 Route::get('/cart', [CustomerController::class, 'cartPage']);
 
 Route::group(['prefix' => 'api'], function() {

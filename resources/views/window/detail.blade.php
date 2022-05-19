@@ -2,22 +2,17 @@
     <form method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <div class="container-fluid top">
-            <div class="rate">
-                <input type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
-                <input type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
-                <input type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
-                <input type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
-                <input type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
+            <h3>{{ Auth::user()->username }}</h3>
+            <div class="stars" id="comment-stars-give">
+                <form action="" method="post">
+                    @for($i=5; $i>0; $i--)
+                    <input class="star star-{{ $i }}" id="star-{{ $i }}-give" type="radio" name="star" value="{{ $i }}">
+                    <label class="star star-{{ $i }}" for="star-{{ $i }}-give"></label>
+                    @endfor
+                </form>
             </div>
             <br>
-            <textarea class="form-control" id="story" name="story" rows="5" cols="33">
-                
-            </textarea>
+            <textarea class="form-control" id="story" name="story" rows="5" cols="33"></textarea>
             <br>
             <div class="right pr-3">
                 <button type="reset" class="btn btn-secondary close-window">取消</button>
