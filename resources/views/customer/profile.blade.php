@@ -6,73 +6,40 @@
 
 @section('content')
 <div class="content">
-    <div class="container-fluid">
-
+    <div class="container-fluid top">
         <div class="row">
-            <div class="col-1"></div>
-            <div class="col-2 bg-light">
-                <div class="nav flex-column nav-pills nav-fill" id="v-pills-tab" role="tablist"
-                    aria-orientation="vertical">
-                    <a class="nav-link sidebar_font center" id="v-pills-profile-tab" data-toggle="pill"
-                        href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">帳號</a>
-                    <a class="nav-link sidebar_font center" id="v-pills-messages-tab" data-toggle="pill"
-                        href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
-                        aria-selected="false">基本資料</a>
-
-                </div>
-            </div>
+            <div class="col-3"></div>
             <div class="col-6">
                 <h3 class="center">帳戶設定</h3>
-                <!--帳號-->
                 <div class="row">
                     <div class="col-2"></div>
                     <div class="col-8">
-                        <h4 class="center top">帳號</h4>
-                        <form>
-                            {!! csrf_field() !!}
-                            <div class="form-group">
-                                <label for="account">電子郵件</label>
-                                <input type="text" class="form-control" id="account" name="account">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">密碼</label>
-                                <input type="password" class="form-control" id="password" name="password">
-                            </div>
-                            <div class="center">
-                                <button type="submit" class="btn btn-primary">儲存</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-2"></div>
-                </div>
-
-                <!--基本資料-->
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-8">
-                        <h4 class="center top">基本資料</h4>
-                        <div class="center">
+                        <div class="left">
                             <label>Point :</label>
-                            <label>50pt</label>
+                            <label>{{ $profile->points }} pt</label>
                             <br>
-                            <label>等級 : LV </label>
-                            <label>1</label>
+                            <label>Level : </label>
+                            <label>{{ $profile->level }}</label>
                         </div>
                         <hr style="filter: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color="#000000"
                             size="3" />
-                        <form>
+                        <form method="post">
                             {!! csrf_field() !!}
                             <div class="form-group">
-                                <label for="account">姓名</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <label for="email">電子郵件</label>
+                                <input type="text" class="form-control" id="email" name="email" value="{{ $profile->email }}">
                             </div>
                             <div class="form-group">
-                                <label for="password">電話</label>
-                                <input type="text" class="form-control" id="tel" name="tel">
+                                <label for="name">真實姓名</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ $profile->name }}">
                             </div>
                             <div class="form-group">
-                                <label for="password">地址</label>
-                                <input type="text" class="form-control" id="tel" name="tel">
+                                <label for="tel">電話</label>
+                                <input type="text" class="form-control" id="phone" name="phone" value="{{ $profile->phone }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">地址</label>
+                                <input type="text" class="form-control" id="address" name="address" value="{{ $profile->address }}">
                             </div>
                             <div class="center">
                                 <button type="submit" class="btn btn-primary">儲存</button>

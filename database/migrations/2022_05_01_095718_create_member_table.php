@@ -19,6 +19,7 @@ return new class extends Migration
             $table->char("phone", 10)->default("");
             $table->string("address", 50)->default("");
             $table->unsignedInteger("points")->default(0);
+            $table->unsignedInteger("level")->default(1);
 
             $table->primary("u_id");
             $table->foreign("u_id")->references('u_id')->on('users')->onDelete('cascade');

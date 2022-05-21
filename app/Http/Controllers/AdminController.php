@@ -52,18 +52,14 @@ class AdminController extends Controller {
             "price" => $input["price"],
             "inventory" => $input["inventory"],
             "p_type" => $er_and_type[1],
-            "p_e_or_r" => $er_and_type[0]
+            "p_e_or_r" => $er_and_type[0],
+            "isbn" => $input["isbn"],
+            "publisher" => $input["publisher"],
         ];
         $data = Product::create($product);
         // (book or music) and (author or singer) table
         $p_id = $data->p_id;
         if ($er_and_type[1] == "book") {
-            $book = [
-                "p_id" => $p_id,
-                "isbn" => $input["isbn"],
-                "publisher" => $input["publisher"],
-            ];
-            DB::table("book")->insert($book);
             foreach($author_or_singer as $author) {
                 $tmp = [
                     "p_id" => $p_id,
@@ -71,17 +67,11 @@ class AdminController extends Controller {
                 ];
                 DB::table("author")->insert($tmp);
             }
-            $b_or_m = "b";
-            if ($product["p_e_or_r"]) {
+            if ($product["p_e_or_r"] == 'e') {
                 PdfController::uploadPdf($file);
             }
         }
         else {
-            $music = [
-                "p_id" => $p_id,
-                "publisher" => $input["publisher"],
-            ];
-            DB::table("music")->insert($music);
             foreach($author_or_singer as $singer) {
                 $tmp = [
                     "p_id" => $p_id,
@@ -89,7 +79,9 @@ class AdminController extends Controller {
                 ];
                 DB::table("singer")->insert($tmp);
             }
-            $b_or_m = "m";
+            if ($product["p_e_or_r"] == 'e') {
+                $file->store('product', 'public');
+            }
         }
         // classes table
         foreach($classes as $c_id) {

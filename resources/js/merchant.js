@@ -10,6 +10,11 @@ $(document).ready(function() {
     $("#record-search-type").change(function() {
         showSearchType()
     })
+
+    // show product preview
+    $("#photo").change(function(){
+        showPreview(this);
+    })
 });
 
 function showSearchType() {
@@ -35,7 +40,7 @@ function changeProductClass() {
         if (!preVal.includes("book")) {
             refreshOptions()
         }
-        $(".dropdown-toggle").prop('disabled', false);
+        $(".dropdown-toggle").attr('disabled', false);
         $(".class-book").css("display", "block");
         $(".class-music").css("display", "none");
     }
@@ -43,12 +48,32 @@ function changeProductClass() {
         if (!preVal.includes("music")) {
             refreshOptions()
         }
-        $(".dropdown-toggle").prop('disabled', false);
+        $(".dropdown-toggle").attr('disabled', false);
         $(".class-book").css("display", "none");
         $(".class-music").css("display", "block");
     }
     else {
-        $(".dropdown-toggle").prop('disabled', true);
+        $(".dropdown-toggle").attr('disabled', true);
         refreshOptions()
+    }
+
+    if (val.includes("e-")) {
+        $("#file").css("display", "inline");
+    }
+    else {
+        $("#file").css("display", "none");
+    }
+}
+
+function showPreview(inputFile){
+    if (inputFile.files && inputFile.files[0]){
+        var reader = new FileReader();
+        reader.onload = function(event){
+            $("#preview").attr("src", event.target.result);
+        }
+        reader.readAsDataURL(inputFile.files[0]);
+    }
+    else{
+        $("#preview").attr("src", "https://i.imgur.com/2s15CcP.png");
     }
 }

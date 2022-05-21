@@ -14,5 +14,5 @@ php artisan migrate
 
 ## 執行一次的命令
 ```
-php artisan db:seed --class=AllClassSeeder
+php artisan db:seed --class=DatabaseSeeder
 ```

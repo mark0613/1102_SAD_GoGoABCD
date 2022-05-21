@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
 use App\Module\ShareData;
 
 use DB;
@@ -32,11 +34,36 @@ class CustomerController extends Controller {
 
     public function profilePage() {
         $name = 'profile';
+        $u_id = request()->user()->u_id;
+        $profile = DB::table('users')
+            ->join('member', 'users.u_id', '=', 'member.u_id')
+            ->where("users.u_id", "=", $u_id)
+            ->first();
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'profile' => $profile,
         ];
         return view('customer.profile', $binding);
+    }
+    public function profileProcess() {
+        $input = request();
+        $u_id = $input->user()->u_id;
+        $email = $input["email"];
+        $name = $input["name"];
+        $phone = $input["phone"];
+        $address = $input["address"];
+        DB::table("users")
+            ->where("u_id", "=", $u_id)
+            ->update(['email' => $email]);
+        DB::table("member")
+            ->where("u_id", "=", $u_id)
+            ->update([
+                "name" => $name,
+                "phone" => $phone,
+                "address" => $address,
+            ]);
+        return Redirect::to("/profile");
     }
 
     public function wishlistPage() {

@@ -21,6 +21,7 @@ class Product extends Model {
         'price',
         'p_type',
         'p_e_or_r',
+        'publisher',
     ];
 
     public $timestamps = false;

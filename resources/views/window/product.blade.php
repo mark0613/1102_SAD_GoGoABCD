@@ -4,8 +4,8 @@
         <div class="container-fluid">
             <div class="row top_win">
                 <div class="col-6">
-                    <img src="https://i.imgur.com/2s15CcP.png" alt="product photo" class="cover_win">
-                    <input type="file" name="photo">
+                    <img src="https://i.imgur.com/2s15CcP.png" alt="product photo" class="cover_win" id="preview">
+                    <input type="file" name="photo" id="photo">
                     <select name="p_type" id="p_type">
                         <option value="none" selected>選擇商品種類</option>
                         <option value="r-book">實體書</option>
@@ -23,7 +23,7 @@
                         @endforeach
                     </select>
                     <input type="hidden" id="pre_p_type" value="">
-                    <input type="file" name="file">
+                    <input type="file" name="file" id="file">
                 </div>
 
                 <div class="col-6 row">

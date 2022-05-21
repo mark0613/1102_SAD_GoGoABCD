@@ -48,6 +48,7 @@ Route::group(['prefix' => 'admin'], function() {
 Route::get('/list', [CustomerController::class, 'listPage']);
 Route::get('/all', [CustomerController::class, 'allPage']);
 Route::get('/profile', [CustomerController::class, 'profilePage']);
+Route::post('/profile', [CustomerController::class, 'profileProcess']);
 Route::get('/wishlist', [CustomerController::class, 'wishlistPage']);
 Route::get('/mybook', [CustomerController::class, 'mybookPage']);
 Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
