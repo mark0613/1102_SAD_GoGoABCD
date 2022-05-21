@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\CartController;
 
 use Response;
+use DB;
 
 class ApiController extends Controller {
     public function addProductToCart() {
@@ -43,6 +44,31 @@ class ApiController extends Controller {
         CartController::$cart = ($cart == null) ? [] : $cart;
         CartController::updateQuantity($p_id, $q);
         $input->session()->put('cart', CartController::$cart);
+        $response = [
+            "status" => "success"
+        ];
+
+        return Response::json($response);
+    }
+
+    public function addProductToWishlist() {
+        $input = request();
+        $p_id = $input["p_id"];
+        $wish = [
+            "p_id" => $p_id,
+            "u_id" => $input->user()->u_id,
+        ];
+        DB::table('wishlist')->insert($wish);
+        $response = [
+            "status" => "success"
+        ];
+
+        return Response::json($response);
+    }
+    public function removeProductFromWishlist() {
+        $input = request();
+        $p_id = $input["p_id"];
+        DB::table('wishlist')->where('p_id', $p_id)->delete();
         $response = [
             "status" => "success"
         ];

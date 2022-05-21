@@ -8,6 +8,9 @@ use App\Module\ShareData;
 use DB;
 use Auth;
 
+use App\Models\Product;
+use App\Models\Rate;
+
 class CustomerController extends Controller {
     public function listPage() {
         $name = 'list';
@@ -38,9 +41,41 @@ class CustomerController extends Controller {
 
     public function wishlistPage() {
         $name = 'wishlist';
+        $winshlist = DB::table("wishlist")
+            ->join("product", "wishlist.p_id", "=", "product.p_id")
+            ->get();
+        $author_or_singer = [];
+        $classes = [];
+        $avg = [];
+        foreach($winshlist as $w) {
+            $p_id = $w->p_id;
+            $p_type = $w->p_type;
+            $as = $p_type=="book" ? "author" : "singer";
+            $as = DB::table($as)
+                ->where("p_id", "=", $p_id)
+                ->get();
+            $c = DB::table("classes")
+                ->where("p_id", "=", $p_id)
+                ->join("all_classes", "classes.c_id", "=", "all_classes.c_id")
+                ->get();
+            $a = DB::table("rate")
+                ->where("p_id", "=", $p_id)
+                ->groupBy('p_id')
+                ->avg('stars');
+            $a = $a==null ? 0 : $a;
+            $a = round($a, 0);
+
+            array_push($author_or_singer, $as);
+            array_push($classes, $c);
+            array_push($avg, $a);
+        }
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'wishlist' => $winshlist,
+            'author_or_singer' => $author_or_singer,
+            "classes" => $classes,
+            "avg" => $avg,
         ];
         return view('customer.wishlist', $binding);
     }
@@ -70,7 +105,6 @@ class CustomerController extends Controller {
             ->value("p_type");
         $detail = DB::table("product")
             ->where("product.p_id", "=", $p_id)
-            ->join($p_type, "product.p_id", "=", "$p_type.p_id")
             ->first();
         $author_or_singer = $p_type=="book" ? "author" : "singer";
         $author_or_singer = DB::table($author_or_singer)
@@ -80,15 +114,20 @@ class CustomerController extends Controller {
             ->where("p_id", "=", $p_id)
             ->join("all_classes", "classes.c_id", "=", "all_classes.c_id")
             ->get();
-        $comments = DB::table("rate")
-            ->where("rate.p_id", "=", $p_id)
-            ->join("users", "users.u_id", "=", "rate.u_id")
-            ->orderBy('time', 'desc')
-            ->get();
-        $inWishlist = DB::table("wishlist")
-            ->where("u_id", "=", Auth::user()->u_id)
-            ->where("p_id", "=", $p_id)
-            ->first();
+
+        $comments = Product::find($p_id)
+            ->comments
+            ->sortByDesc('time');
+        if (Auth::user()) {
+            $inWishlist = DB::table("wishlist")
+                ->where("u_id", "=", Auth::user()->u_id)
+                ->where("p_id", "=", $p_id)
+                ->first();
+        }
+        else {
+            $inWishlist = null;
+        }
+
         $avg = DB::table("rate")
             ->where("p_id", "=", $p_id)
             ->groupBy('p_id')

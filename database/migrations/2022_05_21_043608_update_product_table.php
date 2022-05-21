@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('music', function (Blueprint $table) {
-            $table->unsignedInteger("p_id");
+        Schema::table('product', function($table) {
             $table->string("publisher", 50);
-
-            $table->primary("p_id");
-            $table->foreign("p_id")->references("p_id")->on("product")->onDelete('cascade');
+            $table->string("isbn", 13)->nullable();
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('music');
+        //
     }
 };

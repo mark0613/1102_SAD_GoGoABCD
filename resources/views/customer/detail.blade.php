@@ -5,7 +5,7 @@
 @section('name', $name)
 
 @section('content')
-
+<?php $p_id = $detail->p_id; ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-2"></div>
@@ -14,8 +14,8 @@
             <div class="row">
                 <div class="col-4">
                     <div class="center">
-                        <img class="img-fluid" alt="100%x280"
-                            src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/24/0010922454.jpg&v=62594944&w=180&h=180">
+                        <?php $path = $detail->photo; ?>
+                        <img class="img-fluid" alt="product photo" src='{{ asset("/storage/$path") }}'>
                     </div>
                     <br>
                     <br>
@@ -64,9 +64,9 @@
                             <br>
                             <p>數量</p>
                             <div class="input-group">
-                                <input type='button' value='-' class="btn btn-outline-danger" onclick="quantityChange(0, -1)">
-                                <input type='text' id="quantity-0" value='1' class="form-control item" />
-                                <input type='button' value='+' class="btn btn-outline-primary" onclick="quantityChange(0, 1)">
+                                <input type='button' value='-' class="btn btn-outline-danger" onclick="quantityChange({{ $p_id }}, -1)">
+                                <input type='text' id="quantity-{{ $p_id }}" value='1' class="form-control item" />
+                                <input type='button' value='+' class="btn btn-outline-primary" onclick="quantityChange({{ $p_id }}, 1)">
                             </div>
                             <br>
                             <div class="right pr-2">
@@ -76,14 +76,16 @@
                             <br>
                             <div class="center">
                                 <div class="btn-group" role="group">
-                                    <button type="button" class="btn 
+                                    <button type="button" 
                                         @if($inWishlist)
-                                            btn-danger
+                                            class="btn btn-danger"
+                                            onclick="removeProductFromWishlist({{ $p_id }})"
                                         @else
-                                            btn-light
+                                            onclick="addProductToWishlist({{ $p_id }})"
+                                            class="btn btn-light"
                                         @endif
-                                    ">♡</button>
-                                    <button type="button" class="btn btn-primary" onclick="addProductToCart({{ $detail->p_id }})">加入購物車</button>
+                                    id="wish">♡</button>
+                                    <button type="button" class="btn btn-primary" onclick="addProductToCart({{ $p_id }})">加入購物車</button>
                                 </div>
                             </div>
                         </div>

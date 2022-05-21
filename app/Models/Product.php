@@ -24,4 +24,8 @@ class Product extends Model {
     ];
 
     public $timestamps = false;
+
+    public function comments() {
+        return $this->hasMany(Rate::class, 'p_id');
+    }
 }

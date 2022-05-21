@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("name", 50);
 
             $table->primary(["p_id", "name"]);
-            $table->foreign("p_id")->references("p_id")->on("music")->onDelete('cascade');
+            $table->foreign("p_id")->references("p_id")->on("product")->onDelete('cascade');
         });
     }
 

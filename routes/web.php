@@ -58,6 +58,8 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('/addProductToCart', [ApiController::class, 'addProductToCart']);
     Route::post('/removeProductFromCart', [ApiController::class, 'removeProductFromCart']);
     Route::post('/updateQuantity', [ApiController::class, 'updateQuantity']);
+    Route::post('/addProductToWishlist', [ApiController::class, 'addProductToWishlist']);
+    Route::post('/removeProductFromWishlist', [ApiController::class, 'removeProductFromWishlist']);
     Route::get('/product', [ApiController::class, 'product']);
     Route::get('/record', [ApiController::class, 'record']);
     Route::get('/discount', [ApiController::class, 'discount']);
