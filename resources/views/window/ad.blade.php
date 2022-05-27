@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-9"></div>
                 <div class="col-3">
-                    <button type="reset" class="btn btn-secondary close-window" onclick="">取消</button>
+                    <button type="reset" class="btn btn-secondary close-window">取消</button>
                     <button type="submit" class="btn btn-primary ml-1">儲存</button>
                 </div>
             </div>

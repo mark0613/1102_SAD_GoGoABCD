@@ -24,6 +24,12 @@ $( document ).ready(function() {
     $(".close-window, .cover").on('click', function() {
         closeWindow();
     })
+
+    // show spinner when click submit
+    $(".window button[type='submit']").on('click', function() {
+        $(".window button[type='submit']").html('<span class="spinner-border"></span>');
+        $("button").attr("disabled", true);
+    })
 });
 
 

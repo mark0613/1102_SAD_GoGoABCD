@@ -1,3 +1,16 @@
+<?php
+
+$all_book_classes = DB::table("all_classes")->where("type", "=", "b")->get();
+$all_music_classes = DB::table("all_classes")->where("type", "=", "m")->get();
+$allClasses = [
+    "實體書籍" => $all_book_classes,
+    "實體唱片" => $all_music_classes,
+    "電子書" => $all_book_classes,
+    "數位音樂" => $all_music_classes,
+];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,7 +102,7 @@
                                                     我的帳戶
                                                 </a>
                                                 <div class="dropdown-menu account" aria-labelledby="navbarDropdownMenuLink">
-                                                    <a class="dropdown-item center" href="admin">管理後台</a>
+                                                    <a class="dropdown-item center" href="{{ asset('/admin') }}">管理後台</a>
                                                     <a href="{{ asset('/user/auth/logout') }}" class="center btn-outline-primary btn">登出</a>
                                                 </div>
                                         </div>
@@ -109,7 +122,7 @@
                                                 <a class="dropdown-item center" href="mybook">我的書籍</a>
                                                 <a class="dropdown-item center" href="mymusic">我的音樂</a>
                                                 <a class="dropdown-item center" href="#">訂單資訊</a>
-                                                <a href="user/auth/logout" class="center btn-outline-primary btn">登出</a>
+                                                <a href="{{ asset('/user/auth/logout') }}" class="center btn-outline-primary btn">登出</a>
                                             </div>
                                         </div>
                                     </div>
@@ -130,25 +143,23 @@
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
+                                    @foreach($allClasses as $className => $classes)
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle no_underline" href="#"
                                             id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
                                             aria-expanded="false">
-                                            實體書籍
+                                            {{ $className }}
                                         </a>
                                         <div class="dropdown-menu dropdown-large"
                                             aria-labelledby="navbarDropdownMenuLink">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-8">
-                                                        <h3>類別</h3>
+                                                        <h3>分類</h3>
                                                         <br>
-                                                        <button type="submit"
-                                                            class="btn btn-outline-primary">科幻</button>
-                                                        <button type="submit"
-                                                            class="btn btn-outline-primary">愛情</button>
-                                                        <button type="submit"
-                                                            class="btn btn-outline-primary">兒童</button>
+                                                        @foreach($classes as $class)
+                                                        <a href="#" class="btn btn-outline-primary">{{ $class->class }}</a>
+                                                        @endforeach
                                                     </div>
 
                                                     <div class="col-4">
@@ -160,42 +171,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle no_underline" href="#"
-                                            id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">
-                                            實體唱片
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle no_underline" href="#"
-                                            id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">
-                                            電子書
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle no_underline" href="#"
-                                            id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                                            aria-expanded="false">
-                                            數位音樂
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </nav>

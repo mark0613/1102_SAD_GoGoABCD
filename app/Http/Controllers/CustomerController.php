@@ -11,7 +11,7 @@ use DB;
 use Auth;
 
 use App\Models\Product;
-use App\Models\Rate;
+use App\Models\comment;
 
 class CustomerController extends Controller {
     public function listPage() {
@@ -68,8 +68,10 @@ class CustomerController extends Controller {
 
     public function wishlistPage() {
         $name = 'wishlist';
+        $u_id = request()->user()->u_id;
         $winshlist = DB::table("wishlist")
             ->join("product", "wishlist.p_id", "=", "product.p_id")
+            ->where("u_id", "=", $u_id)
             ->get();
         $author_or_singer = [];
         $classes = [];
@@ -85,7 +87,7 @@ class CustomerController extends Controller {
                 ->where("p_id", "=", $p_id)
                 ->join("all_classes", "classes.c_id", "=", "all_classes.c_id")
                 ->get();
-            $a = DB::table("rate")
+            $a = DB::table("comment")
                 ->where("p_id", "=", $p_id)
                 ->groupBy('p_id')
                 ->avg('stars');
@@ -155,7 +157,7 @@ class CustomerController extends Controller {
             $inWishlist = null;
         }
 
-        $avg = DB::table("rate")
+        $avg = DB::table("comment")
             ->where("p_id", "=", $p_id)
             ->groupBy('p_id')
             ->avg('stars');

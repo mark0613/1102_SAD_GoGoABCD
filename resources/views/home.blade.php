@@ -16,10 +16,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-6">
-                                <h3 class="mb-3">實體書籍<br>您可能感興趣</h3>
+                                <h3 class="mb-3">推薦商品<br>您可能感興趣</h3>
                             </div>
                             <div class="col-6 text-right">
-                                <a class="underline" href="#">檢視全部</a>
                             </div>
                             <div class="col-1 align-self-center">
                                 <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
@@ -31,82 +30,121 @@
                             </div>
                             <div class="col-10">
                                 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-
                                     <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="row card-deck">
-                                                <div class="card">
-                                                    <div class="book_cover">
-                                                        <img class="img-fluid" alt="100%x280"
-                                                            src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/24/0010922454.jpg&v=62594944&w=180&h=180">
-                                                        <div class="info">
-                                                            <button class="btn btn-primary">More</button>
+                                        <?php 
+                                            $i = 0;
+                                            $p_id_4= [];
+                                        ?>
+                                        @foreach($products as $p_id => $value)
+                                            <?php 
+                                                $p_id_4[$i%4] = $p_id;
+                                            ?>
+                                            @if($i%4 == 3)
+                                            <div class="carousel-item
+                                                @if($i < 4)
+                                                    active
+                                                @endif
+                                            ">
+                                                <div class="row card-deck">
+                                                        @for($j=3; $j>=0; $j--)
+                                                        <?php $product = $products[$p_id_4[$j]] ?>
+                                                        <div class="card">
+                                                            <div class="book_cover">
+                                                                <img class="img-fluid" alt="product photo" src="{{ asset('storage/' . $product['detail']->photo) }}">
+                                                                <div class="info">
+                                                                    <a href="{{ asset('/detail/' . $p_id_4[$j]) }}" class="btn btn-primary">More</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title book_name">{{ $product['detail']->p_name }}</h5>
+                                                                <label class="card-text">作者:</label>
+                                                                
+                                                                @foreach($product['as'] as $as)
+                                                                <label class="card-text">{{ $as->name }}</label>
+                                                                @endforeach
+                                                                <br>
+                                                                <label class="card-text">評價:</label>
+                                                                <div class="stars" id="comment-stars-{{ $p_id_4[$j] }}">
+                                                                    <form action="">
+                                                                        @for($s=5; $s>0; $s--)
+                                                                        <input class="star star-{{ $s }}" id="star-{{ $s }}-{{ $p_id_4[$j] }}" type="radio" name="star" value="{{ $s }}"
+                                                                            @if($product['stars'] == $s)
+                                                                            checked
+                                                                            @endif
+                                                                        >
+                                                                        <label class="star star-{{ $s }}" for="star-{{ $s }}-{{ $p_id_4[$j] }}"></label>
+                                                                        @endfor
+                                                                    </form>
+                                                                </div>
+                                                                <br>
+                                                                <label class="card-text bold">價格:$</label>
+                                                                <label class="card-text bold">{{ $product['detail']->price }}</label>
+                                                                <br>
+                                                                <div class="right pr-2">
+                                                                    <label class="card-text">庫存:</label>
+                                                                    <label class="card-text">{{ $product['detail']->inventory }}</label>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                                <div class="btn-group center" role="group">
+                                                                    <button type="button"
+                                                                    @if($product['inWishlist'])
+                                                                        class="btn btn-danger"
+                                                                        onclick="removeProductFromWishlist({{ $p_id_4[$j] }})"
+                                                                    @else
+                                                                        class="btn btn-light"
+                                                                        onclick="addProductToWishlist({{ $p_id_4[$j] }})"
+                                                                    @endif
+                                                                    id="wish-{{ $p_id_4[$j] }}">♡</button>
+                                                                    <input type='hidden' id="quantity-{{ $p_id_4[$j] }}" value='1' class="form-control item" />
+                                                                    <button type="button" class="btn btn-primary" onclick="addProductToCart({{ $p_id_4[$j] }})">加入購物車</button>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <h5 class="card-title book_name">從零開始投資店面的路程</h5>
-                                                        <label class="card-text">作者:</label>
-                                                        <label class="card-text">pingleo桑</label>
-                                                        <br>
-                                                        <label class="card-text">評價:</label>
-                                                        <label class="card-text">⭐⭐⭐⭐⭐</label>
-                                                        <br>
-                                                        <label class="card-text bold">價格:$</label>
-                                                        <label class="card-text bold">200</label>
-                                                        <br>
-                                                        <div class="right pr-2">
-                                                            <label class="card-text">庫存:</label>
-                                                            <label class="card-text">3</label>
+                                                        @endfor
+                                                        <!-- <div class="card">
+                                                            <img class="img-fluid" alt="100%x280"
+                                                                src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/00/0010920073.jpg&v=6256a64c&w=180&h=180">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Special title treatment</h4>
+                                                                <p class="card-text">With supporting text below as a natural
+                                                                    lead-in to additional content.</p>
+
+                                                            </div>
                                                         </div>
-                                                        <br>
-                                                        <br>
-                                                        <div class="btn-group center" role="group">
-                                                            <button type="button" class="btn btn-danger">♡</button>
-                                                            <button type="button" class="btn btn-primary">加入購物車</button>
+
+
+                                                        <div class="card">
+                                                            <img class="img-fluid" alt="100%x280"
+                                                                src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/26/0010922644.jpg&v=626a7abb&w=180&h=180">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Special title treatment</h4>
+                                                                <p class="card-text">With supporting text below as a natural
+                                                                    lead-in to additional content.</p>
+
+                                                            </div>
                                                         </div>
-                                                    </div>
-
-                                                </div>
 
 
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/00/0010920073.jpg&v=6256a64c&w=180&h=180">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Special title treatment</h4>
-                                                        <p class="card-text">With supporting text below as a natural
-                                                            lead-in to additional content.</p>
+                                                        <div class="card">
+                                                            <img class="img-fluid" alt="100%x280"
+                                                                src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Special title treatment</h4>
+                                                                <p class="card-text">With supporting text below as a natural
+                                                                    lead-in to additional content.</p>
 
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/26/0010922644.jpg&v=626a7abb&w=180&h=180">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Special title treatment</h4>
-                                                        <p class="card-text">With supporting text below as a natural
-                                                            lead-in to additional content.</p>
+                                                            </div>
+                                                        </div> -->
 
                                                     </div>
                                                 </div>
-
-
-                                                <div class="card">
-                                                    <img class="img-fluid" alt="100%x280"
-                                                        src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/092/06/0010920642.jpg&v=623af6b6&w=180&h=180">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Special title treatment</h4>
-                                                        <p class="card-text">With supporting text below as a natural
-                                                            lead-in to additional content.</p>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
+                                                
+                                            @endif
+                                            <?php $i++; ?>
+                                        @endforeach
+                                        <!-- <div class="carousel-item">
                                             <div class="row">
 
                                                 <div class="col-md-4 mb-3">
@@ -189,7 +227,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>

@@ -88,9 +88,9 @@ window.addProductToWishlist = function(p_id, fast=true) {
             if (status == "success") {
                 if (response["status"] == "success") {
                     if (fast) {
-                        $("#wish").addClass("btn-danger");
-                        $("#wish").removeClass("btn-light");
-                        $("#wish").attr("onclick", `removeProductFromWishlist(${p_id})`);
+                        $(`#wish-${p_id}`).addClass("btn-danger");
+                        $(`#wish-${p_id}`).removeClass("btn-light");
+                        $(`#wish-${p_id}`).attr("onclick", `removeProductFromWishlist(${p_id})`);
                     }
                     else {
                         alert("新增成功");
@@ -113,9 +113,9 @@ window.removeProductFromWishlist = function(p_id, fast=true) {
             if (status == "success") {
                 if (response["status"] == "success") {
                     if (fast) {
-                        $("#wish").addClass("btn-light");
-                        $("#wish").removeClass("btn-danger");
-                        $("#wish").attr("onclick", `addProductToWishlist(${p_id})`);
+                        $(`#wish-${p_id}`).addClass("btn-light");
+                        $(`#wish-${p_id}`).removeClass("btn-danger");
+                        $(`#wish-${p_id}`).attr("onclick", `addProductToWishlist(${p_id})`);
                     }
                     else {
                         alert("移除成功");
