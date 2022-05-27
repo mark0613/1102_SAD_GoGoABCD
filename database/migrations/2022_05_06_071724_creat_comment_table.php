@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rate', function (Blueprint $table) {
+        Schema::create('comment', function (Blueprint $table) {
             $table->unsignedInteger("u_id");
             $table->unsignedInteger("p_id");
             $table->integer("stars");
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rate');
+        Schema::dropIfExists('comment');
     }
 };

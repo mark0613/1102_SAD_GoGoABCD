@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedInteger("p_id");
             $table->string("name", 50);
 
-            $table->primary("p_id");
+            $table->primary(["p_id", "name"]);
             $table->foreign("p_id")->references("p_id")->on("product")->onDelete('cascade');
         });
     }
