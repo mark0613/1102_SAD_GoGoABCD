@@ -11,7 +11,7 @@ use DB;
 use Auth;
 
 use App\Models\Product;
-use App\Models\comment;
+use App\Models\Comment;
 
 class CustomerController extends Controller {
     public function listPage() {
