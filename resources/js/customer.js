@@ -74,7 +74,8 @@ window.calculateTotalCost = function() {
         let quantity = parseInt($(`#quantity-${id}`).val())
         totalCost += (price * quantity);
     }
-    $("#total-cost").text(totalCost);
+    $(".total-cost").text(totalCost);
+    $("#cost").val(totalCost);
 }
 
 window.addProductToWishlist = function(p_id, fast=true) {

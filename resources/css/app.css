@@ -1,3 +1,6 @@
+html {
+    height: 100%;
+}
 .cover {
     position: absolute;
     top: 0;
@@ -19,6 +22,9 @@
 
 footer {
     padding: 50px;
+}
+.top-50 {
+    margin-top: -50px;
 }
 
 /* stars */

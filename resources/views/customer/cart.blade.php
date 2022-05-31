@@ -61,7 +61,7 @@
         <div class="col-8">
             <div class="form-inline right">
                 <label class="price">$</label>
-                <label class="price" id="total-cost"></label>
+                <label class="price total-cost"></label>
                 <div class="pl-1">
                     <button type="button" class="btn btn-danger" onclick="removeProductFromCart()">移除</button>
                 </div>

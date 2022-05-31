@@ -27,21 +27,31 @@ $( document ).ready(function() {
 
     // show spinner when click submit
     $(".window button[type='submit']").on('click', function() {
-        $(".window button[type='submit']").html('<span class="spinner-border"></span>');
-        $("button").attr("disabled", true);
+        setTimeout(
+            function() {
+                $(".window button[type='submit']").html('<span class="spinner-border"></span>');
+                $("button").attr("disabled", true);
+            },
+            1
+        )
     })
 });
 
 
 function openWindow() {
+    let pageHeight = Math.max($("body").outerHeight(), $("html").outerHeight());
+    let nowPosition = document.documentElement.scrollTop;
+    let windowPosition = nowPosition + 130;
     $('.cover').css("display", "block");
+    $('.cover').outerHeight(pageHeight);
     $('.window').css("display", "block");
-    // $("body").css("overflow-y", "hidden");
+    $('.window').css("top", windowPosition);
+    $("body").css("overflow-y", "hidden");
 }
 function closeWindow() {
     $(".cover").css("display", "none");
     $(".window").css("display", "none");
-    // $("body").css("overflow-y", "auto");
+    $("body").css("overflow-y", "auto");
 }
 
 window.quantityChange = function(id, dq) {
