@@ -1,0 +1,26 @@
+body {
+    background-color: #000;
+}
+.full-x {
+    width: 100%;
+}
+.full-x > .container {
+    max-width: 100% !important;
+}
+
+.fix-on-screen {
+    position: absolute;
+}
+.fix-top {
+    top: 0px;
+}
+.fix-bottom {
+    bottom: 0px;
+}
+footer {
+    background-color: #fff;
+}
+
+.empty-54 {
+    margin-top: 54px;
+}
