@@ -36,7 +36,7 @@ $( document ).ready(function() {
         )
     })
 
-    $("input[class='quantity']").change(function() {
+    $(".quantity").change(function() {
         quantityChange($(this).prop("id").split("-")[1], 0);
         calculateTotalCost();
     })
@@ -62,13 +62,13 @@ function closeWindow() {
 window.quantityChange = function(id, dq) {
     let quantity = parseInt($(`#quantity-${id}`).val());
     let inventory = parseInt($(`#inventory-${id}`).text());
-    if (quantity < 1) {
+    let ans = quantity + dq;
+    if (ans < 1) {
         alert("數量不能小於1!");
     }
-    if (quantity > inventory) { 
+    if (ans > inventory) { 
         alert("超過庫存量!");
     }
-    let ans = quantity + dq;
     ans = Math.max(ans, 1);
     ans = Math.min(ans, inventory);
     $(`#quantity-${id}`).val(ans);

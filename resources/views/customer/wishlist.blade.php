@@ -79,8 +79,8 @@
                             <br>
                             <p>數量</p>
                             <div class="input-group">
-                            <input type='button' value='-' class="btn btn-outline-danger" onclick="quantityChange({{ $p_id }}, -1)">
-                                <input type='text' id="quantity-{{ $p_id }}" value='1' class="form-control item" />
+                                <input type='button' value='-' class="btn btn-outline-danger" onclick="quantityChange({{ $p_id }}, -1)">
+                                <input type='text' id="quantity-{{ $p_id }}" class="form-control item quantity" value='1'>
                                 <input type='button' value='+' class="btn btn-outline-primary" onclick="quantityChange({{ $p_id }}, 1)">
                             </div>
                             <br>
