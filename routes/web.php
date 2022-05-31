@@ -54,6 +54,7 @@ Route::get('/mybook', [CustomerController::class, 'mybookPage']);
 Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
 Route::get('/detail/{p_id}', [CustomerController::class, 'detailPage']);
 Route::get('/cart', [CustomerController::class, 'cartPage']);
+Route::post('/cart', [CustomerController::class, 'cartProcess']);
 
 Route::group(['prefix' => 'api'], function() {
     Route::post('/addProductToCart', [ApiController::class, 'addProductToCart']);
