@@ -111,9 +111,25 @@ class CustomerController extends Controller {
 
     public function mybookPage() {
         $name = 'mybook';
+        $input = request();
+        $u_id = $input->user()->u_id;
+        $own = DB::table("own")
+            ->where("u_id", "=", $u_id)
+            ->join("product", "product.p_id", "=", "own.p_id")
+            ->get();
+        $mybooks = [];
+        foreach($own as $book) {
+            $p_id = $book->p_id;
+            $authors = DB::table("author")->where("p_id", "=", $p_id)->get();
+            $mybooks[$p_id] = [
+                "book" => $book,
+                "author" => $authors,
+            ];
+        }
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'mybooks' => $mybooks,
         ];
         return view('customer.mybook', $binding);
     }

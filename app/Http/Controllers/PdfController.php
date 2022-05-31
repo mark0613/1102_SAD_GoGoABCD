@@ -67,9 +67,10 @@ class PdfController extends Controller {
     }
 
     public static function uploadPdf($file) {
-        $pdfPath = $file->store('pdf', 'public');
+        $uploadPath = $file->store('pdf', 'public');
         $targetDirectory = "../storage/app/public";
-        $pdfPath = "$targetDirectory/$pdfPath";
-        return self::convertPdfToImage($pdfPath, "$targetDirectory/books");
+        $pdfPath = "$targetDirectory/$uploadPath";
+        self::convertPdfToImage($pdfPath, "$targetDirectory/books");
+        return $uploadPath;
     }
 }

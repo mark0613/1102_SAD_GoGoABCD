@@ -105,11 +105,19 @@ class ApiController extends Controller {
                 ];
                 DB::table("order")->insert($order);
                 DB::statement("UPDATE product SET inventory=inventory-$quantity WHERE p_id=$p_id");
+                $e_or_r = DB::table("product")->where("p_id", "=", $p_id)->value("p_e_or_r");
+                if ($e_or_r=="e" && $u_id) {
+                    $own = [
+                        "u_id" => $u_id,
+                        "p_id" => $p_id,
+                    ];
+                    DB::table("own")->insert($own);
+                }
                 $cost += DB::table("product")->where("p_id", "=", $p_id)->value("price") * $quantity;
             }
             if ($u_id) {
-                $get = $cost % 100;
-                DB::statement("UPDATE member SET points=points-$points+MOD($cost, 100) WHERE u_id=$u_id");
+                $get = round($cost / 100);
+                DB::statement("UPDATE member SET points=points-$points+$get WHERE u_id=$u_id");
             }
             DB::table("purchase_record")->where("r_id", "=", $r_id)->update(["cost" => $cost-$points]);
         });
@@ -119,6 +127,22 @@ class ApiController extends Controller {
         $response = [
             "status" => "success"
         ];
+        return Response::json($response);
+    }
+
+    public function checkPageExists() {
+        $input = request();
+        $book = $input['book'];
+        $page = $input["page"];
+        $response = [
+            "status" => "success"
+        ];
+        if (file_exists("storage/books/$book/$page.jpg")) {
+            $response["data"] = true;
+        }
+        else {
+            $response["data"] = false;
+        }
         return Response::json($response);
     }
 

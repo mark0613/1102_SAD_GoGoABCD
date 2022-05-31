@@ -11,6 +11,7 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\UserAuthController;
 
 use App\Module\ShareData;
+
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\Classes;
@@ -68,7 +69,10 @@ class AdminController extends Controller {
                 DB::table("author")->insert($tmp);
             }
             if ($product["p_e_or_r"] == 'e') {
-                PdfController::uploadPdf($file);
+                $path = PdfController::uploadPdf($file);
+                $path = explode("/", $path)[1];
+                $path = explode(".", $path)[0];
+                DB::table('product')->where("p_id", "=", $p_id)->update(["path" => $path]);
             }
         }
         else {
