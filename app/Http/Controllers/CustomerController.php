@@ -181,7 +181,13 @@ class CustomerController extends Controller {
 
     public function cartPage() {
         $name = 'cart';
-        $cart = request()->session()->get('cart');
+        $input = request();
+        $cart = $input->session()->get('cart');
+        $u_id = $input->user() ? $input->user()->u_id : 0;
+        $user = DB::table("users")
+            ->join("member", "users.u_id", "=", "member.u_id")
+            ->where("member.u_id", "=", $u_id)
+            ->first();
         $cartData = [];
         $total = 0;
         if ($cart !== null) {
@@ -201,9 +207,15 @@ class CustomerController extends Controller {
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'user' => $user,
             'cart' => $cartData,
             'total' => $total,
         ];
         return view('customer.cart', $binding);
+    }
+    public function cartProcess() {
+        $input = request()->all();
+        var_dump($input);
+        exit;
     }
 }
