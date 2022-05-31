@@ -21,4 +21,7 @@ class CartController extends Controller {
             self::$cart[$p_id] = $quantity;
         }
     }
+    public static function clear() {
+        self::$cart = [];
+    }
 }

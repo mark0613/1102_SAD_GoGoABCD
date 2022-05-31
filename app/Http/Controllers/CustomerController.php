@@ -199,6 +199,7 @@ class CustomerController extends Controller {
                     "photo" => $product->photo,
                     "price" => $product->price,
                     "quantity" => $quantity,
+                    "inventory" => $product->inventory,
                 ];
                 array_push($cartData, $tmp);
             }
@@ -212,10 +213,5 @@ class CustomerController extends Controller {
             'total' => $total,
         ];
         return view('customer.cart', $binding);
-    }
-    public function cartProcess() {
-        $input = request()->all();
-        var_dump($input);
-        exit;
     }
 }
