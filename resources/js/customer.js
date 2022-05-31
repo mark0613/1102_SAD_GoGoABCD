@@ -65,7 +65,7 @@ window.updateQuantity = function(p_id) {
 
 window.calculateTotalCost = function() {
     let p_id = [];
-    $('input[name="quantity"]').each(function(i) {
+    $('.quantity').each(function(i) {
         p_id[i] = $(this).prop("id").split("-")[1];
     });
     let totalCost = 0;
@@ -75,7 +75,6 @@ window.calculateTotalCost = function() {
         totalCost += (price * quantity);
     }
     $(".total-cost").text(totalCost);
-    $("#cost").val(totalCost);
 }
 
 window.addProductToWishlist = function(p_id, fast=true) {
@@ -122,6 +121,32 @@ window.removeProductFromWishlist = function(p_id, fast=true) {
                         alert("移除成功");
                         window.location.reload();
                     }
+                }
+            }
+        }
+    )
+}
+
+window.submitOrder = function() {
+    let order = {};
+    $(".quantity").each(function(){
+        let p_id = $(this).prop("id").split("-")[1];
+        let q = $(this).val();
+        order[p_id] = q;
+    })
+    let points = $("#point").val();
+    let data = {
+        'order' : order,
+        'points' : points,
+    };
+    $.post(
+        "/api/pay",
+        data,
+        (response, status) => {
+            if (status == "success") {
+                if (response["status"] == "success") {
+                    alert("付款成功");
+                    window.location.reload();
                 }
             }
         }

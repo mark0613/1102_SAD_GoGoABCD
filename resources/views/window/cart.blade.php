@@ -30,12 +30,11 @@
             <div class="form-inline right">
                 <label class="price">$</label>
                 <label class="price total-cost"></label>
-                <input type="hidden" name="cost" id="cost" value="0">
                 <div class="pl-1">
                     <button type="button" class="btn btn-secondary close-window">取消</button>
                 </div>
                 <div class="pl-1">
-                    <button type="submit" class="btn btn-primary">送出</button>
+                    <button type="button" class="btn btn-primary" onclick="submitOrder()">送出</button>
                 </div>
             </div>
             <br>

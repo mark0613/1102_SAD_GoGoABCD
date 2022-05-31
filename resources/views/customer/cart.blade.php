@@ -44,8 +44,13 @@
                         </div>
                         <div class="input-group">
                             <input type='button' value='-' class="btn btn-outline-danger"  onclick="quantityChange({{ $product['p_id'] }}, -1); updateQuantity({{ $product['p_id'] }});">
-                            <input type='text' name='quantity' id="quantity-{{ $product['p_id'] }}" value='{{ $product["quantity"] }}' class="form-control item" />
+                            <input type='text' class='quantity' id="quantity-{{ $product['p_id'] }}" value='{{ $product["quantity"] }}' class="form-control item" />
                             <input type='button' value='+' class="btn btn-outline-primary"  onclick="quantityChange({{ $product['p_id'] }}, 1); updateQuantity({{ $product['p_id'] }});">
+                        </div>
+                        <div>
+                            <label>
+                                (庫存:<span id="inventory-{{ $product['p_id'] }}">{{ $product['inventory'] }}</span>)
+                            </label>
                         </div>
                     </div>
                     <div class="col-3"></div>

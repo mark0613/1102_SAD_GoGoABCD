@@ -54,7 +54,6 @@ Route::get('/mybook', [CustomerController::class, 'mybookPage']);
 Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
 Route::get('/detail/{p_id}', [CustomerController::class, 'detailPage']);
 Route::get('/cart', [CustomerController::class, 'cartPage']);
-Route::post('/cart', [CustomerController::class, 'cartProcess']);
 
 Route::group(['prefix' => 'api'], function() {
     Route::post('/addProductToCart', [ApiController::class, 'addProductToCart']);
@@ -62,10 +61,12 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('/updateQuantity', [ApiController::class, 'updateQuantity']);
     Route::post('/addProductToWishlist', [ApiController::class, 'addProductToWishlist']);
     Route::post('/removeProductFromWishlist', [ApiController::class, 'removeProductFromWishlist']);
+    Route::post('/pay', [ApiController::class, 'pay']);
     Route::get('/product', [ApiController::class, 'product']);
     Route::get('/record', [ApiController::class, 'record']);
     Route::get('/discount', [ApiController::class, 'discount']);
     Route::get('/look', [ApiController::class, 'lookSession']);
+
 });
 
 ?>
