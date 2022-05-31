@@ -115,6 +115,7 @@ class CustomerController extends Controller {
         $u_id = $input->user()->u_id;
         $own = DB::table("own")
             ->where("u_id", "=", $u_id)
+            ->where("p_type", "=", "book")
             ->join("product", "product.p_id", "=", "own.p_id")
             ->get();
         $mybooks = [];
