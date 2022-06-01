@@ -68,3 +68,14 @@ label.star:before {
     content: '\f006';
     font-family: FontAwesome;
 }
+
+/* icon */
+.icon-50 {
+    width: 50px;
+}
+.icon-30 {
+    width: 30px;
+}
+.icon-50:hover, .icon-30:hover {
+    border: #c0c0c0 2px solid;
+}

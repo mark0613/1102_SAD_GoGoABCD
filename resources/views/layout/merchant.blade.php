@@ -40,8 +40,7 @@
     <header>
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="../">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToWUO2hyebkiqqD0TDwOYqnIttN40FJ85SGQ&usqp=CAU"
-                    class="d-inline-block align-top logo">
+                <img src="{{ asset('image/logo.png') }}" alt="logo icon" class="logo icon-50">
             </a>
 
             <div class="form-inline my-2 my-lg-0">

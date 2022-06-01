@@ -77,3 +77,12 @@ function showPreview(inputFile){
         $("#preview").attr("src", "https://i.imgur.com/2s15CcP.png");
     }
 }
+
+window.hover = function(element) {
+    let name = element.alt.split(" ")[0];
+    element.setAttribute('src', `http://127.0.0.1:8000/image/${name}-hover.png`);
+}
+window.unhover = function(element) {
+    let name = element.alt.split(" ")[0];
+    element.setAttribute('src', `http://127.0.0.1:8000/image/${name}.png`);
+}

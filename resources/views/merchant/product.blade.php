@@ -45,8 +45,8 @@
                             <td>{{ $p->price }}</td>
                             <td>${{ $p->inventory }}</td>
                             <td>
-                                <img src="{{ asset('image/pencil.png') }}" alt="pencil" width="30px">
-                                <img src="{{ asset('image/trash-bin.webp') }}" alt="trash-bin" width="30px">
+                                <img src="{{ asset('image/edit.png') }}" alt="edit icon" class="icon-30 hover-change-image" onmouseover="hover(this);" onmouseout="unhover(this);">
+                                <img src="{{ asset('image/delete.png') }}" alt="delete icon" class="icon-30 hover-change-image" onmouseover="hover(this);" onmouseout="unhover(this);">
                             </td>
                         </tr>
                         @endforeach
