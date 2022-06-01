@@ -35,7 +35,7 @@
                                 <td>{{ $s->username }}</td>
                                 <td>{{ $s->m_type=='a' ? '管理員' : '客服員' }}</td>
                                 <td>
-                                    <img src="{{ asset('image/trash-bin.webp') }}" alt="trash-bin" width="30px">
+                                <img src="{{ asset('image/delete.png') }}" alt="delete icon" class="icon-30 hover-change-image" onmouseover="hover(this);" onmouseout="unhover(this);">
                                 </td>
                             </tr>
                             @endforeach

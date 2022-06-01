@@ -11,20 +11,20 @@
         <div class="col-2">
             <div class="input-group mb-3">
                 <select class="custom-select" id="record-search-type">
-                    <option value="1">ID</option>
-                    <option value="2">日期</option>
-                    <option value="3">類別</option>
+                    <option value="id">ID</option>
+                    <option value="date">日期</option>
+                    <option value="class">類別</option>
                 </select>
             </div>
         </div>
         <div class="col-6">
             <!--ID-->
-            <div class="search-type-radio" id="search-1">
-                <input type="text" class="form-control" id="search-id" name="record-id" placeholder="請輸入ID以查詢訂單">
+            <div class="search-type-radio" id="search-id">
+                <input type="text" class="form-control" id="r_id" name="record-id" placeholder="請輸入ID以查詢訂單">
             </div>
 
             <!--日期-->
-            <div class="container-fluid search-type-radio" id="search-2">
+            <div class="container-fluid search-type-radio" id="search-date">
                 <div class="row">
                     <div class="col-6 row form-inline">
                         <label>起</label>
@@ -42,16 +42,20 @@
             </div>
 
             <!--類別-->
-            <div class="input-group search-type-radio" id="search-3">
-                <select class="custom-select fill" id="search-class" name="record-class">
-                    <option value="1">cc</option>
-                    <option value="2">bb</option>
-                    <option value="3">aa</option>
+            <div class="input-group search-type-radio" id="search-class">
+                <select class="selectpicker multi-select fill" name="classes[]" id="classes" multiple
+                    data-live-search="true" placeholder="Class">
+                    @foreach ($classes["b"] as $class)
+                    <option value="{{ $class->c_id }}" class="class-book">書本-{{ $class->class }}</option>
+                    @endforeach
+                    @foreach ($classes["m"] as $class)
+                    <option value="{{ $class->c_id }}" class="class-music">音樂-{{ $class->class }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
         <div class="col-2">
-            <button type="submit" class="btn btn-primary">搜尋</button>
+            <button type="button" class="btn btn-primary" onclick="searchRecord()">搜尋</button>
         </div>
         <div class="col-2"></div>
 
@@ -68,23 +72,10 @@
                         <th scope="col">時間</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td>從零開始投資店面的路程 x 1 $200</td>
-                        <td>10</td>
-                        <td>$200</td>
-                        <td>2022-05-08<br>20:40:00</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>2022-05-08<br>20:40:00</td>
-                    </tr>
+                <tbody id="search-result">
                 </tbody>
             </table>
+
             <div>
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">

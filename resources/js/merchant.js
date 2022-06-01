@@ -86,3 +86,51 @@ window.unhover = function(element) {
     let name = element.alt.split(" ")[0];
     element.setAttribute('src', `http://127.0.0.1:8000/image/${name}.png`);
 }
+
+window.searchRecord = function() {
+    let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
+        "type" : $("#record-search-type").val(),
+        "r_id" : $("#r_id").val(),
+        "startDate" : $("#search-start-date").val(),
+        "endDate" : $("#search-end-date").val(),
+        "class" : $("#classes").val(),
+    }
+    $.post(
+        "/api/searchRecord",
+        data,
+        (response, status) => {
+            if (status == "success") {
+                if (response["status"] == "success") {
+                    console.log(response["data"]);
+                    let searchResult = $("#search-result");
+                    searchResult.empty();
+                    for (let res of response["data"]) {
+                        let record = res["record"];
+                        let orders = res["order"];
+                        if (record === null) {
+                            alert("尚無此條件下的訂單!");
+                            break;
+                        }
+                        searchResult.append(`
+                        <tr>
+                            <td scope="row">${record['r_id']}</td>
+                            <td id="order-${record['r_id']}"></td>
+                            <td>${record['usedPoint']}</td>
+                            <td>$${record['cost']}</td>
+                            <td>${record['time']}</td>
+                        </tr>
+                        `)
+                        let tr = $(`#order-${record['r_id']}`);
+                        tr.empty();
+                        for (let order of orders) {
+                            tr.append(`
+                            <u>${order['p_name']}</u>(<i>$${order['price']}</i>) x <strong class="text-danger">${order['quantity']}</strong><br>
+                            `);
+                        }
+                    }
+                }
+            }
+        }
+    )
+}

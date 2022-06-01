@@ -146,6 +146,87 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    public function searchRecord() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        $type = $input["type"];
+        if ($type == 'id') {
+            $r_id = $input["r_id"];
+
+            $record = DB::table("purchase_record")
+                ->where("r_id", "=", $r_id)
+                ->first();
+            $order = DB::table("order")
+                ->where("r_id", "=", $r_id)
+                ->join("product", "product.p_id", "=", "order.p_id")
+                ->get();
+            $data = [
+                "record" => $record,
+                "order" => $order,
+            ];
+            $response["data"] = [$data];
+        }
+        else if ($type == 'date') {
+            $startDate = $input["startDate"];
+            $endDate = $input["endDate"];
+
+            $records = DB::table("purchase_record")
+                ->whereBetween("time", [$startDate, $endDate])
+                ->get();
+            $data = [];
+            foreach ($records as $record) {
+                $r_id = $record->r_id;
+                $order = DB::table("order")
+                    ->where("r_id", "=", $r_id)
+                    ->join("product", "product.p_id", "=", "order.p_id")
+                    ->get();
+                $tmp = [
+                    "record" => $record,
+                    "order" => $order,
+                ];
+                array_push($data, $tmp);
+            }
+            $response["data"] = $data;
+        }
+        else if ($type == 'class') {
+            $classes = $input['class'];
+            $ordersContainTargetClasses = DB::table("order")
+                ->select("r_id")
+                ->whereIn("p_id", function ($query) use(&$classes) {
+                    $query->select("p_id")
+                        ->from("classes")
+                        ->whereIn("c_id", $classes);
+                })
+                ->distinct()
+                ->orderBy("r_id", 'asc')
+                ->get();
+            $data = [];
+            foreach ($ordersContainTargetClasses as $order) {
+                $r_id = $order->r_id;
+                $record = DB::table("purchase_record")
+                    ->where("r_id", "=", $r_id)
+                    ->first();
+                $order = DB::table("order")
+                    ->where("r_id", "=", $r_id)
+                    ->join("product", "product.p_id", "=", "order.p_id")
+                    ->get();
+                $tmp = [
+                    "record" => $record,
+                    "order" => $order,
+                ];
+                array_push($data, $tmp);
+            }
+            $response["data"] = $data;
+        }
+        else {
+            $response["status"] = "fail";
+        }
+
+        return Response::json($response);
+    }
+
     public function lookSession() {
         $input = request();
         $data = $input->session()->all();
