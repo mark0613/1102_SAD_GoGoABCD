@@ -16,7 +16,7 @@ $(document).ready(function() {
         showPreview(this);
     })
 
-    // delete
+    // delete something when click image of "delete"
     $('img[id*="delete"]').each(function() {
         let id = $(this).prop("id").split("-")[1];
         $(this).on('click', function() {
@@ -32,7 +32,7 @@ $(document).ready(function() {
         })
     })
 
-    
+
 });
 
 function showSearchType() {
@@ -186,6 +186,29 @@ window.searchRecord = function() {
                             `);
                         }
                     }
+                }
+            }
+        }
+    )
+}
+
+window.deleteAdvertisement = function() {
+    if (!confirm("確認移除嗎? 將不可復原!")) {
+        return;
+    }
+    let a_id = $('div[id*="a_id-"][class*="active"]').prop("id").split("-")[1];
+    let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
+        'a_id' : a_id,
+    };
+    $.post(
+        "/api/deleteAdvertisement",
+        data,
+        (response, status) => {
+            if (status == "success") {
+                if (response["status"] == "success") {
+                    alert("移除成功!")
+                    window.location.reload();
                 }
             }
         }

@@ -17,7 +17,7 @@
         <div class="col-3"></div>
         <div class="col-4 center">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-danger">刪除</button>
+                <button type="button" class="btn btn-danger" onclick="deleteAdvertisement()">刪除</button>
                 <button type="button" class="btn btn-primary open-window">新增</button>
             </div>
         </div>
@@ -29,16 +29,17 @@
         <div class="col-10">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <?php $i = 0; ?>
+                    @foreach($ads as $ad)
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="{{ $i==0 ? 'active' : '' }}"></li>
+                    <?php $i++; ?>
+                    @endforeach
                 </ol>
                 <div class="carousel-inner">
                     <?php $i=0 ?>
                     @foreach($ads as $ad)
-                    <div class="carousel-item ad {{ $i==0 ? 'active' : '' }}">
-                        <?php $path = "../storage/" . $ad->image; ?>
-                        <img src="{{ $path }}" class="d-block w-100" alt="{{ $ad->time }}" height="700px" width="500px">
+                    <div class="carousel-item ad {{ $i==0 ? 'active' : '' }}" id="a_id-{{ $ad->a_id }}">
+                        <img src="{{ asset('storage/' . $ad->image) }}" class="d-block w-100" alt="{{ $ad->time }}"  height="300px" width="500px">
                     </div>
                     <?php $i++?>
                     @endforeach

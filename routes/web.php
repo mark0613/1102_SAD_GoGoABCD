@@ -51,6 +51,7 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('/searchRecord', [ApiController::class, 'searchRecord']);
     Route::post('/deleteStaff', [ApiController::class, 'deleteStaff']);
     Route::post('/deleteProduct', [ApiController::class, 'deleteProduct']);
+    Route::post('/deleteAdvertisement', [ApiController::class, 'deleteAdvertisement']);
 
     Route::get('/look', [ApiController::class, 'lookSession']);
 

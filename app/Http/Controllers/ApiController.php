@@ -249,6 +249,17 @@ class ApiController extends Controller {
             ->delete();
         return Response::json($response);
     }
+    public function deleteAdvertisement() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        $a_id = $input["a_id"];
+        DB::table("ad")
+            ->where("a_id", "=", $a_id)
+            ->delete();
+        return Response::json($response);
+    }
 
     public function lookSession() {
         $input = request();
