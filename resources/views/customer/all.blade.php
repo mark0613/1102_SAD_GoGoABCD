@@ -165,7 +165,7 @@
 </div>
 @if (count($save) === 0)
 <script>
-    alert("此類別暫無書籍!")
+    alert("此類別暫無商品!")
 </script>
 @endif
 
