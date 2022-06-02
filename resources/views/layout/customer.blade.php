@@ -149,7 +149,7 @@ $allClasses = [
                                                         <h3>分類</h3>
                                                         <br>
                                                         @foreach($classes as $class)
-                                                        <a href="#" class="btn btn-outline-primary">{{ $class->class }}</a>
+                                                        <a href="{{ asset('all?c_id=' . $class->c_id) }}" class="btn btn-outline-primary">{{ $class->class }}</a>
                                                         @endforeach
                                                     </div>
 

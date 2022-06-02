@@ -66,7 +66,7 @@
                 }
             ?>
             <div class="row card-deck top">
-                @for($j=3; $j>0; $j--)
+                @for($j=3; $j>0 && count($save)>0; $j--)
                 <?php
                     $mybook = $save[3-$j];
                 ?>
@@ -105,5 +105,10 @@
         <div class="col-2"></div>
     </div>
 </div>
+@if (count($save) === 0)
+<script>
+    alert("還沒有電子書喔! 趕快去購買吧!")
+</script>
+@endif
 
 @endsection

@@ -97,7 +97,7 @@
         ?>
         <div class="col-12">
             <div class="row card-deck">
-                @for($j=5; $j>0; $j--)
+                @for($j=5; $j>0 && count($save)>0; $j--)
                     <?php
                         $product = $save[5-$j];
                     ?>
@@ -161,8 +161,12 @@
                 @endfor
             </div>
         </div>
-
     </div>
 </div>
+@if (count($save) === 0)
+<script>
+    alert("此類別暫無書籍!")
+</script>
+@endif
 
 @endsection
