@@ -28,33 +28,16 @@ Route::group(['prefix' => 'user'], function() {
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', [AdminController::class, 'staffPage']);
     Route::post('/', [AdminController::class, 'staffProcess']);
-
     Route::get('/staff', [AdminController::class, 'staffPage']);
     Route::post('/staff', [AdminController::class, 'staffProcess']);
-
     Route::get('/product', [AdminController::class, 'productPage']);
     Route::post('/product', [AdminController::class, 'productProcess']);
-
     Route::get('/record', [AdminController::class, 'recordPage']);
-
     Route::get('/discount', [AdminController::class, 'discountPage']);
-
     Route::get('/ad', [AdminController::class, 'adPage']);
     Route::post('/ad', [AdminController::class, 'adProcess']);
-
     Route::get('/chart', [AdminController::class, 'chartPage']);
 });
-
-Route::get('/list', [CustomerController::class, 'listPage']);
-Route::get('/all', [CustomerController::class, 'allPage']);
-Route::get('/profile', [CustomerController::class, 'profilePage']);
-Route::post('/profile', [CustomerController::class, 'profileProcess']);
-Route::get('/wishlist', [CustomerController::class, 'wishlistPage']);
-Route::get('/mybook', [CustomerController::class, 'mybookPage']);
-Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
-Route::get('/detail/{p_id}', [CustomerController::class, 'detailPage']);
-Route::get('/cart', [CustomerController::class, 'cartPage']);
-Route::get('/reader/{p_id}', [ReaderController::class, 'readerPage']);
 
 // api/*
 Route::group(['prefix' => 'api'], function() {
@@ -73,5 +56,18 @@ Route::group(['prefix' => 'api'], function() {
     Route::get('/look', [ApiController::class, 'lookSession']);
 
 });
+
+// general (customer)
+Route::get('/list', [CustomerController::class, 'listPage']);
+Route::get('/all', [CustomerController::class, 'allPage']);
+Route::get('/profile', [CustomerController::class, 'profilePage']);
+Route::post('/profile', [CustomerController::class, 'profileProcess']);
+Route::get('/wishlist', [CustomerController::class, 'wishlistPage']);
+Route::get('/mybook', [CustomerController::class, 'mybookPage']);
+Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
+Route::get('/detail/{p_id}', [CustomerController::class, 'detailPage']);
+Route::get('/cart', [CustomerController::class, 'cartPage']);
+Route::get('/reader/{p_id}', [ReaderController::class, 'readerPage']);
+
 
 ?>

@@ -23,7 +23,7 @@
                         <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
                             data-slide="prev">
                             <i class="">
-                                << /i>
+                                &lt;</i>
                         </a>
                     </div>
                     <div class="col-10">
@@ -191,7 +191,7 @@
                     <div class="col-1 align-self-center">
                         <a class="btn btn-primary mb-3" href="#carouselExampleIndicators2" role="button"
                             data-slide="next">
-                            <i class="">></i>
+                            <i class="">&gt;</i>
                         </a>
                     </div>
                 </div>

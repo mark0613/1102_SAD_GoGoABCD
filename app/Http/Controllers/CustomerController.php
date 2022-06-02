@@ -12,6 +12,7 @@ use Auth;
 
 use App\Models\Product;
 use App\Models\Comment;
+use App\Models\AllClasses;
 
 class CustomerController extends Controller {
     public function listPage() {
@@ -24,10 +25,44 @@ class CustomerController extends Controller {
     }
 
     public function allPage() {
+        $input = request();
+        $c_id = $input->c_id;
+        $u_id = $input->user() ? $input->user()->u_id : 0;
+        $className = AllClasses::find($c_id)->class;
+        $productsContainTargetClass = DB::table("classes")
+            ->where("c_id", "=", $c_id)
+            ->join("product", "product.p_id", "=", "classes.p_id")
+            ->distinct()
+            ->get();
+        $products = [];
+        foreach($productsContainTargetClass as $product) {
+            $p_id = $product->p_id;
+            $stars = DB::table("comment")
+                ->where("p_id", "=", $p_id)
+                ->groupBy('p_id')
+                ->avg('stars');
+            $inWishlist = DB::table("wishlist")
+                ->where("p_id", "=", $p_id)
+                ->where("u_id", "=", $u_id)
+                ->groupBy('p_id')
+                ->count();
+            $table = $product->p_type == "book" ? "author" : "singer";
+            $author_or_singer = DB::table($table)
+                ->where("p_id", "=", $p_id)
+                ->get();
+            $products[$p_id] = [
+                "detail" => $product,
+                'as' => $author_or_singer,
+                "stars" => round($stars),
+                "inWishlist" => $inWishlist ? True : False,
+            ];
+        }
         $name = 'all';
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'products' => $products,
+            'className' => $className,
         ];
         return view('customer.all', $binding);
     }

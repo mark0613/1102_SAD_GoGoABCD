@@ -16,49 +16,50 @@
                 $save = [];
             ?>
             @foreach($mybooks as $p_id => $book)
-            <?php
-                $save[$i %3] = [
-                    "p_id" => $p_id,
-                    "book" => $book['book'],
-                    'authors' => $book['author'],
-                ];
-            ?>
-            @if($i % 3 == 2)
-            <div class="row card-deck top">
-                @for($j=3; $j>0; $j--)
                 <?php
-                    $mybook = $save[3-$j];
+                    $save[$i %3] = [
+                        "p_id" => $p_id,
+                        "book" => $book['book'],
+                        'authors' => $book['author'],
+                    ];
                 ?>
-                <div class="card">
-                    <div class="book_cover">
-                        <img class="img-fluid" alt="book photo" src="{{ asset('storage/' . $mybook['book']->photo) }}">
-                        <div class="info">
-                            <p>{{ $mybook['book']->p_name }}</p>
-                            <a class="btn btn-primary" href="{{ asset('/detail/'. $mybook['book']->p_id) }}">More</a>
-                        </div>
+                @if($i % 3 == 2)
+                    <div class="row card-deck top">
+                        @for($j=3; $j>0; $j--)
+                            <?php
+                                $mybook = $save[3-$j];
+                            ?>
+                            <div class="card">
+                                <div class="book_cover">
+                                    <img class="img-fluid" alt="book photo" src="{{ asset('storage/' . $mybook['book']->photo) }}">
+                                    <div class="info">
+                                        <p>{{ $mybook['book']->p_name }}</p>
+                                        <a class="btn btn-primary" href="{{ asset('/detail/'. $mybook['book']->p_id) }}">More</a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title book_name center">{{ $mybook['book']->p_name }}</h5>
+                                    <br>
+                                    <label class="card-text">作者:</label>
+                                    @foreach($mybook['authors'] as $author)
+                                    <label class="card-text">{{ $author->name }}</label>
+                                    @endforeach
+                                    <br>
+                                    <label class="card-text">出版社:</label>
+                                    <label class="card-text">{{ $mybook['book']->publisher }}</label>
+                                    <br>
+                                    <br>
+                                    <div class="center">
+                                        <a href="{{ asset('reader/' . $mybook['book']->path . '?page=1') }}" class="btn btn-primary">閱讀</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endfor
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title book_name center">{{ $mybook['book']->p_name }}</h5>
-                        <br>
-                        <label class="card-text">作者:</label>
-                        @foreach($mybook['authors'] as $author)
-                        <label class="card-text">{{ $author->name }}</label>
-                        @endforeach
-                        <br>
-                        <label class="card-text">出版社:</label>
-                        <label class="card-text">{{ $mybook['book']->publisher }}</label>
-                        <br>
-                        <br>
-                        <div class="center">
-                            <a href="{{ asset('reader/' . $mybook['book']->path . '?page=1') }}" class="btn btn-primary">閱讀</a>
-                        </div>
-                    </div>
-                </div>
-                @endfor
-            </div>
-            @endif
-            <?php $i++; ?>
+                @endif
+                <?php $i++; ?>
             @endforeach
+
             <?php
                 for ($x=$i; $x%3!=0; $x++) {
                     $save[$x % 3] = null;
@@ -70,51 +71,33 @@
                     $mybook = $save[3-$j];
                 ?>
                 <div class="card">
-                    <div class="book_cover">
-                        @if($mybook)
-                        <img class="img-fluid" alt="book photo" src="{{ asset('storage/' . $mybook['book']->photo) }}">
-                        <div class="info">
-                            <p>{{ $mybook['book']->p_name }}</p>
-                            <a class="btn btn-primary" href="{{ asset('/detail/'. $mybook['book']->p_id) }}">More</a>
+                    @if($mybook)
+                        <div class="book_cover">
+                            <img class="img-fluid" alt="book photo" src="{{ asset('storage/' . $mybook['book']->photo) }}">
+                            <div class="info">
+                                <p>{{ $mybook['book']->p_name }}</p>
+                                <a class="btn btn-primary" href="{{ asset('/detail/'. $mybook['book']->p_id) }}">More</a>
+                            </div>
                         </div>
-                        @else
-                        <div>
-                        </div>
-                        @endif
-                    </div>
-                    <div class="card-body">
-                        @if($mybook)
-                        <h5 class="card-title book_name center">{{ $mybook['book']->p_name }}</h5>
-                        <br>
-                        <label class="card-text">作者:</label>
-                        @foreach($mybook['authors'] as $author)
-                        <label class="card-text">{{ $author->name }}</label>
-                        @endforeach
-                        <br>
-                        <label class="card-text">出版社:</label>
-                        <label class="card-text">{{ $mybook['book']->publisher }}</label>
-                        <br>
-                        <br>
-                        <div class="center">
-                            <a href="{{ asset('reader/' . $mybook['book']->path . '?page=1') }}" class="btn btn-primary">閱讀</a>
-                        </div>
-                        @else
-                        <div>
+                        <div class="card-body">
+                            <h5 class="card-title book_name center">{{ $mybook['book']->p_name }}</h5>
                             <br>
+                            <label class="card-text">作者:</label>
+                            @foreach($mybook['authors'] as $author)
+                            <label class="card-text">{{ $author->name }}</label>
+                            @endforeach
                             <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
+                            <label class="card-text">出版社:</label>
+                            <label class="card-text">{{ $mybook['book']->publisher }}</label>
                             <br>
                             <br>
                             <div class="center">
-                                <a type="button" class="btn btn-primary" href="../">購買新書</a>
+                                <a href="{{ asset('reader/' . $mybook['book']->path . '?page=1') }}" class="btn btn-primary">閱讀</a>
                             </div>
                         </div>
-                        @endif
-                    </div>
+                    @else
+                        <div class="empty-card-content"></div>
+                    @endif
                 </div>
                 @endfor
             </div>

@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class AllClasses extends Model {
     protected $table = 'all_classes';
-    protected $primaryKey = ['c_id', 'class'];
+    protected $primaryKey = 'c_id' ;
     protected $fillable = [
         'type',
+        'class',
     ];
     public $timestamps = false;
 }
