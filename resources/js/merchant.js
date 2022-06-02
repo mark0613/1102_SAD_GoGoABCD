@@ -15,6 +15,17 @@ $(document).ready(function() {
     $("#photo").change(function(){
         showPreview(this);
     })
+
+    // delete staff
+    $('img[alt="delete icon"][id*="delete"]').each(function() {
+        let u_id = $(this).prop("id").split("-")[1];
+        $(this).on('click', function() {
+            if (confirm("確認移除嗎? 將不可復原!")) {
+                deleteUser(u_id);
+            }
+        })
+    })
+
 });
 
 function showSearchType() {
@@ -76,6 +87,26 @@ function showPreview(inputFile){
     else{
         $("#preview").attr("src", "https://i.imgur.com/2s15CcP.png");
     }
+}
+
+function deleteUser(u_id) {
+    let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
+        'u_id' : u_id,
+    };
+    $.post(
+        "/api/deleteUser",
+        data,
+        (response, status) => {
+            if (status == "success") {
+                console.log(response);
+                if (response["status"] == "success") {
+                    alert("移除成功!")
+                    window.location.reload();
+                }
+            }
+        }
+    )
 }
 
 window.hover = function(element) {

@@ -9,7 +9,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-10 center">
-            <h3>編輯資料</h3>
+            <h3>人員管理</h3>
             <div class="row top">
                 <div class="col-10"></div>
                 <div class="col-2">
@@ -35,7 +35,7 @@
                                 <td>{{ $s->username }}</td>
                                 <td>{{ $s->m_type=='a' ? '管理員' : '客服員' }}</td>
                                 <td>
-                                <img src="{{ asset('image/delete.png') }}" alt="delete icon" class="icon-30 hover-change-image" onmouseover="hover(this);" onmouseout="unhover(this);">
+                                <img src="{{ asset('image/delete.png') }}" alt="delete icon" class="icon-30 hover-change-image" id="delete-{{ $s->u_id }}" onmouseover="hover(this);" onmouseout="unhover(this);">
                                 </td>
                             </tr>
                             @endforeach

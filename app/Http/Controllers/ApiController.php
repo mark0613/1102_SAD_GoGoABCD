@@ -227,6 +227,18 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    public function deleteUser() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        $u_id = $input["u_id"];
+        DB::table("users")
+            ->where("u_id", "=", $u_id)
+            ->delete();
+        return Response::json($response);
+    }
+
     public function lookSession() {
         $input = request();
         $data = $input->session()->all();

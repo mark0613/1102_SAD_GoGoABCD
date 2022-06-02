@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-2 bg-light">
                     <div class="nav flex-column nav-pills nav-fill" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link sidebar_font center" href="{{asset('admin/staff')}}">編輯資料</a>
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/staff')}}">人員管理</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/record')}}">查詢訂單</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/product')}}">管理商品</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/discount')}}">管理優惠</a>

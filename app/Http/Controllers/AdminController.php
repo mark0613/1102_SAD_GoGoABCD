@@ -161,7 +161,6 @@ class AdminController extends Controller {
         $name = 'staff';
         $staff = DB::table("merchant")
             ->join("users", "users.u_id", "=", "merchant.u_id")
-            ->select("email", "username", "m_type")
             ->get();
         $binding = [
             'title' => ShareData::TITLE,
