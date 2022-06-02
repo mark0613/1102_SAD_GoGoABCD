@@ -20,6 +20,14 @@
     </div>
     <div class="center">
         <button type="submit" class="btn btn-primary">登入</button>
+        <br>
+        <br>
+        <div class="register_btn"> 
+            <label>還沒有帳戶？</label>
+            <a href="{{ asset('user/auth/register') }}">
+                <u>加入會員</u>
+            </a>
+        </div>
     </div>
 </form>
 @endsection
