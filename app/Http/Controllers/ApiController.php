@@ -227,7 +227,7 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
-    public function deleteUser() {
+    public function deleteStaff() {
         $response = [
             "status" => "success"
         ];
@@ -235,6 +235,17 @@ class ApiController extends Controller {
         $u_id = $input["u_id"];
         DB::table("users")
             ->where("u_id", "=", $u_id)
+            ->delete();
+        return Response::json($response);
+    }
+    public function deleteProduct() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        $p_id = $input["p_id"];
+        DB::table("product")
+            ->where("p_id", "=", $p_id)
             ->delete();
         return Response::json($response);
     }

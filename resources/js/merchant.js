@@ -16,16 +16,23 @@ $(document).ready(function() {
         showPreview(this);
     })
 
-    // delete staff
-    $('img[alt="delete icon"][id*="delete"]').each(function() {
-        let u_id = $(this).prop("id").split("-")[1];
+    // delete
+    $('img[id*="delete"]').each(function() {
+        let id = $(this).prop("id").split("-")[1];
         $(this).on('click', function() {
             if (confirm("確認移除嗎? 將不可復原!")) {
-                deleteUser(u_id);
+                let type = window.location.href.split("/").splice(-1)[0];
+                if (type == "staff" || type =="admin") {
+                    deleteStaff(id);
+                }
+                if (type == "product") {
+                    deleteProduct(id)
+                }
             }
         })
     })
 
+    
 });
 
 function showSearchType() {
@@ -89,13 +96,31 @@ function showPreview(inputFile){
     }
 }
 
-function deleteUser(u_id) {
+function deleteStaff(u_id) {
     let data = {
         "_token": $('meta[name="csrf-token"]').prop("content"),
         'u_id' : u_id,
     };
     $.post(
-        "/api/deleteUser",
+        "/api/deleteStaff",
+        data,
+        (response, status) => {
+            if (status == "success") {
+                if (response["status"] == "success") {
+                    alert("移除成功!")
+                    window.location.reload();
+                }
+            }
+        }
+    )
+}
+function deleteProduct(p_id) {
+    let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
+        'p_id' : p_id,
+    };
+    $.post(
+        "/api/deleteProduct",
         data,
         (response, status) => {
             if (status == "success") {
@@ -108,6 +133,7 @@ function deleteUser(u_id) {
         }
     )
 }
+
 
 window.hover = function(element) {
     let name = element.alt.split(" ")[0];
