@@ -5,6 +5,7 @@ $(document).ready(function() {
 window.addProductToCart = function(p_id) {
     let q = $(`#quantity-${p_id}`).val();
     let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
         "p_id" : p_id,
         "quantity" : q,
     };
@@ -28,6 +29,7 @@ window.removeProductFromCart = function() {
         p_id[i] = $(this).val();
     });
     let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
         "p_id" : p_id,
     };
     $.post(
@@ -47,6 +49,7 @@ window.removeProductFromCart = function() {
 window.updateQuantity = function(p_id) {
     let q = $(`#quantity-${p_id}`).val();
     let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
         "p_id" : p_id,
         "quantity" : q,
     };
@@ -79,6 +82,7 @@ window.calculateTotalCost = function() {
 
 window.addProductToWishlist = function(p_id, fast=true) {
     let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
         'p_id' : p_id,
     };
     $.post(
@@ -104,6 +108,7 @@ window.addProductToWishlist = function(p_id, fast=true) {
 
 window.removeProductFromWishlist = function(p_id, fast=true) {
     let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
         'p_id' : p_id,
     };
     $.post(
@@ -136,6 +141,7 @@ window.submitOrder = function() {
     })
     let points = $("#point").val();
     let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
         'order' : order,
         'points' : points,
     };
