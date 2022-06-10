@@ -1,5 +1,5 @@
 <div class="window bg-light">
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" id="form-update-product">
         {!! csrf_field() !!}
         <div class="container-fluid">
             <div class="row top_win">
@@ -22,7 +22,6 @@
                         <option value="{{ $class->c_id }}" class="class-music">{{ $class->class }}</option>
                         @endforeach
                     </select>
-                    <input type="hidden" id="pre_p_type" value="">
                     <input type="file" name="file" id="file">
                 </div>
 
@@ -54,10 +53,8 @@
                 <div class="col-9"></div>
                 <div class="row col-3">
                     <button type="reset" class="btn btn-secondary close-window">取消</button>
-                    <button type="submit" class="btn btn-primary ml-1">儲存</button>
-                    
+                    <button type="submit" class="btn btn-primary ml-1" id="btn-save-product">儲存</button>
                 </div>
-
             </div>
             <br>
         </div>
