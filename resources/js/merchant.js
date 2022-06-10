@@ -1,3 +1,18 @@
+const COLOR = {
+    "e-book" : "red",
+    "r-book" : "rgb(0, 235, 0)",
+    "e-music" : "rgb(0, 127, 255)",
+    "r-music" : "pink",
+};
+const LABELS = {
+    "e-book" : "電子書籍",
+    "r-book" : "實體書籍",
+    "e-music" : "數位音樂",
+    "r-music" : "實體唱片",
+};
+
+var chart = null;
+
 $(document).ready(function() {
     // product type select;
     changeProductClass();
@@ -31,8 +46,6 @@ $(document).ready(function() {
             }
         })
     })
-
-
 });
 
 function showSearchType() {
@@ -213,4 +226,88 @@ window.deleteAdvertisement = function() {
             }
         }
     )
+}
+
+function barChart(ctx, labels, data) {
+    let datasets = [];
+    let i = 0;
+    for (let key in data) {
+        datasets.push(
+            {
+                label : LABELS[key],
+                data : data[key],
+                backgroundColor : COLOR[key],
+                borderWidth: 1,
+                skipNull : false,
+                responsive: true,
+            }
+        )
+        i++;
+    }
+    return new Chart(ctx, {
+        type : "bar",
+        data : {
+            labels : labels,
+            datasets : datasets
+        }
+    });
+}
+
+function pieChart(ctx, labels, data) {
+    let pieLabels = [];
+    let pieData = [];
+    let pieColor = [];
+    for (let key in data) {
+        let sum = data[key].reduce((tmp, a) => tmp + a, 0);
+        pieLabels.push(LABELS[key]);
+        pieData.push(sum);
+        pieColor.push(COLOR[key]);
+    }
+    return new Chart(ctx, {
+        type : 'pie',
+        data : {
+        labels : pieLabels,
+        datasets : [
+            {
+                data : pieData,
+                backgroundColor : pieColor,
+                responsive: true,
+            }
+        ],
+        }
+    });
+}
+window.generateChart = function() {
+    let ctx = document.getElementById("canvas-chart");
+    let chartType = $("#chartType").val();
+    let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
+        "startDate" : $("#startDate").val(),
+        "endDate" : $("#endDate").val(),
+        "productType" : $("#productType").val(),
+    }
+    $.post(
+        "/api/getChartData",
+        data,
+        (response, status) => {
+            if (status == "success") {
+                if (response["status"] == "success") {
+                    let data = response["data"];
+                    if (chart) {
+                        chart.destroy();
+                    }
+                    if (chartType == "bar") {
+                        chart = barChart(ctx, data["labels"], data["datasets"]);
+                        ctx.classList.remove("pie");
+                    }
+                    else {
+                        chart = pieChart(ctx, data["labels"], data["datasets"]);
+                        ctx.classList.remove("bar");
+                    }
+                    ctx.classList.add(chartType)
+                }
+            }
+        }
+    )
+    
 }

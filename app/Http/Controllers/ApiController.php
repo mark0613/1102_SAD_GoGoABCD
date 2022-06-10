@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\CartController;
 
+use Carbon\Carbon;
+
 use Response;
 use DB;
 
@@ -258,6 +260,49 @@ class ApiController extends Controller {
         DB::table("ad")
             ->where("a_id", "=", $a_id)
             ->delete();
+        return Response::json($response);
+    }
+
+    public function getChartData() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        $startDate = $input["startDate"];
+        $endDate = $input["endDate"];
+        $productTypes = $input["productType"];
+        $data = [
+            "labels" => [],
+            "datasets" => [],
+        ];
+        foreach ($productTypes as $type) {
+            $data["datasets"][$type] = [];
+        }
+        $records = DB::table("order")
+            ->join("purchase_record", "purchase_record.r_id", "=", "order.r_id")
+            ->join("product", "product.p_id", "=", "order.p_id")
+            ->whereBetween(DB::raw('CAST(time AS DATE)'), [$startDate, $endDate])
+            ->get()
+            ->groupBy(function($query) {
+                return Carbon::parse($query->time)->format('Y-m');
+            });
+
+        $i = 0;
+        foreach($records as $label => $orders) {
+            array_push($data["labels"], $label);
+            foreach ($productTypes as $type) {
+                $data["datasets"][$type][$i] = 0;
+            }
+            foreach ($orders as $detail) {
+                $type = $detail->p_e_or_r . "-" . $detail->p_type;
+                if (array_key_exists($type, $data["datasets"])) {
+                    $data["datasets"][$type][$i] += $detail->quantity;
+                }
+            }
+            $i++;
+        }
+
+        $response["data"] = $data;
         return Response::json($response);
     }
 

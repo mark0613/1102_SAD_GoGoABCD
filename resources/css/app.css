@@ -79,3 +79,15 @@ label.star:before {
 .icon-50:hover, .icon-30:hover {
     border: #c0c0c0 2px solid;
 }
+
+/* canvas */
+canvas {
+    height: 500px !important;
+}
+.bar {
+    width: 100% !important;
+}
+.pie {
+    height: 800px !important;
+    width: 800px !important;
+}
