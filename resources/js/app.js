@@ -37,7 +37,7 @@ $( document ).ready(function() {
 });
 
 
-function openWindow() {
+window.openWindow = function() {
     let pageHeight = Math.max($("body").outerHeight(), $("html").outerHeight());
     let nowPosition = document.documentElement.scrollTop;
     let windowPosition = nowPosition + 130;
@@ -47,7 +47,7 @@ function openWindow() {
     $('.window').css("top", windowPosition);
     $("body").css("overflow-y", "hidden");
 }
-function closeWindow() {
+window.closeWindow = function() {
     $(".cover").css("display", "none");
     $(".window").css("display", "none");
     $("body").css("overflow-y", "auto");
