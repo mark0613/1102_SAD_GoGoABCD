@@ -29,4 +29,10 @@ class Product extends Model {
     public function comments() {
         return $this->hasMany(Comment::class, 'p_id');
     }
+    public function authors() {
+        return $this->hasMany(Author::class, 'p_id');
+    }
+    public function singers() {
+        return $this->hasMany(Singer::class, 'p_id');
+    }
 }
