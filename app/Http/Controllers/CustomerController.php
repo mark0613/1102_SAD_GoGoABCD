@@ -181,24 +181,15 @@ class CustomerController extends Controller {
 
     public function detailPage($p_id) {
         $name = 'detail';
-        $p_type = DB::table("product")
-            ->where("p_id", "=", $p_id)
-            ->value("p_type");
-        $detail = DB::table("product")
-            ->where("product.p_id", "=", $p_id)
-            ->first();
-        $author_or_singer = $p_type=="book" ? "author" : "singer";
-        $author_or_singer = DB::table($author_or_singer)
-            ->where("p_id", "=", $p_id)
-            ->get();
+        $p_type = Product::where("p_id", "=", $p_id)->value("p_type");
+        $detail = Product::where("p_id", "=", $p_id)->first();
+        $author_or_singer = ($p_type == "book") ? Product::find($p_id)->authors : Product::find($p_id)->singers;
         $classes = DB::table("classes")
             ->where("p_id", "=", $p_id)
             ->join("all_classes", "classes.c_id", "=", "all_classes.c_id")
             ->get();
-
-        $comments = Product::find($p_id)
-            ->comments
-            ->sortByDesc('time');
+        $comments = Product::find($p_id)->comments->sortByDesc('time');
+        
         if (Auth::user()) {
             $inWishlist = DB::table("wishlist")
                 ->where("u_id", "=", Auth::user()->u_id)
@@ -209,10 +200,7 @@ class CustomerController extends Controller {
             $inWishlist = null;
         }
 
-        $avg = DB::table("comment")
-            ->where("p_id", "=", $p_id)
-            ->groupBy('p_id')
-            ->avg('stars');
+        $avg = Comment::where("p_id", "=", $p_id)->groupBy('p_id')->avg('stars');
         $avg = round($avg, 0);
 
         if($inWishlist === null) {
