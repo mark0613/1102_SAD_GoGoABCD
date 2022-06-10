@@ -45,7 +45,7 @@
                             <td>{{ $p->price }}</td>
                             <td>${{ $p->inventory }}</td>
                             <td>
-                                <img src="{{ asset('image/edit.png') }}" alt="edit icon" class="icon-30 hover-change-image" onmouseover="hover(this);" onmouseout="unhover(this);">
+                                <img src="{{ asset('image/edit.png') }}" alt="edit icon" class="icon-30 hover-change-image" id="update-{{ $p->p_id }}" onmouseover="hover(this);" onmouseout="unhover(this);">
                                 <img src="{{ asset('image/delete.png') }}" alt="delete icon" class="icon-30 hover-change-image" id="delete-{{ $p->p_id }}" onmouseover="hover(this);" onmouseout="unhover(this);">
                             </td>
                         </tr>
