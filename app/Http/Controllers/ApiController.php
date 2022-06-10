@@ -11,7 +11,10 @@ use Carbon\Carbon;
 use Response;
 use DB;
 
+use App\Models\Product;
+
 class ApiController extends Controller {
+    // shopping cart
     public function addProductToCart() {
         $input = request();
         $cart = $input->session()->get('cart');
@@ -53,6 +56,7 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    // wishlist
     public function addProductToWishlist() {
         $input = request();
         $p_id = $input["p_id"];
@@ -78,6 +82,7 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    // payment
     public function pay() {
         $input = request();
         DB::transaction(function() use(&$input) {
@@ -132,6 +137,7 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    // reader
     public function checkPageExists() {
         $input = request();
         $book = $input['book'];
@@ -148,6 +154,7 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    // record
     public function searchRecord() {
         $response = [
             "status" => "success"
@@ -229,6 +236,7 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    // merchant platform
     public function deleteStaff() {
         $response = [
             "status" => "success"
@@ -238,6 +246,37 @@ class ApiController extends Controller {
         DB::table("users")
             ->where("u_id", "=", $u_id)
             ->delete();
+        return Response::json($response);
+    }
+    public function getProduct() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        $p_id = $input["p_id"];
+        $detail = Product::where("p_id", "=", $p_id)->first();
+        $p_type = Product::where("p_id", "=", $p_id)->value("p_type");
+        $as = ($p_type == "book") ? 
+            Product::find($p_id)->authors->pluck('name')->toArray() : 
+            Product::find($p_id)->singers->pluck('name')->toArray();
+        $classes = DB::table("classes")
+            ->where("p_id", "=", $p_id)
+            ->pluck('c_id')
+            ->toArray();
+        $response["data"] = [
+            "detail" => $detail,
+            "as" => $as,
+            "classes" => $classes,
+        ];
+        return Response::json($response);
+    }
+    public function updateProduct() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        $p_id = $input["p_id"];
+
         return Response::json($response);
     }
     public function deleteProduct() {
@@ -262,7 +301,6 @@ class ApiController extends Controller {
             ->delete();
         return Response::json($response);
     }
-
     public function getChartData() {
         $response = [
             "status" => "success"
@@ -306,9 +344,12 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    // test
     public function lookSession() {
         $input = request();
-        $data = $input->session()->all();
+        $p_id = $input->p_id;
+        // $data = $input->session()->all();
+        $data = Product::where("p_id", "=", $p_id)->value("p_type");
         return Response::json($data);
     }
 }
