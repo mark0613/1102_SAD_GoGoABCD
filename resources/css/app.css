@@ -91,3 +91,11 @@ canvas {
     height: 800px !important;
     width: 800px !important;
 }
+
+/* carousel */
+.carousel-control-prev-icon {
+    background-image: url("http://127.0.0.1:8000/image/arrow-left-circle-fill.svg") !important;
+}
+.carousel-control-next-icon {
+    background-image: url("http://127.0.0.1:8000/image/arrow-right-circle-fill.svg") !important;
+}
