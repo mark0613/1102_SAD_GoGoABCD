@@ -26,7 +26,8 @@
         <br>
         <br>
 
-        <div class="col-10">
+        <div class="col-2"></div>
+        <div class="col-8">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <?php $i = 0; ?>
