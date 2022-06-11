@@ -13,6 +13,7 @@
                         <option value="r-music">CD</option>
                         <option value="e-music">線上音樂</option>
                     </select>
+                    <input type="hidden" name="pre_p_type" id="pre_p_type" value="">
                     <select class="selectpicker multi-select" name="classes[]" id="classes" multiple
                         data-live-search="true" placeholder="Class">
                         @foreach ($classes["b"] as $class)
