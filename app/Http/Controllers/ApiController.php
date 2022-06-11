@@ -313,11 +313,11 @@ class ApiController extends Controller {
                 $path = PdfController::uploadPdf($file);
                 $path = explode("/", $path)[1];
                 $path = explode(".", $path)[0];
-                Product::where("p_id", "=", $p_id)->update(["path" => $path]);
             }
             else {
-                $file->store('music', 'public');
+                $path = $file->store('music', 'public');
             }
+            Product::where("p_id", "=", $p_id)->update(["path" => $path]);
         }
 
         if ($p_type == "book") {
