@@ -52,6 +52,7 @@
                 </div>
                 <div class="col-9"></div>
                 <div class="row col-3">
+                    <input type="hidden" name="p_id" id="product-p_id" value="">
                     <button type="reset" class="btn btn-secondary close-window">取消</button>
                     <button type="submit" class="btn btn-primary ml-1" id="btn-save-product">儲存</button>
                 </div>
