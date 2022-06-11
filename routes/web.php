@@ -41,15 +41,23 @@ Route::group(['prefix' => 'admin'], function() {
 
 // api/*
 Route::group(['prefix' => 'api'], function() {
+    // shopping cart
     Route::post('/addProductToCart', [ApiController::class, 'addProductToCart']);
     Route::post('/removeProductFromCart', [ApiController::class, 'removeProductFromCart']);
     Route::post('/updateQuantity', [ApiController::class, 'updateQuantity']);
+    // wishlist
     Route::post('/addProductToWishlist', [ApiController::class, 'addProductToWishlist']);
     Route::post('/removeProductFromWishlist', [ApiController::class, 'removeProductFromWishlist']);
+    // payment
     Route::post('/pay', [ApiController::class, 'pay']);
+    // reader
     Route::post('/checkPageExists', [ApiController::class, 'checkPageExists']);
+    // record
     Route::post('/searchRecord', [ApiController::class, 'searchRecord']);
+    // merchant platform
     Route::post('/deleteStaff', [ApiController::class, 'deleteStaff']);
+    Route::post('/getProduct', [ApiController::class, 'getProduct']);
+    Route::post('/updateProduct', [ApiController::class, 'updateProduct']);
     Route::post('/deleteProduct', [ApiController::class, 'deleteProduct']);
     Route::post('/deleteAdvertisement', [ApiController::class, 'deleteAdvertisement']);
     Route::post('/getChartData', [ApiController::class, 'getChartData']);
