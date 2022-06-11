@@ -72,7 +72,7 @@ class AdminController extends Controller {
                 $path = PdfController::uploadPdf($file);
                 $path = explode("/", $path)[1];
                 $path = explode(".", $path)[0];
-                DB::table('product')->where("p_id", "=", $p_id)->update(["path" => $path]);
+                Product::where("p_id", "=", $p_id)->update(["path" => $path]);
             }
         }
         else {
@@ -84,7 +84,8 @@ class AdminController extends Controller {
                 DB::table("singer")->insert($tmp);
             }
             if ($product["p_e_or_r"] == 'e') {
-                $file->store('product', 'public');
+                $path = $file->store('music', 'public');
+                Product::where("p_id", "=", $p_id)->update(["path" => $path]);
             }
         }
         // classes table
@@ -93,7 +94,7 @@ class AdminController extends Controller {
                 "p_id" => $p_id,
                 "c_id" => $c_id,
             ];
-            DB::table("classes")->insert($tmp);
+            Classes::create($tmp);
         }
         return Redirect::to("/admin/product");
         exit;
