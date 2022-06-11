@@ -14,7 +14,7 @@ const LABELS = {
 var chart = null;
 
 $(document).ready(function() {
-    // product type select;
+    // product type select
     changeProductClass();
     $("#p_type").change(function(){
         changeProductClass();
@@ -88,6 +88,7 @@ function changeProductClass() {
         $(".dropdown-toggle").attr('disabled', false);
         $(".class-book").css("display", "block");
         $(".class-music").css("display", "none");
+        $("#isbn").attr('disabled', false);
     }
     else if (val.includes("music")) {
         if (!preVal.includes("music")) {
@@ -96,9 +97,15 @@ function changeProductClass() {
         $(".dropdown-toggle").attr('disabled', false);
         $(".class-book").css("display", "none");
         $(".class-music").css("display", "block");
+        $("#isbn").attr('disabled', true);
     }
     else {
-        $(".dropdown-toggle").attr('disabled', true);
+        setTimeout(
+            function(){
+                $(".dropdown-toggle").attr('disabled', true);
+            }, 10
+        );
+        $("#isbn").attr('disabled', true);
         refreshOptions()
     }
 
@@ -215,7 +222,7 @@ function deleteProduct(p_id) {
     )
 }
 
-
+// img button
 window.hover = function(element) {
     let name = element.alt.split(" ")[0];
     element.setAttribute('src', `http://127.0.0.1:8000/image/${name}-hover.png`);
@@ -225,6 +232,7 @@ window.unhover = function(element) {
     element.setAttribute('src', `http://127.0.0.1:8000/image/${name}.png`);
 }
 
+// record
 window.searchRecord = function() {
     let data = {
         "_token": $('meta[name="csrf-token"]').prop("content"),
@@ -273,6 +281,7 @@ window.searchRecord = function() {
     )
 }
 
+// ad
 window.deleteAdvertisement = function() {
     if (!confirm("確認移除嗎? 將不可復原!")) {
         return;
@@ -296,6 +305,7 @@ window.deleteAdvertisement = function() {
     )
 }
 
+// report
 function barChart(ctx, labels, data) {
     let datasets = [];
     let i = 0;
@@ -320,7 +330,6 @@ function barChart(ctx, labels, data) {
         }
     });
 }
-
 function pieChart(ctx, labels, data) {
     let pieLabels = [];
     let pieData = [];
