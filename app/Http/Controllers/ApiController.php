@@ -12,6 +12,9 @@ use Response;
 use DB;
 
 use App\Models\Product;
+use App\Models\Classes;
+use App\Models\Author;
+use App\Models\Singer;
 
 class ApiController extends Controller {
     // shopping cart
@@ -276,6 +279,67 @@ class ApiController extends Controller {
         ];
         $input = request();
         $p_id = $input["p_id"];
+        if ($input->photo) {
+            $photoPath = $input->photo->store('product', 'public');
+            Product::where("p_id", "=", $p_id)->update(["photo" => $photoPath]);
+        }
+        $er_and_type = explode("-", $input["p_type"]);
+        $p_e_or_r = $er_and_type[0];
+        $p_type = $er_and_type[1];
+        $author_or_singer = explode(", ", $input["author_or_singer"]);
+        $classes = $input["classes"];
+        $product = [
+            "p_name" => $input["name"],
+            "description" => $input["description"],
+            "price" => $input["price"],
+            "inventory" => $input["inventory"],
+            "p_type" => $p_type,
+            "p_e_or_r" => $p_e_or_r,
+            "isbn" => $input["isbn"],
+            "publisher" => $input["publisher"],
+        ];
+        Product::where("p_id", "=", $p_id)->update($product);
+        Classes::where("p_id", "=", $p_id)->delete();
+        foreach($classes as $c_id) {
+            $data = [
+                "p_id" => $p_id,
+                "c_id" => $c_id,
+            ];
+            Classes::create($data);
+        }
+        if ($p_e_or_r=="e" && $input->file) {
+            $file = $input->file('file');
+            if ($p_type == "book") {
+                $path = PdfController::uploadPdf($file);
+                $path = explode("/", $path)[1];
+                $path = explode(".", $path)[0];
+                Product::where("p_id", "=", $p_id)->update(["path" => $path]);
+            }
+            else {
+                $file->store('music', 'public');
+            }
+        }
+
+        if ($p_type == "book") {
+            Author::where("p_id", "=", $p_id)->delete();
+            foreach($author_or_singer as $author) {
+                $tmp = [
+                    "p_id" => $p_id,
+                    "name" => $author,
+                ];
+                DB::table("author")->insert($tmp);
+            }
+        }
+        else {
+            Singer::where("p_id", "=", $p_id)->delete();
+            foreach($author_or_singer as $singer) {
+                $tmp = [
+                    "p_id" => $p_id,
+                    "name" => $singer,
+                ];
+                DB::table("singer")->insert($tmp);
+            }
+        }
 
         return Response::json($response);
     }
