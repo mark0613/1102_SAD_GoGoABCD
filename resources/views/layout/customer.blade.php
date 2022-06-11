@@ -123,7 +123,7 @@ $allClasses = [
                                     <a href="user/auth/register" class="btn btn-primary btn-lg">加入會員</a>
                                     <br>
                                     <label>已有帳戶？</label>
-                                    <a href="user/auth/login">登入</a>
+                                    <a href="{{ asset('/user/auth/login') }}">登入</a>
                                 </div>
                             @endif
                         </div>

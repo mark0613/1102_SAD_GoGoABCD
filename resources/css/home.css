@@ -64,6 +64,14 @@
     border-radius:50%;
 }
 
+/* ad */
+.carousel-indicators > li {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #303030;
+}
+
 .ad{
     height: 300px;
 }
@@ -113,9 +121,4 @@
 .book_cover .info:hover {
     opacity: 1;
     transition: opacity 0.8s;
-}
-
-/* product photo */
-    img[alt="product photo"] {
-    height: 300px;
 }

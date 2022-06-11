@@ -28,10 +28,6 @@ footer {
     margin-top: -50px;
 }
 
-.space-w30 {
-    width: 30px;
-}
-
 /* stars */
 div.stars {
     display: inline-block;
@@ -102,4 +98,9 @@ canvas {
 }
 .carousel-control-next-icon {
     background-image: url("http://127.0.0.1:8000/image/arrow-right-circle-fill.svg") !important;
+}
+
+/* product photo */
+img[alt="product photo"], img[alt="book photo"] {
+    height: 300px !important;
 }

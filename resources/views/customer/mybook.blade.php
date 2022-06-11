@@ -66,7 +66,7 @@
                 }
             ?>
             <div class="row card-deck top">
-                @for($j=3; $j>0 && count($save)>0; $j--)
+                @for($j=3; $j>0 && count($save)>0 && $i%3!=0; $j--)
                 <?php
                     $mybook = $save[3-$j];
                 ?>
