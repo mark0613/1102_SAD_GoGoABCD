@@ -8,24 +8,24 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-10 center">
+        <div class="col-2"></div>
+        <div class="col-8 center">
             <h3>管理廣告</h3>
             <br>
         </div>
         <div class="col-2"></div>
-
-        <div class="col-3"></div>
-        <div class="col-4 center">
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-danger" onclick="deleteAdvertisement()">刪除</button>
-                <button type="button" class="btn btn-primary open-window">新增</button>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 center">
+            <button type="button" class="btn btn-danger" onclick="deleteAdvertisement()">刪除</button>
+            <button type="button" class="btn btn-primary open-window">新增</button>
         </div>
-        <div class="col-3"></div>
         <div class="col-2"></div>
         <br>
         <br>
-
+    </div>
+    <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

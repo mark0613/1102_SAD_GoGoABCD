@@ -10,13 +10,38 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-            <!--實體書籍-->
+            <!--廣告-->
+            <div>
+                <div class="container">
+                    <h2>現正優惠中</h2>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-8">
+                            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <?php $i=0 ?>
+                                    @foreach($ads as $ad)
+                                    <div class="carousel-item ad {{ $i==0 ? 'active' : '' }}">
+                                        <?php $path = "../storage/" . $ad->image; ?>
+                                        <img src="{{ $path }}" class="d-block" alt="{{ $ad->time }}" width="500px">
+                                    </div>
+                                    <?php $i++?>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--推薦書籍-->
             <div>
                 <div class="pt-5 pb-5">
                     <div class="container">
                         <div class="row">
                             <div class="col-6">
-                                <h3 class="mb-3">推薦商品<br>您可能感興趣</h3>
+                                <h2>您可能感興趣...</h2>
+                                <h3 class="mb-3">推薦書籍</h3>
                             </div>
                             <div class="col-6 text-right">
                             </div>
@@ -158,24 +183,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--廣告-->
-            <div class="width:50%">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <?php $i=0 ?>
-                        @foreach($ads as $ad)
-                        <div class="carousel-item ad {{ $i==0 ? 'active' : '' }}">
-                            <?php $path = "../storage/" . $ad->image; ?>
-                            <img src="{{ $path }}" class="d-block w-100" alt="{{ $ad->time }}" width="500px">
-                        </div>
-                        <?php $i++?>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-
-
         </div>
         <div class="col-1">
             <a href="#" class="back-to-top "><button type="button"

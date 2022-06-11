@@ -28,6 +28,10 @@ footer {
     margin-top: -50px;
 }
 
+.space-w30 {
+    width: 30px;
+}
+
 /* stars */
 div.stars {
     display: inline-block;
