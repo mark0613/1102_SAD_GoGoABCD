@@ -51,6 +51,19 @@ class AllClassSeeder extends Seeder
         DB::statement("INSERT INTO all_classes(class, type) VALUES('古典', 'm')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('世界音樂', 'm')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('宗教', 'm')");
-
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('文學', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('寵物', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('鬧鐘', 'm')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('教科書', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('程式', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('專業', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('食物', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('短篇', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('童話', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('兒童', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('小說', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('繪本', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('漫畫', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('國防', 'b')");
     }
 }
