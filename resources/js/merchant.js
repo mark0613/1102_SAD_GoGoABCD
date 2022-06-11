@@ -33,8 +33,8 @@ $(document).ready(function() {
 
     // delete something when click image of "delete"
     $('img[id*="delete"]').each(function() {
-        let id = $(this).prop("id").split("-")[1];
         $(this).on('click', function() {
+            let id = $(this).prop("id").split("-")[1];
             if (confirm("確認移除嗎? 將不可復原!")) {
                 let type = window.location.href.split("/").splice(-1)[0];
                 if (type == "staff" || type =="admin") {
@@ -46,6 +46,20 @@ $(document).ready(function() {
             }
         })
     })
+
+    // update something when click image of "delete"
+    $('img[id*="update"]').each(function() {
+        $(this).on('click', function() {
+            let p_id = $(this).prop("id").split("-")[1];
+            let button = $("#btn-save-product")
+            button.attr("type", "button");
+            button.attr("onclick", `updateProduct(${p_id})`);
+            $("#product-p_id").val(p_id);
+            getProduct(p_id);
+            openWindow();
+        })
+    })
+
 });
 
 function showSearchType() {
@@ -126,6 +140,60 @@ function deleteStaff(u_id) {
             }
         }
     )
+}
+function getProduct(p_id) {
+    let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
+        'p_id' : p_id,
+    };
+    $.post(
+        "/api/getProduct",
+        data,
+        (response, status) => {
+            if (status == "success") {
+                console.log(response);
+                if (response["status"] == "success") {
+                    let product = response["data"];
+                    let detail = product["detail"];
+                    let as = product["as"];
+                    let classes = product["classes"];
+                    $("#preview").attr("src", `../storage/${detail["photo"]}`);
+                    $("#p_type").val(`${detail["p_e_or_r"]}-${detail["p_type"]}`).change();
+                    $("#classes").selectpicker('val', classes);
+                    $("#name").val(detail["p_name"]);
+                    $("#isbn").val(detail["isbn"]);
+                    $("#publisher").val(detail["publisher"])
+                    $("#author_or_singer").val(as.join(", "));
+                    $("#inventory").val(detail["inventory"]);
+                    $("#price").val(detail["price"]);
+                    $("#description").val(detail["description"]);
+                }
+            }
+        }
+    )
+}
+window.updateProduct = function(p_id) {
+    $.ajax({
+        url : "/api/updateProduct",
+        type : "POST",
+        data : new FormData(document.getElementById("form-update-product")),
+        contentType : false,
+        cache : false,
+        processData :false,
+        beforeSend : function() {
+            
+        },
+        success: function(data) {
+            console.log(data);
+            if (data["status"] == "success") {
+                alert("修改成功!");
+                window.location.reload();
+            }
+        },
+        error: function(e) {
+            console.log(e);
+        }          
+    });
 }
 function deleteProduct(p_id) {
     let data = {
