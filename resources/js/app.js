@@ -23,13 +23,14 @@ $( document ).ready(function() {
     $(".window button[type='submit']").on('click', function() {
         setTimeout(
             function() {
-                $(".window button[type='submit']").html('<span class="spinner-border"></span>');
+                $(".window button[type='submit'], .window button[id*='save']").html('<span class="spinner-border"></span>');
                 $("button").attr("disabled", true);
             },
             1
         )
     })
 
+    // change quantity
     $(".quantity").change(function() {
         quantityChange($(this).prop("id").split("-")[1], 0);
         calculateTotalCost();
