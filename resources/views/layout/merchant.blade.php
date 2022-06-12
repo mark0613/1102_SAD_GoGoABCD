@@ -46,7 +46,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-ligh nav-merchent">
             <a class="navbar-brand" href="{{ asset('/') }}">
                 <img src="{{ asset('image/logo.png') }}" alt="logo icon" class="logo icon-50">
             </a>

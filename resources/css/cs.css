@@ -14,7 +14,7 @@
 }
 
 #cs-msg-customer, #cs-msg-cs {
-    max-height: 400px;
+    height: 400px;
     overflow-y: scroll;
     overflow-x: hidden;
     padding-right: 10px;

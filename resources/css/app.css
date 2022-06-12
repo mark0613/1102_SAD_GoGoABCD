@@ -1,6 +1,7 @@
 html {
     height: 100%;
 }
+
 .cover {
     position: absolute;
     top: 0;
@@ -9,6 +10,7 @@ html {
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
 }
+
 .window {
     position: absolute;
     top: 200px;
@@ -16,6 +18,7 @@ html {
     width: 50%;
     display: none;
 }
+
 .center{
     text-align: center;
 }
@@ -26,6 +29,46 @@ footer {
 
 .top-50 {
     margin-top: -50px;
+}
+
+hr {
+    border-top: #e0e0e0 dashed 5px;
+}
+
+/* layout */
+.nav-merchent {
+    background-color: rgb(255, 204, 204);
+}
+.nav-customer {
+    background-color: rgb(255, 204, 204);
+    height: 140px
+}
+.nav-link {
+    color: #000 !important;
+}
+.bg-pink {
+    background-color: rgb(255, 240, 240);
+}
+.bg-white {
+    background-color: #fff;
+}
+.bg-gray {
+    background-color: #C4E1FF !important;
+}
+.bg-blue {
+    background-color: rgb(222, 235, 247);
+    color: #000;
+}
+
+.padding-rl-100 {
+    padding: 0px 100px;
+}
+.nopadding {
+    padding: 0;
+}
+
+.card, .card-body {
+    border-radius: 10px;
 }
 
 /* stars */
@@ -103,4 +146,5 @@ canvas {
 /* product photo */
 img[alt="product photo"], img[alt="book photo"] {
     height: 300px !important;
+    border: #000 solid 1px;
 }

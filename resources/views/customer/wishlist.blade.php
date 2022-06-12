@@ -53,25 +53,26 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <h5>
+                            <h4>
                                 <a href='{{ asset("/detail/$p_id") }}'>{{ $wish->p_name }}</a>
-                            </h5>
+                            </h4>
+                            <br>
                             <label>作者 : </label>
                             @foreach($author_or_singer[$i] as $as)
                             <label>{{ $as->name }}</label>
                             @endforeach
                             <br>
+                            <br>
                             <label>出版社 : </label>
                             <label>{{ $wish->publisher }}</label>
-                            <hr style="filter: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color="#000000"
-                                size="3" />
+                            <br>
+                            <br>
+                            <hr>
+                            <br>
                             <p>商品描述:</p>
                             <p>{{ $wish->description }}</p>
                         </div>
-                        <div class="col-1">
-                            <span class="col_line"></span>
-                        </div>
-                        <div class="col-3">
+                        <div class="col-4 card-body shadow border-0">
                             <div class="center">
                                 <label class="price">$</label>
                                 <label class="price">{{ $wish->price }}</label>
@@ -89,8 +90,11 @@
                                 <label class="card-text" id="inventory-{{ $p_id }}">{{ $wish->inventory }}</label>
                             </div>
                             <br>
+                            <br>
+                            <br>
                             <div class="center">
-                                <button type="button" class="btn btn-primary" onclick="addProductToCart({{ $p_id }})">加入購物車</button>
+                                <button type="button" class="btn btn-outline-danger" onclick="addProductToCart({{ $p_id }})">加入購物車</button>
+                                <br>
                                 <br>
                                 <a class="underline" href="" onclick="removeProductFromWishlist({{ $p_id }}, false)">移除</a>
                             </div>
