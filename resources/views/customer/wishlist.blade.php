@@ -108,6 +108,9 @@
     <br>
     <?php $i++; ?>
     @endforeach
+    @if ($i == 0)
+    <div class="min-h-500"></div>
+    @endif
 </div>
 
 @endsection

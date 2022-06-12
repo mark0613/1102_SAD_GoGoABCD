@@ -81,11 +81,11 @@
                                             class="btn btn-danger"
                                             onclick="removeProductFromWishlist({{ $p_id }})"
                                         @else
-                                            class="btn btn-light"
+                                            class="border border-dark btn btn-light"
                                             onclick="addProductToWishlist({{ $p_id }})"
                                         @endif
                                     id="wish-{{ $p_id }}">♡</button>
-                                    <button type="button" class="btn btn-primary" onclick="addProductToCart({{ $p_id }})">加入購物車</button>
+                                    <button type="button" class="btn btn-outline-danger" onclick="addProductToCart({{ $p_id }})">加入購物車</button>
                                 </div>
                             </div>
                         </div>

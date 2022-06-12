@@ -64,7 +64,6 @@
         <div class="col-2"></div>
     </div>
     @endforeach
-
     <div class="row top">
         <div class="col-2"></div>
         <div class="col-8">
@@ -79,10 +78,11 @@
                 </div>
             </div>
         </div>
-
         <div class="col-2"></div>
     </div>
-
+    @if ($totalCost == 0)
+    <div class="min-h-500"></div>
+    @endif
 </div>
 
 @endsection

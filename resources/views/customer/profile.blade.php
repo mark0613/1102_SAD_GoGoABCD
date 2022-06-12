@@ -21,7 +21,8 @@
                             <label>Level : </label>
                             <label>{{ $profile->level }}</label>
                         </div>
-                        <hr>
+                        <hr style="filter: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color="#000000"
+                            size="3" />
                         <form method="post">
                             {!! csrf_field() !!}
                             <div class="form-group">

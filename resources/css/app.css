@@ -39,7 +39,7 @@ footer {
     margin-top: -50px;
 }
 
-hr {
+.hr-dashed {
     border-top: #e0e0e0 dashed 5px;
 }
 
@@ -88,6 +88,13 @@ hr {
 
 .card, .card-body {
     border-radius: 10px;
+}
+
+.min-h-500 {
+    min-height: 500px;
+}
+.min-h-700 {
+    min-height: 700px;
 }
 
 /* stars */

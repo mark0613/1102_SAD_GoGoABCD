@@ -109,6 +109,7 @@
 <script>
     alert("還沒有電子書喔! 趕快去購買吧!")
 </script>
+<div class="min-h-500"></div>
 @endif
 
 @endsection

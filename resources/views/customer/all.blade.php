@@ -74,12 +74,12 @@
                                         class="btn btn-danger"
                                         onclick="removeProductFromWishlist({{ $product['p_id'] }})"
                                     @else
-                                        class="btn btn-light"
+                                        class="border border-dark btn btn-light"
                                         onclick="addProductToWishlist({{ $product['p_id'] }})"
                                     @endif
                                     id="wish-{{ $product['p_id'] }}">♡</button>
                                     <input type='hidden' id="quantity-{{ $product['p_id'] }}" value='1' class="form-control item" />
-                                    <button type="button" class="btn btn-primary" onclick="addProductToCart({{ $product['p_id'] }})">加入購物車</button>
+                                    <button type="button" class="btn btn-outline-danger" onclick="addProductToCart({{ $product['p_id'] }})">加入購物車</button>
                                 </div>
                             </div>
                         </div>
@@ -146,12 +146,12 @@
                                         class="btn btn-danger"
                                         onclick="removeProductFromWishlist({{ $product['p_id'] }})"
                                     @else
-                                        class="btn btn-light"
+                                        class="border border-dark btn btn-light"
                                         onclick="addProductToWishlist({{ $product['p_id'] }})"
                                     @endif
                                     id="wish-{{ $product['p_id'] }}">♡</button>
                                     <input type='hidden' id="quantity-{{ $product['p_id'] }}" value='1' class="form-control item" />
-                                    <button type="button" class="btn btn-primary" onclick="addProductToCart({{ $product['p_id'] }})">加入購物車</button>
+                                    <button type="button" class="btn btn-outline-danger" onclick="addProductToCart({{ $product['p_id'] }})">加入購物車</button>
                                 </div>
                             </div>
                         @else

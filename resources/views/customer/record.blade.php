@@ -66,7 +66,7 @@
         </div>
         <div class="col-2"></div>
     </div>
-    <div class="row ">
+    <div class="row min-h-500">
         <div class="col-2"></div>
         <div class="col-8">
             <table class="table table-bordered">

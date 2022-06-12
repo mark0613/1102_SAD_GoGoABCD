@@ -60,7 +60,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-2 bg-pink2">
+                <div class="col-2 bg-pink2 min-h-700">
                     <div class="nav flex-column nav-pills nav-fill" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <?php $m_type = App\Models\Merchant::where("u_id", "=", Auth::user()->u_id)->value("m_type") ?>
                         @if ($m_type == 'a')
@@ -92,7 +92,7 @@
         @include('window.ad')
     @endif
 
-    <footer></footer>
+    <footer class="bg-pink" style="margin:0px;"></footer>
 </body>
 
 </html>

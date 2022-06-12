@@ -29,8 +29,8 @@
                     <tr>
                         <th scope="col">電子郵件</th>
                         <th scope="col">使用者名稱</th>
-                        <th scope="col">使用者名稱</th>
                         <th scope="col">職位</th>
+                        <th scope="col">功能</th>
                     </tr>
                 </thead>
                 <tbody>
