@@ -77,6 +77,8 @@ Route::get('/mymusic', [CustomerController::class, 'mymusicPage']);
 Route::get('/detail/{p_id}', [CustomerController::class, 'detailPage']);
 Route::get('/cart', [CustomerController::class, 'cartPage']);
 Route::get('/reader/{p_id}', [ReaderController::class, 'readerPage']);
+Route::get('/record', [CustomerController::class, 'recordPage']);
+Route::get('/cs', [CustomerController::class, 'csPage']);
 
 
 ?>
