@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Response;
 use DB;
 
+use App\Models\User;
 use App\Models\Product;
 use App\Models\Classes;
 use App\Models\Author;
@@ -163,13 +164,22 @@ class ApiController extends Controller {
             "status" => "success"
         ];
         $input = request();
+        $u_id = $input->user() ? $input->user()->u_id : 0;
+        $u_type = User::where("u_id", "=", $u_id)->value("u_type");
         $type = $input["type"];
         if ($type == 'id') {
             $r_id = $input["r_id"];
-
-            $record = DB::table("purchase_record")
-                ->where("r_id", "=", $r_id)
-                ->first();
+            if ($u_id==0 || ($u_type && $u_type=='merchant')) {
+                $record = DB::table("purchase_record")
+                    ->where("r_id", "=", $r_id)
+                    ->first();
+            }
+            else {
+                $record = DB::table("purchase_record")
+                    ->where("r_id", "=", $r_id)
+                    ->where("u_id", "=", $u_id)
+                    ->first();
+            }
             $order = DB::table("order")
                 ->where("r_id", "=", $r_id)
                 ->join("product", "product.p_id", "=", "order.p_id")
@@ -184,9 +194,18 @@ class ApiController extends Controller {
             $startDate = $input["startDate"];
             $endDate = $input["endDate"];
 
-            $records = DB::table("purchase_record")
-                ->whereBetween("time", [$startDate, $endDate])
-                ->get();
+            if ($u_id==0 || ($u_type && $u_type=='merchant')) {
+                $records = DB::table("purchase_record")
+                    ->whereBetween("time", [$startDate, $endDate])
+                    ->get();
+            }
+            else {
+                $records = DB::table("purchase_record")
+                    ->where("u_id", "=", $u_id)
+                    ->whereBetween("time", [$startDate, $endDate])
+                    ->get();
+            }
+            
             $data = [];
             foreach ($records as $record) {
                 $r_id = $record->r_id;
@@ -214,12 +233,22 @@ class ApiController extends Controller {
                 ->distinct()
                 ->orderBy("r_id", 'asc')
                 ->get();
+            
             $data = [];
             foreach ($ordersContainTargetClasses as $order) {
                 $r_id = $order->r_id;
-                $record = DB::table("purchase_record")
+                if ($u_id==0 || ($u_type && $u_type=='merchant')) {
+                    $record = DB::table("purchase_record")
                     ->where("r_id", "=", $r_id)
                     ->first();
+                }
+                else {
+                    $record = DB::table("purchase_record")
+                    ->where("r_id", "=", $r_id)
+                    ->where("u_id", "=", $u_id)
+                    ->first();
+                }
+                
                 $order = DB::table("order")
                     ->where("r_id", "=", $r_id)
                     ->join("product", "product.p_id", "=", "order.p_id")
