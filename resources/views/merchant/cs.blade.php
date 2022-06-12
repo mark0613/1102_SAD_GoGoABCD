@@ -19,7 +19,7 @@
         <div class="col-6">
             <div id="cs-msg-cs"></div>
             <form action="" method="post">
-                <textarea class="form-control" id="cs-msg" rows="3"></textarea>
+                <textarea class="form-control" id="cs-msg" rows="3" placeholder="輸入訊息..."></textarea>
                 <button type="button" class="btn btn-primary ml-1" id='btn-submit-msg' onclick="sendMessageOnCS()">傳送</button>
             </div>
             </form>
