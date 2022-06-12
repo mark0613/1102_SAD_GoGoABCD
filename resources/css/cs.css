@@ -1,0 +1,32 @@
+.msg {
+    padding: 5px 10px;
+    max-width: 45%;
+}
+.msg-is-mine {
+    border-radius: 30px 10px 10px 30px;
+    padding-left: 20px;
+    background-color: rgb(255, 221, 221);
+}
+.msg-default {
+    border-radius: 10px 30px 30px 10px;
+    padding-right: 20px;
+    background-color: #f0f0f0;
+}
+
+#cs-msg-customer, #cs-msg-cs {
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 10px;
+}
+
+.mar-25 {
+    margin-left: -20px;
+    padding: 0px;
+}
+#btn-submit-msg {
+    width: 61px !important;
+}
+.no-padding {
+    padding: 0px !important;
+}

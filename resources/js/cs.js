@@ -27,11 +27,19 @@ function showCustomerServiceMessageOnCustomer() {
                     let msgs = response["data"];
                     $("#cs-msg-customer").empty();
                     for (let msg of msgs) {
+                        let isMine =  msg["from"]==msg["c_id"];
+                        let align = isMine ? "float-right" : "float-left";
+                        let color = isMine ? "msg-is-mine" : "msg-default"
                         $("#cs-msg-customer").append(`
-                            <label>${msg["from"]} : ${msg["message"]}</label>
-                            <br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="${align} msg ${color} text-break">${msg["message"]}</label>
+                                    <label class="${align} small">${msg["time"].split(" ")[1].split(":").splice(0, 2).join(":")}</label>
+                                </div>
+                            </div>
                         `)
                     }
+                    document.getElementById("cs-msg-customer").scroll(0, 999)
                 }
             }
         }
@@ -47,16 +55,23 @@ function showCustomerServiceMessageOnCS() {
         data,
         (response, status) => {
             if (status == "success") {
-                console.log(response);
                 if (response["status"] == "success") {
                     let msgs = response["data"];
                     $("#cs-msg-cs").empty();
                     for (let msg of msgs) {
+                        let isMine =  msg["from"]==msg["m_id"];
+                        let align = isMine ? "float-right" : "float-left";
+                        let color = isMine ? "msg-is-mine" : "msg-default"
                         $("#cs-msg-cs").append(`
-                            <label>${msg["from"]} : ${msg["message"]}</label>
-                            <br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="${align} msg ${color} text-break">${msg["message"]}</label>
+                                    <label class="${align} small">${msg["time"].split(" ")[1].split(":").splice(0, 2).join(":")}</label>
+                                </div>
+                            </div>
                         `)
                     }
+                    document.getElementById("cs-msg-cs").scroll(0, 999)
                 }
             }
         }
