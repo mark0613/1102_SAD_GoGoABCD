@@ -188,8 +188,12 @@ class CustomerController extends Controller {
             ->where("p_id", "=", $p_id)
             ->join("all_classes", "classes.c_id", "=", "all_classes.c_id")
             ->get();
-        $comments = Product::find($p_id)->comments->sortByDesc('time');
-        
+        $comments = Product::where("product.p_id", "=", $p_id)
+            ->join("comment", "comment.p_id", "=", "product.p_id")
+            ->join("users", "users.u_id", "=", "comment.u_id")
+            ->orderBy('time')
+            ->get();
+
         if (Auth::user()) {
             $inWishlist = DB::table("wishlist")
                 ->where("u_id", "=", Auth::user()->u_id)
