@@ -158,3 +158,26 @@ window.submitOrder = function() {
         }
     )
 }
+
+// comment
+window.giveComment = function() {
+    let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
+        'p_id' : window.location.href.split("/").splice(-1)[0],
+        "stars" : $('#comment-stars-give > input[name="star"]:checked').val(),
+        "content" : $("#content").val(),
+    };
+    $.post(
+        "/api/giveComment",
+        data,
+        (response, status) => {
+            if (status == "success") {
+                console.log(response);
+                if (response["status"] == "success") {
+                    alert("給予成功!")
+                    window.location.reload();
+                }
+            }
+        }
+    )
+}

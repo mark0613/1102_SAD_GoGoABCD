@@ -9,10 +9,13 @@ class Comment extends Model {
     protected $table = 'comment';
     protected $primaryKey = ['u_id', 'p_id'];
     protected $fillable = [
+        'u_id',
+        'p_id',
         'stars',
         'content',
         'time'
     ];
 
     public $incrementing = false;
+    public $timestamps = false;
 }

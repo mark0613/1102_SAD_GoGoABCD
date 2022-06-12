@@ -16,6 +16,7 @@ use App\Models\Product;
 use App\Models\Classes;
 use App\Models\Author;
 use App\Models\Singer;
+use App\Models\Comment;
 
 class ApiController extends Controller {
     // shopping cart
@@ -437,12 +438,30 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    // comments
+    public function giveComment() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        date_default_timezone_set('Asia/Taipei');
+        $data = [
+            "u_id" => $input->user()->u_id,
+            "p_id" => $input["p_id"],
+            "stars" => $input["stars"],
+            "content" => $input["content"],
+            "time" => date('Y-m-d H:i:s'),
+        ];
+        Comment::create($data);
+        return Response::json($response);
+    }
+
     // test
     public function lookSession() {
         $input = request();
         $p_id = $input->p_id;
         // $data = $input->session()->all();
-        $data = Product::where("p_id", "=", $p_id)->value("p_type");
+        $data = $input->user()->u_id;
         return Response::json($data);
     }
 }

@@ -11,11 +11,11 @@
                 @endfor
             </div>
             <br>
-            <textarea class="form-control" id="story" name="story" rows="5" cols="33"></textarea>
+            <textarea class="form-control" id="content" name="content" rows="5" cols="33"></textarea>
             <br>
             <div class="right pr-3">
                 <button type="reset" class="btn btn-secondary close-window">取消</button>
-                <button type="submit" class="btn btn-primary">發送</button>
+                <button type="button" class="btn btn-primary" onclick="giveComment()">發送</button>
             </div>
             <br>
             <br>
