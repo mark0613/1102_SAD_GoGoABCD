@@ -37,13 +37,17 @@
     <link rel="stylesheet" href="/css/merchant.css?<?php echo date("css", time())?>">
     <script src="/js/merchant.js?<?php echo date("js", time())?>"></script>
     <script src="/js/app.js?<?php echo date("js", time())?>"></script>
+    @if ($name == 'cs')
+    <script src="/js/cs.js?<?php echo date("js", time())?>"></script>
+    <link rel="stylesheet" href="/css/cs.css?<?php echo date("css", time())?>">
+    @endif
     
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="../">
+            <a class="navbar-brand" href="{{ asset('/') }}">
                 <img src="{{ asset('image/logo.png') }}" alt="logo icon" class="logo icon-50">
             </a>
 
@@ -58,12 +62,17 @@
             <div class="row">
                 <div class="col-2 bg-light">
                     <div class="nav flex-column nav-pills nav-fill" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <?php $m_type = App\Models\Merchant::where("u_id", "=", Auth::user()->u_id)->value("m_type") ?>
+                        @if ($m_type == 'a')
                         <a class="nav-link sidebar_font center" href="{{asset('admin/staff')}}">人員管理</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/record')}}">查詢訂單</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/product')}}">管理商品</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/discount')}}">管理優惠</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/ad')}}">管理廣告</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/chart')}}">產生報表</a>
+                        @else
+                        <a class="nav-link sidebar_font center" href="{{asset('admin/cs?c_id=2')}}">客服回應</a>
+                        @endif
                     </div>
                 </div>
                 <div class="col-10">@yield('content')</div>

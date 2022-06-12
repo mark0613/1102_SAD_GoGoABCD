@@ -175,4 +175,12 @@ class AdminController extends Controller {
         return UserAuthController::registerMerchantProcess($input);
     }
 
+    public function csPage() {
+        $name = 'cs';
+        $binding = [
+            'title' => ShareData::TITLE,
+            'name' => $name,
+        ];
+        return view('merchant.cs', $binding);
+    }
 }

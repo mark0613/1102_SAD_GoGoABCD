@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/ad', [AdminController::class, 'adPage']);
     Route::post('/ad', [AdminController::class, 'adProcess']);
     Route::get('/chart', [AdminController::class, 'chartPage']);
+    Route::get('/cs', [AdminController::class, 'csPage']);
 });
 
 // api/*
@@ -63,7 +64,13 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('/getChartData', [ApiController::class, 'getChartData']);
     // comment
     Route::post('/giveComment', [ApiController::class, 'giveComment']);
+    // cs
+    Route::post('/getCustomerServiceMessageOnCustomer', [ApiController::class, 'getCustomerServiceMessageOnCustomer']);
+    Route::post('/getCustomerServiceMessageOnCS', [ApiController::class, 'getCustomerServiceMessageOnCS']);
+    Route::post('/sendMessageOnCustomer', [ApiController::class, 'sendMessageOnCustomer']);
+    Route::post('/sendMessageOnCS', [ApiController::class, 'sendMessageOnCS']);
 
+    //test
     Route::get('/look', [ApiController::class, 'lookSession']);
 
 });

@@ -17,6 +17,7 @@ use App\Models\Classes;
 use App\Models\Author;
 use App\Models\Singer;
 use App\Models\Comment;
+use App\Models\CSMsg;
 
 class ApiController extends Controller {
     // shopping cart
@@ -453,6 +454,71 @@ class ApiController extends Controller {
             "time" => date('Y-m-d H:i:s'),
         ];
         Comment::create($data);
+        return Response::json($response);
+    }
+
+    // cs
+    public function getCustomerServiceMessageOnCustomer() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        $u_id = $input->user()->u_id;
+        $m_id = $input["m_id"];
+        $msg = CSMsg::where("c_id", "=", $u_id)
+            ->where("m_id", "=", $m_id)
+            ->orderBy("time")
+            ->get();
+        $response["data"] = $msg;
+        return Response::json($response);
+    }
+    public function getCustomerServiceMessageOnCS() {
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        $u_id = $input->user()->u_id;
+        $c_id = $input["c_id"];
+        $msg = CSMsg::where("m_id", "=", $u_id)
+            ->where("c_id", "=", $c_id)
+            ->orderBy("time")
+            ->get();
+        $response["data"] = $msg;
+        $response["c_id"] = $c_id;
+        $response["m_id"] = $u_id;
+        return Response::json($response);
+    }
+
+    public function sendMessageOnCustomer(){
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        date_default_timezone_set('Asia/Taipei');
+        $data = [
+            "c_id" => $input->user()->u_id,
+            "m_id" => $input["m_id"],
+            "message" => $input["msg"],
+            "time" => date('Y-m-d H:i:s'),
+            "from" => $input->user()->u_id,
+        ];
+        CSMsg::create($data);
+        return Response::json($response);
+    }
+    public function sendMessageOnCS(){
+        $response = [
+            "status" => "success"
+        ];
+        $input = request();
+        date_default_timezone_set('Asia/Taipei');
+        $data = [
+            "c_id" => $input["c_id"],
+            "m_id" => $input->user()->u_id,
+            "message" => $input["msg"],
+            "time" => date('Y-m-d H:i:s'),
+            "from" => $input->user()->u_id,
+        ];
+        CSMsg::create($data);
         return Response::json($response);
     }
 

@@ -49,6 +49,10 @@ $allClasses = [
     <script src="/js/app.js?<?php echo date("js", time())?>"></script>
     <link rel="stylesheet" href="/css/home.css?<?php echo date("css", time())?>">
     <script src="/js/customer.js?<?php echo date("js", time())?>"></script>
+    @if ($name == 'cs')
+    <script src="/js/cs.js?<?php echo date("js", time())?>"></script>
+    <link rel="stylesheet" href="/css/cs.css?<?php echo date("css", time())?>">
+    @endif
 
 </head>
 
@@ -93,7 +97,15 @@ $allClasses = [
                                                     我的帳戶
                                                 </a>
                                                 <div class="dropdown-menu account" aria-labelledby="navbarDropdownMenuLink">
-                                                    <a class="dropdown-item center" href="{{ asset('/admin') }}">管理後台</a>
+                                                    <?php $m_type = App\Models\Merchant::where("u_id", "=", Auth::user()->u_id)->value("m_type") ?>
+                                                    
+                                                    <a class="dropdown-item center" 
+                                                    @if ($m_type == 'a')
+                                                        href="{{ asset('/admin') }}"
+                                                    @else
+                                                        href="{{ asset('/admin/cs?c_id=2') }}"
+                                                    @endif
+                                                    >管理後台</a>
                                                     <a href="{{ asset('/user/auth/logout') }}" class="center btn-outline-primary btn">登出</a>
                                                 </div>
                                         </div>

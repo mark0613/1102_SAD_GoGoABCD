@@ -20,10 +20,11 @@ $( document ).ready(function() {
     })
 
     // show spinner when click submit
-    $(".window button[type='submit']").on('click', function() {
+    $(".window button[type='submit'], .window button[id*='save'], #btn-submit-msg").on('click', function() {
+        let btn = $(this);
         setTimeout(
             function() {
-                $(".window button[type='submit'], .window button[id*='save']").html('<span class="spinner-border"></span>');
+                btn.html('<span class="spinner-border"></span>');
                 $("button").attr("disabled", true);
             },
             1
