@@ -7,9 +7,9 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row top">
         <div class="col-2"></div>
-        <div class="col-8">
+        <div class="col-8 center">
             <h3>我的願望清單</h3>
         </div>
         <div class="col-2"></div>
@@ -17,7 +17,7 @@
     <?php $i=0; ?>
     @foreach($wishlist as $wish)
     <?php $p_id = $wish->p_id ?>
-    <div class="row">
+    <div class="row top10">
         <div class="col-2"></div>
         <div class="col-8">
             <div class="card h-100 shadow border-0">

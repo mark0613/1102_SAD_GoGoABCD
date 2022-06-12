@@ -20,6 +20,8 @@ mix.js('resources/js/app.js', 'public/js')
     ])
     .postCss('resources/css/cs.css', 'public/css', [
     ])
+    .postCss('resources/css/bootstrap.css', 'public/css', [
+    ])
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/home.scss', 'public/css')
     .sourceMaps();

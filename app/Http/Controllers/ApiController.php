@@ -522,6 +522,15 @@ class ApiController extends Controller {
         return Response::json($response);
     }
 
+    // random
+    public function goodLuck() {
+        $response = [
+            "status" => "success",
+        ];
+        $response["data"] = Product::all()->random(1)->first()->p_id;
+        return Response::json($response);
+    }
+
     // test
     public function lookSession() {
         $input = request();

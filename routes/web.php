@@ -69,6 +69,8 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('/getCustomerServiceMessageOnCS', [ApiController::class, 'getCustomerServiceMessageOnCS']);
     Route::post('/sendMessageOnCustomer', [ApiController::class, 'sendMessageOnCustomer']);
     Route::post('/sendMessageOnCS', [ApiController::class, 'sendMessageOnCS']);
+    // random
+    Route::post('/goodLuck', [ApiController::class, 'goodLuck']);
 
     //test
     Route::get('/look', [ApiController::class, 'lookSession']);

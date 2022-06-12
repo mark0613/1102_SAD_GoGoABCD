@@ -11,7 +11,7 @@
             <div class="col-3"></div>
             <div class="col-6">
                 <h3 class="center">帳戶設定</h3>
-                <div class="row">
+                <div class="row top10">
                     <div class="col-2"></div>
                     <div class="col-8">
                         <div class="left">
@@ -21,8 +21,7 @@
                             <label>Level : </label>
                             <label>{{ $profile->level }}</label>
                         </div>
-                        <hr style="filter: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color="#000000"
-                            size="3" />
+                        <hr>
                         <form method="post">
                             {!! csrf_field() !!}
                             <div class="form-group">

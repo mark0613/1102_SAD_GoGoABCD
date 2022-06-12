@@ -28,9 +28,10 @@
     <nav>
         
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fix-on-screen fix-top full-x">
+    <nav class="navbar navbar-expand-lg bg-blue fix-on-screen fix-top full-x">
+        <div class='mr-auto'></div>
         <div class='mr-auto'>
-            <h3>{{ $p_name }}</h3>
+            <h2>{{ $p_name }}</h2>
         </div>
         <a href="{{ asset('/mybook') }}" class="btn btn-danger float-right">X</a>
     </nav>
@@ -41,18 +42,34 @@
         </div>
     </div>
 
-    <footer class="fix-on-screen fix-bottom full-x" style="padding: 0px;">
+    <footer class="bg-blue fix-on-screen fix-bottom full-x" style="padding: 0px;">
         <div class="container">
             <div class="row">
                 <div class="col-4">
-                    <button class="btn btn-info float-left" onclick="changePage(-1)">&lt;</button>
-                </div>
-                <div class="col-4 center">
-                    <button class="btn btn-info" onclick="resizePage(1)">＋</button>
-                    <button class="btn btn-info" onclick="resizePage(-1)">－</button>
+                    </div>
+                    <div class="col-4 center">
+                    <button class="btn btn-info btn-lg" onclick="changePage(-1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                            <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-info btn-lg" onclick="resizePage(1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-info btn-lg" onclick="resizePage(-1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-info btn-lg" onclick="changePage(1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                        </svg>
+                    </button>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-info float-right" onclick="changePage(1)">&gt;</button>
                 </div>
             </div>
         </div>

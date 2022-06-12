@@ -18,6 +18,7 @@ use App\Models\Classes;
 use App\Models\Music;
 use App\Models\Product;
 use App\Models\Singer;
+use App\Models\CSMsg;
 
 
 class AdminController extends Controller {
@@ -177,9 +178,17 @@ class AdminController extends Controller {
 
     public function csPage() {
         $name = 'cs';
+        $input = request();
+        $m_id = $input->user()->u_id;
+        $customers = CSMsg::where("m_id", "=", $m_id)
+            ->join("users", "u_id", "=", "c_id")
+            ->orderBy("time", "desc")
+            ->get()
+            ->unique("username");
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            'customers' => $customers,
         ];
         return view('merchant.cs', $binding);
     }

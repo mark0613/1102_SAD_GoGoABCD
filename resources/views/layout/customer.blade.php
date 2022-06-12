@@ -85,8 +85,11 @@ $allClasses = [
                                                     class="icon-50">
                                             </a>
                                             <a href="{{ asset('/cart') }}" class="pl-3">
-                                                <img src="{{ asset('image/shopping_cart.png') }}" alt="shopping cart icon"
-                                                    class="icon-50">
+                                                <!-- <img src="{{ asset('image/shopping_cart.png') }}" alt="shopping cart icon"
+                                                    class="icon-50"> -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                                                </svg>
                                             </a>
                                             <a href="{{ asset('/cs') }}" class="pl-3">
                                                 <img src="{{ asset('image/cs.png') }}" alt="customer service icon"
@@ -157,7 +160,7 @@ $allClasses = [
         </div>
     </nav>
     <!-- 商品 -->
-    <div class="bg-pink padding-rl-100">
+    <div class="bg-pink">
         <div class="container-fluid w-100 nopadding">
             <div class="row">
                 <div class="col-12">
@@ -172,10 +175,10 @@ $allClasses = [
                                             aria-expanded="false">
                                             {{ $className }}
                                         </a>
-                                        <div class="dropdown-menu dropdown-large"
+                                        <div class="dropdown-menu dropdown-large bg-blue2"
                                             aria-labelledby="navbarDropdownMenuLink">
                                             <div class="container-fluid">
-                                                <div class="row">
+                                                <div class="row top">
                                                     <div class="col-8">
                                                         <h3>分類</h3>
                                                         <br>
@@ -184,14 +187,12 @@ $allClasses = [
                                                             class="btn btn-outline-pink">{{ $class->class }}</a>
                                                         @endforeach
                                                     </div>
-
-                                                    <div class="col-4">
-                                                        <h3>不知道要讀什麼?</h3>
+                                                    <div class="col-1"></div>
+                                                    <div class="col-3">
+                                                        <h3>不知道讀啥?</h3>
                                                         <br>
-                                                        <br>
-                                                        <br>
-                                                        <div class="center">
-                                                            <button type="submit" class="btn btn-danger btn-lg">好手氣</button>
+                                                        <div>
+                                                            <button type="button" class="btn btn-danger btn-lg" onclick="goodLuck()">好手氣</button>
                                                         </div>
                                                     </div>
                                                 </div>

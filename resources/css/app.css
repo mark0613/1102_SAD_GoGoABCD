@@ -2,6 +2,10 @@ html {
     height: 100%;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .cover {
     position: absolute;
     top: 0;
@@ -24,15 +28,30 @@ html {
 }
 
 footer {
-    padding: 50px;
+    margin-top: 10px;
+    padding: 30px;
 }
 
+.top10{
+    margin: 10px;
+}
 .top-50 {
     margin-top: -50px;
 }
 
 hr {
     border-top: #e0e0e0 dashed 5px;
+}
+
+.border-2-dark {
+    border: #000 2px solid;
+    padding: 10px;
+}
+.border-2-dark-l {
+    border-top: #000 2px solid;
+    border-bottom: #000 2px solid;
+    border-right: #000 2px solid;
+    padding: 10px;
 }
 
 /* layout */
@@ -43,11 +62,11 @@ hr {
     background-color: rgb(255, 204, 204);
     height: 140px
 }
-.nav-link {
-    color: #000 !important;
-}
 .bg-pink {
     background-color: rgb(255, 240, 240);
+}
+.bg-pink2 {
+    background-color: #FEF0EF;
 }
 .bg-white {
     background-color: #fff;
@@ -59,10 +78,10 @@ hr {
     background-color: rgb(222, 235, 247);
     color: #000;
 }
-
-.padding-rl-100 {
-    padding: 0px 100px;
+.bg-blue2 {
+    background-color: #ECF5FF;
 }
+
 .nopadding {
     padding: 0;
 }

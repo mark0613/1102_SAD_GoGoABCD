@@ -10,6 +10,9 @@
     <div class="row top">
         <div class="col-2"></div>
         <div class="col-8">
+            <div class="center">
+                <h2>購物車</h2>
+            </div>
             <div class="right">
                 <label>{{ $total }}項目</label>
             </div>
@@ -36,17 +39,18 @@
                         <?php $path = "storage/" . $product["photo"]; ?>
                         <img class="img-fluid" alt="product photo" src="{{ $path }}">
                     </div>
-                    <div class="col-5">
+                    <div class="col-5 top center">
                         <h5>{{ $product["p_name"] }}</h5>
                         <div>
                             <label class="price">$</label>
                             <label class="price" id="price-{{ $product['p_id'] }}">{{ $product["price"] }}</label>
                         </div>
-                        <div class="input-group">
+                        <div class="input-group" style="margin-left: 55px;">
                             <input type='button' value='-' class="btn btn-outline-danger"  onclick="quantityChange({{ $product['p_id'] }}, -1); updateQuantity({{ $product['p_id'] }});">
-                            <input type='text' class='quantity' id="quantity-{{ $product['p_id'] }}" value='{{ $product["quantity"] }}' class="form-control item" />
+                            <input type='text' class='quantity' id="quantity-{{ $product['p_id'] }}" value='{{ $product["quantity"] }}' class="form-control item">
                             <input type='button' value='+' class="btn btn-outline-primary"  onclick="quantityChange({{ $product['p_id'] }}, 1); updateQuantity({{ $product['p_id'] }});">
                         </div>
+                        <br>
                         <div>
                             <label>
                                 (庫存:<span id="inventory-{{ $product['p_id'] }}">{{ $product['inventory'] }}</span>)
