@@ -62,7 +62,7 @@ $allClasses = [
                     <div class="form-group row">
                         <div class="col-10">
                             <div class="row">
-                                <a href="../">
+                                <a href="{{ asset('/') }}">
                                     <img src="{{ asset('image/logo.png') }}" alt="logo icon" class="logo icon-50">
                                 </a>
                                 <form class="form-inline pl-5">
@@ -72,13 +72,13 @@ $allClasses = [
                                     </div>
                                     <button class="btn btn-outline my-2 my-sm-0 search_button" type="submit">🔍</button>
                                 </form>
-                                <a href="/wishlist" class="pl-5">
+                                <a href="{{ asset('/wishlist') }}" class="pl-5">
                                     <img src="{{ asset('image/wishlist.png') }}" alt="wishlist icon" class="icon-50">
                                 </a>
-                                <a href="/cart" class="pl-3">
+                                <a href="{{ asset('/cart') }}" class="pl-3">
                                     <img src="{{ asset('image/shopping_cart.png') }}" alt="shopping cart icon" class="icon-50">
                                 </a>
-                                <a href="#" class="pl-3">
+                                <a href="{{ asset('/cs') }}" class="pl-3">
                                     <img src="{{ asset('image/cs.png') }}" alt="customer service icon" class="icon-50">
                                 </a>
                             </div>
@@ -109,10 +109,10 @@ $allClasses = [
                                                 我的帳戶
                                             </a>
                                             <div class="dropdown-menu account" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item center" href="profile">帳戶設定</a>
-                                                <a class="dropdown-item center" href="mybook">我的書籍</a>
-                                                <a class="dropdown-item center" href="mymusic">我的音樂</a>
-                                                <a class="dropdown-item center" href="#">訂單資訊</a>
+                                                <a class="dropdown-item center" href="{{ asset('/profile') }}">帳戶設定</a>
+                                                <a class="dropdown-item center" href="{{ asset('/mybook') }}">我的書籍</a>
+                                                <a class="dropdown-item center" href="{{ asset('/mymusic') }}">我的音樂</a>
+                                                <a class="dropdown-item center" href="{{ asset('/record') }}">訂單資訊</a>
                                                 <a href="{{ asset('/user/auth/logout') }}" class="center btn-outline-primary btn">登出</a>
                                             </div>
                                         </div>
