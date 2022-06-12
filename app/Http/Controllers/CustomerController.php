@@ -254,4 +254,29 @@ class CustomerController extends Controller {
         ];
         return view('customer.cart', $binding);
     }
+
+    public function recordPage() {
+        $name = 'record';
+        $all_book_classes = DB::table("all_classes")->where("type", "=", "b")->get();
+        $all_music_classes = DB::table("all_classes")->where("type", "=", "m")->get();
+        $all_classes = [
+            "b" => $all_book_classes,
+            "m" => $all_music_classes
+        ];
+        $binding = [
+            'title' => ShareData::TITLE,
+            'name' => $name,
+            'classes' => $all_classes,
+        ];
+        return view('customer.record', $binding);
+    }
+
+    public function csPage() {
+        $name = 'cs';
+        $binding = [
+            'title' => ShareData::TITLE,
+            'name' => $name,
+        ];
+        return view('customer.cs', $binding);
+    }
 }
