@@ -135,3 +135,22 @@ window.searchRecord = function() {
         }
     )
 }
+
+// random
+window.goodLuck = function() {
+    let data = {
+        "_token": $('meta[name="csrf-token"]').prop("content"),
+    }
+    $.post(
+        "/api/goodLuck",
+        data,
+        (response, status) => {
+            if (status == "success") {
+                if (response["status"] == "success") {
+                    let ran = response["data"];
+                    window.location.href = `http://127.0.0.1:8000/detail/${ran}`;
+                }
+            }
+        }
+    )
+}
