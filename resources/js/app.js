@@ -35,6 +35,12 @@ $( document ).ready(function() {
         quantityChange($(this).prop("id").split("-")[1], 0);
         calculateTotalCost();
     })
+
+    // show record search type
+    showSearchType()
+    $("#record-search-type").change(function() {
+        showSearchType()
+    })
 });
 
 
@@ -67,4 +73,13 @@ window.quantityChange = function(id, dq) {
     ans = Math.max(ans, 1);
     ans = Math.min(ans, inventory);
     $(`#quantity-${id}`).val(ans);
+}
+
+function showSearchType() {
+    let searchType = $("#record-search-type").val();
+    if (searchType === undefined) {
+        return ;
+    }
+    $(".search-type-radio").css("display", "none");
+    $(`#search-${searchType}`).css("display", "block");
 }

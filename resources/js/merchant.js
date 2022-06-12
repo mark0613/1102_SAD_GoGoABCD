@@ -20,12 +20,6 @@ $(document).ready(function() {
         changeProductClass();
     })
 
-    // show record search type
-    showSearchType()
-    $("#record-search-type").change(function() {
-        showSearchType()
-    })
-
     // show product preview
     $("#photo").change(function(){
         showPreview(this);
@@ -61,15 +55,6 @@ $(document).ready(function() {
     })
 
 });
-
-function showSearchType() {
-    let searchType = $("#record-search-type").val();
-    if (searchType === undefined) {
-        return ;
-    }
-    $(".search-type-radio").css("display", "none");
-    $(`#search-${searchType}`).css("display", "block");
-}
 
 function refreshOptions() {
     $("#classes").val('none');
