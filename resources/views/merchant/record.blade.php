@@ -6,8 +6,15 @@
 
 @section('content')
 <div class="container-fluid">
-    <h3>訂單查詢</h3>
-    <div class="row">
+    <div class="row top">
+        <div class="col-4"></div>
+        <div class="col-4 center">
+            <h3>訂單查詢</h3>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row top">
+        <div class="col-1"></div>
         <div class="col-2">
             <div class="input-group mb-3">
                 <select class="custom-select" id="record-search-type">
@@ -57,10 +64,11 @@
         <div class="col-2">
             <button type="button" class="btn btn-primary" onclick="searchRecord()">搜尋</button>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
 
     </div>
-    <div class="row ">
+    <div class="row top">
+        <div class="col-1"></div>
         <div class="col-10">
             <table class="table table-bordered">
                 <thead>
@@ -75,28 +83,8 @@
                 <tbody id="search-result">
                 </tbody>
             </table>
-
-            <div>
-                <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
     </div>
 </div>
 @endsection

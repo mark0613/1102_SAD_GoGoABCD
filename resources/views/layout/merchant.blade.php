@@ -67,7 +67,7 @@
                         <a class="nav-link sidebar_font center" href="{{asset('admin/staff')}}">人員管理</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/record')}}">查詢訂單</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/product')}}">管理商品</a>
-                        <a class="nav-link sidebar_font center" href="{{asset('admin/discount')}}">管理優惠</a>
+                        <!-- <a class="nav-link sidebar_font center" href="{{asset('admin/discount')}}">管理優惠</a> -->
                         <a class="nav-link sidebar_font center" href="{{asset('admin/ad')}}">管理廣告</a>
                         <a class="nav-link sidebar_font center" href="{{asset('admin/chart')}}">產生報表</a>
                         @else

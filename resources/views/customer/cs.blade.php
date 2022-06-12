@@ -7,16 +7,16 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <div class="row top">
         <div class="col-2"></div>
         <div class="col-8 center">
             <h2>客服詢問</h2>
         </div>
         <div class="col-2"></div>
     </div>
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
+    <div class="row top">
+        <div class="col-3"></div>
+        <div class="col-6">
             <div id="cs-msg-customer"></div>
             <form action="" method="post">
                 <textarea class="form-control" id="cs-msg" rows="3"></textarea>
@@ -24,7 +24,7 @@
             </div>
             </form>
         </div>
-        <div class="col-4"></div>
+        <div class="col-3"></div>
     </div>
 </div>
 @endsection

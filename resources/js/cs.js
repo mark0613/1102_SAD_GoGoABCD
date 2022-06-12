@@ -74,7 +74,6 @@ window.sendMessageOnCustomer = function() {
         data,
         (response, status) => {
             if (status == "success") {
-                console.log(response);
                 if (response["status"] == "success") {
                     showCustomerServiceMessageOnCustomer();
                     $("#cs-msg").val("");
@@ -96,7 +95,6 @@ window.sendMessageOnCS = function() {
         data,
         (response, status) => {
             if (status == "success") {
-                console.log(response);
                 if (response["status"] == "success") {
                     showCustomerServiceMessageOnCS();
                     $("#cs-msg").val("");

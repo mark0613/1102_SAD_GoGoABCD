@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row top">
         <div class="col-2"></div>
         <div class="col-8 center">
             <h3>管理廣告</h3>
