@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <div class="row top">
         <h3>類別 - {{ $className }}</h3>
         <?php
             $i = 0;
@@ -167,6 +167,7 @@
 <script>
     alert("此類別暫無商品!")
 </script>
+<div class="min-h-500"></div>
 @endif
 
 @endsection

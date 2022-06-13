@@ -103,7 +103,8 @@ class CustomerController extends Controller {
 
     public function wishlistPage() {
         $name = 'wishlist';
-        $u_id = request()->user()->u_id;
+        $input = request();
+        $u_id = $input->user() ? $input->user()->u_id : 0;
         $winshlist = DB::table("wishlist")
             ->join("product", "wishlist.p_id", "=", "product.p_id")
             ->where("u_id", "=", $u_id)
