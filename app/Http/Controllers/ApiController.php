@@ -415,10 +415,12 @@ class ApiController extends Controller {
             ->join("purchase_record", "purchase_record.r_id", "=", "order.r_id")
             ->join("product", "product.p_id", "=", "order.p_id")
             ->whereBetween(DB::raw('CAST(time AS DATE)'), [$startDate, $endDate])
+            ->orderBy("time")
             ->get()
             ->groupBy(function($query) {
                 return Carbon::parse($query->time)->format('Y-m');
-            });
+            })
+            ;
 
         $i = 0;
         foreach($records as $label => $orders) {
