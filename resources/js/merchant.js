@@ -322,5 +322,4 @@ window.generateChart = function() {
             }
         }
     )
-    
 }
