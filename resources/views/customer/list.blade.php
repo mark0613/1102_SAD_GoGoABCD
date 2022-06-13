@@ -91,7 +91,7 @@
                             <br>
                             <div class="right pr-2">
                                 <label class="card-text">庫存:</label>
-                                <label class="card-text">{{ $detail->inventory }}</label>
+                                <label class="card-text" id="inventory-{{ $p_id }}">{{ $detail->inventory }}</label>
                             </div>
                             <br>
                             <div class="center">
