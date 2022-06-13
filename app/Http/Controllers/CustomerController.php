@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Schema;
 
 use App\Module\ShareData;
 
@@ -16,10 +17,62 @@ use App\Models\AllClasses;
 
 class CustomerController extends Controller {
     public function listPage() {
+        $input = request();
+        $keyword = $input->keyword;
+        $u_id = $input->user() ? $input->user()->u_id : 0;
+        $productColumns = Schema::getColumnListing('product');
+        $ignore = [
+            "p_id",
+            "price",
+            "inventory",
+            "photo",
+            "path",
+        ];
+        $i = 0;
+        $products = [];
+        foreach($productColumns as $col) {
+            if (in_array($col, $ignore)) {
+                continue;
+            }
+            $tmp = Product::whereLike($col, $keyword)->get();
+            if (count($tmp) == 0) {
+                continue;
+            }
+
+            if ($i == 0) {
+                $products = $tmp;
+            }
+            else {
+                $products->merge($tmp);
+            }
+            $i++;
+        }
+        
+        $data = [];
+        foreach ($products as $product) {
+            $p_id = $product->p_id;
+            $p_type = $product->p_type;
+            $as = ($p_type == "book") ? Product::find($p_id)->authors : Product::find($p_id)->singers;
+            $inWishlist = DB::table("wishlist")
+                ->where("u_id", "=", $u_id)
+                ->where("p_id", "=", $p_id)
+                ->first();
+            $avg = Comment::where("p_id", "=", $p_id)->groupBy('p_id')->avg('stars');
+            $avg = round($avg, 0);
+
+            $d = [
+                "detail" => $product,
+                "as" => $as,
+                "inWishlist" => $inWishlist===null ? false : true,
+                "avg" => $avg,
+            ];
+            array_push($data, $d);
+        }
         $name = 'list';
         $binding = [
             'title' => ShareData::TITLE,
             'name' => $name,
+            "products" => $data,
         ];
         return view('customer.list', $binding);
     }
@@ -27,11 +80,13 @@ class CustomerController extends Controller {
     public function allPage() {
         $input = request();
         $c_id = $input->c_id;
+        $p_e_or_r = $input->er;
         $u_id = $input->user() ? $input->user()->u_id : 0;
         $className = AllClasses::find($c_id)->class;
         $productsContainTargetClass = DB::table("classes")
             ->where("c_id", "=", $c_id)
             ->join("product", "product.p_id", "=", "classes.p_id")
+            ->where("p_e_or_r", "=", $p_e_or_r)
             ->distinct()
             ->get();
         $products = [];

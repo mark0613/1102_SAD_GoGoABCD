@@ -5,9 +5,15 @@ $all_music_classes = DB::table("all_classes")->where("type", "=", "m")->get();
 $allClasses = [
     "實體書籍" => $all_book_classes,
     "實體唱片" => $all_music_classes,
-    "電子書" => $all_book_classes,
+    "電子書籍" => $all_book_classes,
     "數位音樂" => $all_music_classes,
 ];
+$p_e_or_r = [
+    "實體書籍" => "r",
+    "實體唱片" => "r",
+    "電子書籍" => "e",
+    "數位音樂" => "e",
+]
 
 ?>
 
@@ -71,12 +77,11 @@ $allClasses = [
                                     <a href="{{ asset('/') }}">
                                         <img src="{{ asset('image/logo.png') }}" alt="logo icon" class="logo icon-50">
                                     </a>
-                                    <form class="form-inline pl-5">
+                                    <form class="form-inline pl-5" onsubmit="return false;">
                                         <div class="pr-1">
-                                            <input class=" search" type="search" placeholder="依書名 作者 ISBN...搜尋"
-                                                aria-label="Search">
+                                            <input class=" search" type="search" id="search" placeholder="依書名, ISBN... 搜尋" aria-label="Search">
                                         </div>
-                                        <label class="h4">🔍</label>
+                                        <a href="#" id="btn-search" class="h4">🔍</a>
                                     </form>
                                     <div class="col-4">
                                         <div class="float-right">
@@ -182,7 +187,7 @@ $allClasses = [
                                                         <h3>分類</h3>
                                                         <br>
                                                         @foreach($classes as $class)
-                                                        <a href="{{ asset('all?c_id=' . $class->c_id) }}"
+                                                        <a href="{{ asset('all?c_id=' . $class->c_id . '&er=' . $p_e_or_r[$className]) }}"
                                                             class="btn btn-outline-pink">{{ $class->class }}</a>
                                                         @endforeach
                                                     </div>
