@@ -5,6 +5,9 @@
 .top{
     padding-top: 50px;
 }
+.bottom50 {
+    padding-bottom: 50px;
+}
 
 .bold{
     font-weight: bold;

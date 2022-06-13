@@ -42,6 +42,11 @@ $( document ).ready(function() {
     $("#record-search-type").change(function() {
         showSearchType()
     })
+
+    // search product
+    $("#btn-search").on("click", function() {
+        window.location.href = `http://127.0.0.1:8000/list?keyword=${$("#search").val()}`;
+    })
 });
 
 
