@@ -65,5 +65,9 @@ class AllClassSeeder extends Seeder
         DB::statement("INSERT INTO all_classes(class, type) VALUES('繪本', 'b')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('漫畫', 'b')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('國防', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('心理', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('勵志', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('人文', 'b')");
+
     }
 }
