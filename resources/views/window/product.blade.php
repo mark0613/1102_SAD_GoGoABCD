@@ -8,14 +8,14 @@
                     <input type="file" name="photo" id="photo">
                     <select name="p_type" id="p_type">
                         <option value="none" selected>選擇商品種類</option>
-                        <option value="r-book">實體書</option>
-                        <option value="e-book">電子書</option>
-                        <option value="r-music">CD</option>
+                        <option value="r-book">實體書籍</option>
+                        <option value="e-book">電子書籍</option>
+                        <option value="r-music">實體唱片</option>
                         <option value="e-music">線上音樂</option>
                     </select>
                     <input type="hidden" name="pre_p_type" id="pre_p_type" value="">
                     <select class="selectpicker multi-select" name="classes[]" id="classes" multiple
-                        data-live-search="true" placeholder="Class">
+                        data-live-search="true" title="請選擇類別">
                         @foreach ($classes["b"] as $class)
                         <option value="{{ $class->c_id }}" class="class-book">{{ $class->class }}</option>
                         @endforeach

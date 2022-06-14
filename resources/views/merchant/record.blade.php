@@ -51,7 +51,7 @@
             <!--類別-->
             <div class="input-group search-type-radio" id="search-class">
                 <select class="selectpicker multi-select fill" name="classes[]" id="classes" multiple
-                    data-live-search="true" placeholder="Class">
+                    data-live-search="true" title="選擇商品類別">
                     @foreach ($classes["b"] as $class)
                     <option value="{{ $class->c_id }}" class="class-book">書本-{{ $class->class }}</option>
                     @endforeach

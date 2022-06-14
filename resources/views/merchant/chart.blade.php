@@ -18,7 +18,7 @@
         <div class="col-1"></div>
         <div class="col-2">
             <select class="selectpicker multi-select" data-width="100%" name="productType[]" id="productType" multiple
-                data-live-search="true" placeholder="Class">
+                data-live-search="true" title="商品類型">
                 <option value="r-book">實體書籍</option>
                 <option value="e-book">電子書籍</option>
                 <option value="r-music">實體唱片</option>
