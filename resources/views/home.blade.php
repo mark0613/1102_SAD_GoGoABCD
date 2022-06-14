@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <h2>您可能感興趣...</h2>
-                                <h3 class="mb-3">推薦書籍</h3>
+                                <h3 class="mb-3">推薦商品</h3>
                             </div>
                             <div class="col-6 text-right">
                             </div>
