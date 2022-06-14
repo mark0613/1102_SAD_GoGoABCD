@@ -40,7 +40,6 @@ class AllClassSeeder extends Seeder
         DB::statement("INSERT INTO all_classes(class, type) VALUES('語言', 'b')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('娛樂', 'b')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('健康', 'b')");
-        DB::statement("INSERT INTO all_classes(class, type) VALUES('語言', 'b')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('華語', 'm')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('日語', 'm')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('韓語', 'm')");
@@ -51,7 +50,6 @@ class AllClassSeeder extends Seeder
         DB::statement("INSERT INTO all_classes(class, type) VALUES('古典', 'm')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('世界音樂', 'm')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('宗教', 'm')");
-        DB::statement("INSERT INTO all_classes(class, type) VALUES('文學', 'b')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('寵物', 'b')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('鬧鐘', 'm')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('教科書', 'b')");
@@ -68,6 +66,26 @@ class AllClassSeeder extends Seeder
         DB::statement("INSERT INTO all_classes(class, type) VALUES('心理', 'b')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('勵志', 'b')");
         DB::statement("INSERT INTO all_classes(class, type) VALUES('人文', 'b')");
-
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('會計', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('行銷', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('軍事', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('動物', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('圖鑑', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('時尚', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('科幻小說', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('統計', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('網路', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('講義', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('資料科學', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('行事曆', 'b')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('電音', 'm')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('舞曲', 'm')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('重金屬', 'm')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('英語', 'm')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('嘻哈', 'm')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('音樂劇', 'm')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('專輯', 'm')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('EP', 'm')");
+        DB::statement("INSERT INTO all_classes(class, type) VALUES('黑膠唱片', 'm')");
     }
 }
