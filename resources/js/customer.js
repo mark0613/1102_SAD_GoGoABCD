@@ -1,5 +1,24 @@
 $(document).ready(function() {
+    // calculate the cost of products which in shopping cart
     calculateTotalCost();
+
+    // search product
+    $("#btn-search").on("click", function() {
+        let keyword = $("#search").val();
+        if (keyword.length == 0) {
+            alert("輸入不能為空!");
+        }
+        else {
+            window.location.href = `http://127.0.0.1:8000/list?keyword=${keyword}`;
+        }
+    })
+
+    // when press "enter" can do "search"
+    $('#search').keypress(function (e) {
+        if (e.which == 13) {
+            $("#btn-search").click();
+        }
+    });
 })
 
 window.addProductToCart = function(p_id) {

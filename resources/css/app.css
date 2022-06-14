@@ -146,10 +146,13 @@ label.star:before {
 .icon-50 {
     width: 50px;
 }
+.icon-35 {
+    width: 35px;
+}
 .icon-30 {
     width: 30px;
 }
-.icon-50:hover, .icon-30:hover {
+.icon-50:hover, .icon-30:hover, .icon-35:hover {
     opacity: 0.5;
 }
 

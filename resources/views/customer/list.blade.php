@@ -17,7 +17,7 @@
         <div class="col-4"></div>
     </div>
     <div class="row top"></div>
-    <div class="row">
+    <div class="row min-h-500">
         <div class="col-2"></div>
         <div class="col-8">
             @foreach ($products as $product)
@@ -113,8 +113,12 @@
         </div>
         <div class="col-2"></div>
     </div>
-
 </div>
 
+@if ($products == null)
+<script>
+    alert("無搜尋結果!");
+</script>
+@endif
 
 @endsection

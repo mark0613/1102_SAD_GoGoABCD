@@ -1,20 +1,9 @@
 .search{
     width: 550px;
-    height: 55px;
+    height: 40px;
     padding:5px 15px; 
     border:2px black solid;
     border-radius: 5px;
-}
-
-.search_button{
-    width: 55px;
-    height: 55px;
-    border:2px black solid;
-}
-
-.three_img{
-    height: 60px;
-    object-fit: cover;
 }
 
 .register_btn{
@@ -58,7 +47,6 @@
 }
 
 .circle{
-    
     width: 60px;
 	height: 60px;
     border-radius:50%;

@@ -79,9 +79,11 @@ $p_e_or_r = [
                                     </a>
                                     <form class="form-inline pl-5" onsubmit="return false;">
                                         <div class="pr-1">
-                                            <input class=" search" type="search" id="search" placeholder="依書名, ISBN... 搜尋" aria-label="Search">
+                                            <input class="search" type="search" id="search" placeholder="依書名, ISBN... 搜尋" aria-label="Search">
                                         </div>
-                                        <a href="#" id="btn-search" class="h4">🔍</a>
+                                        <a href="#" id="btn-search" class="h4">
+                                            <img src="{{ asset('image/search.png') }}" alt="search icon" class="icon-35">
+                                        </a>
                                     </form>
                                     <div class="col-4">
                                         <div class="float-right">
